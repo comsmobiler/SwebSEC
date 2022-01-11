@@ -22,7 +22,7 @@ namespace SwebSECUI.AssetsManager
 
         #region 变量
         private AutofacConfig _autofacConfig = new AutofacConfig();//调用配置类
-
+        AutofacConfig autofacConfig = new AutofacConfig();
         public List<string> AssIdList = new List<string>();
 
         public DataTable AssTable = new DataTable();
@@ -56,7 +56,7 @@ namespace SwebSECUI.AssetsManager
                     PLACE = txtPlace.Text,
                     LOCATIONID = LocationId,
                     MODIFYUSER = UserId,
-                    NOTE = txtNote.Text
+                    NOTE = txtPlace.Text
                 };
                 ReturnInfo returnInfo = _autofacConfig.AssetsService.AddAssRestoreOrder(assRestoreOrder);
                 if (returnInfo.IsSuccess)
@@ -104,6 +104,12 @@ namespace SwebSECUI.AssetsManager
             catch (Exception ex)
             {
                 Toast(ex.Message);
+            }
+            ///添加归还区域
+            List<AssLocation> locations = _autofacConfig.assLocationService.GetEnableAll();
+            foreach (var location in locations)
+            {
+                treeSelect1.Nodes.Add(new TreeSelectNode(location.LOCATIONID, location.NAME));
             }
         }
 
@@ -189,18 +195,49 @@ namespace SwebSECUI.AssetsManager
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+ 
+        private void txtCode_TouchEnter(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(btnLocation.Text))
+                if (string.IsNullOrEmpty(LocationId))
+                {
+                    throw new Exception("请先选择区域");
+                }
+                else
+                {
+                    txtCode.ReadOnly = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmRestoreOrder() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
+        }
+
+        private void txtCode_SubmitEditing(object sender, EventArgs e)
+        {
+            btnSelect_Click(null, null);
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(LocationId))
                 {
                     throw new Exception("请先选择退库的区域");
                 }
                 else
                 {
-                    string barCode = e.ToString();
-                    DataTable info = _autofacConfig.SettingService.GetInUseAssEx(LocationId, barCode, "");
+                    string txtCode1 = txtCode.Text;
+                    DataTable info = _autofacConfig.SettingService.GetInUseAssEx(LocationId, txtCode1, "");
                     if (info.Rows.Count == 0)
                     {
                         throw new Exception("未在领用的物品中找到该物品");
@@ -208,7 +245,7 @@ namespace SwebSECUI.AssetsManager
                     else
                     {
                         DataRow row = info.Rows[0];
-                        AddAss(row["ASSID"].ToString(), barCode, row["IMAGE"].ToString(), row["NAME"].ToString(), row["USERNAME"].ToString());
+                        AddAss(row["ASSID"].ToString(), txtCode1, row["IMAGE"].ToString(), row["NAME"].ToString(), row["USERNAME"].ToString());
                         BindListView();
                     }
                 }
@@ -219,18 +256,16 @@ namespace SwebSECUI.AssetsManager
             }
         }
 
-        private void txtCode_TouchEnter(object sender, EventArgs e)
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
         {
+            LocationId = args.TreeID;
             try
             {
-                if (string.IsNullOrEmpty(btnLocation.Text))
-                {
-                    throw new Exception("请先选择区域");
-                }
-                else
-                {
-                    txtCode.ReadOnly = false;
-                }
+                AssLocation location = _autofacConfig.assLocationService.GetByID(LocationId);
+                coreUser manager = _autofacConfig.coreUserService.GetUserByID(location.MANAGER);
+                HManId = location.MANAGER;
+                txtHMan.Text = manager.USER_NAME;
+                ClearInfo();
             }
             catch (Exception ex)
             {

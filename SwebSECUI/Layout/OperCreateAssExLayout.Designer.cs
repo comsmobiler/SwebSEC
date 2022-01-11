@@ -215,7 +215,7 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 260);
+            this.Size = new System.Drawing.Size(0, 100);
 
         }
         #endregion

@@ -65,5 +65,10 @@ namespace SwebSECUI
             frm.UserID = txtUserName.Text.Trim();
             this.Show(frm);
         }
+
+        private void txtPassWord_SubmitEditing(object sender, EventArgs e)
+        {
+            btnLogon_Click(null,null);
+        }
     }
 }

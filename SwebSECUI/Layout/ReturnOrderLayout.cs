@@ -27,6 +27,7 @@ namespace SwebSECUI.Layout
             {
                 this.Parent.Controls.Add(new frmRtoDetail() { RtoId = LblID.BindDataValue.ToString(),Flex = 1 });
                 this.Parent.Controls.RemoveAt(0);
+                this.Parent.Controls.RemoveAt(0);
             }
             catch (Exception ex)
             {

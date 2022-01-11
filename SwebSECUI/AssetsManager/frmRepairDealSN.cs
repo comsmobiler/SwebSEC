@@ -53,8 +53,8 @@ namespace SwebSECUI.AssetsManager
                 if (r.IsSuccess)
                 {
                     ShowResult = ShowResult.Yes;
-                    Form.Close();
                     Toast("确认维修成功!");
+                    BackBtn_Click(null,null);
                 }
                 else
                 {
@@ -128,9 +128,9 @@ namespace SwebSECUI.AssetsManager
                 lblDealMan.Text = User.USER_NAME;
                 DatePicker.Value = ROData.APPLYDATE;
                 if (ROData.COST != 0)
-                    lblPrice.Text = ROData.COST.ToString();
-                lblContent.Text = ROData.REPAIRCONTENT;
-                if (String.IsNullOrEmpty(ROData.NOTE)) lblNote.Text = ROData.NOTE;
+                    txtPrice.Text = ROData.COST.ToString();
+                txtContent.Text = ROData.REPAIRCONTENT;
+                if (String.IsNullOrEmpty(ROData.NOTE)) txtNote.Text = ROData.NOTE;
 
                 DataTable tableAssets = new DataTable();       //未开启SN的资产列表
                 tableAssets.Columns.Add("ROROWID");           //报修单行项编号
@@ -157,5 +157,13 @@ namespace SwebSECUI.AssetsManager
                 Toast(ex.Message);
             }
         }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmRepairRowsSN() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
+        }
+
+
     }
 }

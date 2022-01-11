@@ -96,7 +96,7 @@ namespace SwebSECUI.UserInfo
                 coreUser UserData = new coreUser();
                 UserData.USER_ID = Tel;
                 if (btnLocation.Tag != null)
-                    UserData.USER_LOCATIONID = btnLocation.Tag.ToString();
+                UserData.USER_LOCATIONID = btnLocation.Tag.ToString();
                 UserData.USER_NAME = txtName.Text;
                 UserData.USER_PASSWORD = pwd1;
                 UserData.USER_PHONE = Tel;

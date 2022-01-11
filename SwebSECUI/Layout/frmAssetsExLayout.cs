@@ -26,9 +26,8 @@ namespace SwebSECUI.Layout
         /// <param name="e"></param>
         //private void touchPanel1_Press(object sender, EventArgs e)
         //{
-
-        //    //this.Controls.Add(new frmAssetsDetail() { AssId = lblID.BindDataValue.ToString(), Flex = 1 });
-        //    //this.Controls.RemoveAt(0);
+        //    this.Controls.Add(new frmAssetsDetail() { AssId = lblID.BindDataValue.ToString(), Flex = 1 });
+        //    this.Controls.RemoveAt(0);
         //    ((frmAssets)Form).Bind();
         //}
 

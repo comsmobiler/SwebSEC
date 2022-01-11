@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using SMOSEC.Domain.Entity;
 
 
 namespace SwebSECUI.AssetsManager
@@ -19,6 +20,7 @@ namespace SwebSECUI.AssetsManager
         }
         #region
         private AutofacConfig _autofacConfig = new AutofacConfig();//调用配置类
+        //public string BoNo;//借用单模板编号
         #endregion
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -36,10 +38,19 @@ namespace SwebSECUI.AssetsManager
         {
             Bind();
         }
+        /// <summary>
+        /// 加载数据
+        /// </summary>
         private void Bind()
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("BOID");
+                dt.Columns.Add("BORROWER");
+                dt.Columns.Add("BORROWDATE");
+                dt.Columns.Add("LOCATIONNAME");
+                List<AssBorrowOrder> assborrowTable = new List<AssBorrowOrder>();
                 string LocationId = "";
                 string UserId = Client.Session["UserID"].ToString();
                 if (Client.Session["Role"].ToString() == "SMOSECAdmin")
@@ -51,20 +62,44 @@ namespace SwebSECUI.AssetsManager
                 {
                     plButton.Visible = false;
                 }
-                DataTable assborrowTable = _autofacConfig.AssetsService.GetBoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
-                ListViewBorrow.Rows.Clear();
-                if (assborrowTable.Rows.Count > 0)
+                DataTable dataTable = _autofacConfig.AssetsService.GetBoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
+                if (dataTable.Rows.Count > 0)
                 {
-                    ListViewBorrow.DataSource = assborrowTable;
-                    ListViewBorrow.DataBind();
-                }
+                    foreach (var data in assborrowTable)
+                    {
+                        dt.Rows.Add(data.BOID, data.BORROWER, data.BORROWDATE.ToString(), data.LOCATIONID);
+                    }
 
+                    gridView1.DataSource = assborrowTable;
+                    gridView1.DataBind();
+                }
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
 
+        }
+
+        private void ViewBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["BOID"].ToString();
+                    frmBoDetail frm = new frmBoDetail() { Flex = 1 };
+                    frm.BoId = id;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
+
+            });
         }
     }
 }

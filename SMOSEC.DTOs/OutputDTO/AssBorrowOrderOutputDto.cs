@@ -8,7 +8,7 @@ namespace SMOSEC.DTOs.OutputDTO
     public class AssBorrowOrderOutputDto
     {
         /// <summary>
-        /// 借用单号
+        /// 借用单号 
         /// </summary>
         public string Boid { get; set; }
 

@@ -28,6 +28,7 @@ namespace SwebSECUI.Layout
                 frmBoDetail boDetail = new frmBoDetail { BoId = LblID.BindDataValue.ToString() };
                 this.Parent.Controls.Add(new frmBoDetail() { Flex = 1 });
                 this.Parent.Controls.RemoveAt(0);
+               /* ((frmBoDetail)Parent).Bind();  */      //重新绑定数据
             }
             catch (Exception ex)
             {

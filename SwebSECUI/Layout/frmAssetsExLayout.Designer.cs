@@ -40,7 +40,7 @@ namespace SwebSECUI.Layout
             this.tpRow.Name = "tpRow";
             this.tpRow.Size = new System.Drawing.Size(0, 100);
             this.tpRow.Touchable = true;
-            //this.tpRow.Press += new System.EventHandler(this.touchPanel1_Press);
+
             // 
             // checkBox1
             // 
@@ -49,9 +49,9 @@ namespace SwebSECUI.Layout
             this.checkBox1.BorderRadius = 0;
             this.checkBox1.DataMember = "IsChecked";
             this.checkBox1.DisplayMember = "IsChecked";
-            this.checkBox1.Margin = new Swebui.Controls.Margin(10F);
+            this.checkBox1.Margin = new Swebui.Controls.Margin(10F, 30F, 10F, 30F);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(75, 0);
+            this.checkBox1.Size = new System.Drawing.Size(60, 0);
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // panel2
@@ -94,6 +94,8 @@ namespace SwebSECUI.Layout
             // 
             // lblName
             // 
+            this.lblName.DataMember = "Name";
+            this.lblName.DisplayMember = "Name";
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(0, 30);
             this.lblName.Text = "炫彩皮肤";
@@ -127,7 +129,7 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.tpRow});
-            this.Size = new System.Drawing.Size(0, 105);
+            this.Size = new System.Drawing.Size(0, 100);
 
         }
         #endregion

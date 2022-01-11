@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using SMOSEC.CommLib;
-using SMOSEC.Domain;
+using SMOSEC.Domain.Entity;
 
 namespace SwebSECUI.UserInfo
 {
@@ -21,7 +21,7 @@ namespace SwebSECUI.UserInfo
         AutofacConfig autofacConfig = new AutofacConfig();     //调用配置类
         public Boolean isForgetPwd;       //是否忘记手机密码
         public String UserID;             //用户编号(手机号码或者邮箱)
-        string VCode = "1234";
+        //string VCode = "1234";
         public String Tel;       //手机号码
         public String code;             //手机验证码
         public Boolean isPwd1;       //新密码是否显示密码字符变量
@@ -73,13 +73,16 @@ namespace SwebSECUI.UserInfo
                     {
                         if (isPhone)
                         {
-                            frmVerificationCode frm = new frmVerificationCode
+                            //frmVerificationCode frm = new frmVerificationCode
                             {
-                                    Tel = UserID,
-                                isForgetPwd = isForgetPwd,
-                                code = result.ToString()
+                                Tel = UserID;
+                                isForgetPwd = isForgetPwd;
+                                code = result.ToString();
                             };
-                            Show(frm);
+                            //Show(frm);
+                            panel3.Visible = false;
+                            panel4.Visible = false;
+                            panel5.Visible = true;
                         }
                     }
                 }
@@ -140,7 +143,70 @@ namespace SwebSECUI.UserInfo
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtName.Text.Trim().Length < 0) throw new Exception("请输入昵称");
+                String pwd1 = txtPwd1.Text.Trim();
+                String pwd2 = txtPwd2.Text.Trim();
+                if (pwd1.Length <= 0) throw new Exception("请输入新密码!");
+                if (pwd1.Length < 6 || pwd1.Length > 12) throw new Exception("新密码必须为6-12位!");
+                if (pwd2.Length <= 0) throw new Exception("请输入确认密码!");
+                if (pwd2.Length < 6 || pwd2.Length > 12) throw new Exception("新密码必须为6-12位!");
+                if (pwd1.Equals(pwd2) == false) throw new Exception("两次密码输入不一致，请检查!");
+                if (String.IsNullOrEmpty(comboBox1.Text)) throw new Exception("请选择角色!");
+                if (comboBox1.Text != "SMOSECUser")     //用户必须选择区域，管路员可以不选
+                {
+                    if (comboBox2.Text == null) throw new Exception("请选择所属区域");
+                }
+                List<string> listrole = new List<string>();
+                listrole.Add(comboBox1.SelectKey);
+                listrole.Add(comboBox2.SelectKey);
 
+                coreUser UserData = new coreUser();
+                UserData.USER_ID = Tel;
+                if (comboBox2.Tag != null)
+                    UserData.USER_LOCATIONID = comboBox2.Tag.ToString();
+                UserData.USER_NAME = txtName.Text;
+                UserData.USER_PASSWORD = pwd1;
+                UserData.USER_PHONE = Tel;
+                UserData.USER_LANGUAGE = 0;
+                UserData.USER_ROLE = comboBox1.Text;
+
+                ReturnInfo RInfo = autofacConfig.coreUserService.AddUser(UserData);
+                if (RInfo.IsSuccess)
+                {
+                   
+                    Client.Session["UserID"] = txtTel.Text.Trim();
+                    Client.Session["Role"] = comboBox1.Text;
+                    MessageBox.Show("注册成功", "提示", MessageBoxButtons.OK, (obj, args) => {
+                        this.Close();
+                    });
+                    Show(new MainForm());
+                }
+                else
+                {
+                    throw new Exception(RInfo.ErrorInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void FrmRegister_Load(object sender, EventArgs e)
+        {
+            //List<coreUser> listRole = autofacConfig.coreUserService.GetUser();
+            List<coreUser> listRole = autofacConfig.coreUserService.GetAll();
+            if (listRole.Count > 0)
+            {
+                foreach (coreUser role in listRole)
+                {
+                    comboBox1.Items.Add(new ComboBoxItem(role.USER_ID, role.USER_ROLE));
+                    comboBox2.Items.Add(new ComboBoxItem(role.USER_ID, role.USER_ADDRESS));
+                }
+
+            }
         }
     }
 }

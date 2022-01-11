@@ -18,7 +18,7 @@ namespace SwebSECUI.AssetsManager
         }
         #region 变量
         private AutofacConfig _autofacConfig = new AutofacConfig();//调用配置类
-
+        public string RoNo;//借用单模板编号
 
         #endregion
 
@@ -61,18 +61,41 @@ namespace SwebSECUI.AssetsManager
                     plButton.Visible = false;
                 }
                 DataTable assborrowTable = _autofacConfig.AssetsService.GetRtoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
-                ListViewCO.Rows.Clear();
-                if (assborrowTable.Rows.Count > 0)
-                {
-                    ListViewCO.DataSource = assborrowTable;
-                    ListViewCO.DataBind();
-                }
+                //ListViewCO.Rows.Clear();
+                //if (assborrowTable.Rows.Count > 0)
+                //{
+                //    ListViewCO.DataSource = assborrowTable;
+                //    ListViewCO.DataBind();
+                //}
+                gridView1.DataSource = assborrowTable;
+                gridView1.DataBind();
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
 
+        }
+
+        private void ViewBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["Rtoid"].ToString();
+                    frmRtoDetail frm = new frmRtoDetail() { Flex = 1 };
+                    frm.RtoId = id;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
+
+            });
         }
     }
 }

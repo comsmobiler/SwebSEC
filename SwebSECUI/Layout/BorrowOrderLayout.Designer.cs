@@ -21,14 +21,14 @@ namespace SwebSECUI.Layout
         {
             this.panel1 = new Swebui.Controls.Panel();
             this.panel2 = new Swebui.Controls.Panel();
-            this.panel3 = new Swebui.Controls.Panel();
-            this.panel4 = new Swebui.Controls.Panel();
             this.Label1 = new Swebui.Controls.Label();
             this.LblID = new Swebui.Controls.Label();
             this.Label2 = new Swebui.Controls.Label();
             this.LblBMan = new Swebui.Controls.Label();
+            this.panel3 = new Swebui.Controls.Panel();
             this.Label3 = new Swebui.Controls.Label();
             this.LblDate = new Swebui.Controls.Label();
+            this.panel4 = new Swebui.Controls.Panel();
             this.Label5 = new Swebui.Controls.Label();
             this.LblLocation = new Swebui.Controls.Label();
             // 
@@ -38,9 +38,11 @@ namespace SwebSECUI.Layout
             this.panel2,
             this.panel3,
             this.panel4});
+            this.panel1.Flex = 1;
             this.panel1.Margin = new Swebui.Controls.Margin(10F);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 230);
+            this.panel1.Touchable = true;
             this.panel1.Press += new System.EventHandler(this.panel1_Press);
             // 
             // panel2
@@ -54,26 +56,6 @@ namespace SwebSECUI.Layout
             this.panel2.Flex = 1;
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 70);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.Label3,
-            this.LblDate});
-            this.panel3.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel3.Flex = 1;
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(0, 100);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.Label5,
-            this.LblLocation});
-            this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel4.Flex = 1;
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(0, 100);
             // 
             // Label1
             // 
@@ -102,6 +84,16 @@ namespace SwebSECUI.Layout
             this.LblBMan.Name = "LblBMan";
             this.LblBMan.Size = new System.Drawing.Size(200, 0);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.Label3,
+            this.LblDate});
+            this.panel3.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel3.Flex = 1;
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(0, 100);
+            // 
             // Label3
             // 
             this.Label3.Name = "Label3";
@@ -115,6 +107,16 @@ namespace SwebSECUI.Layout
             this.LblDate.Flex = 1;
             this.LblDate.Name = "LblDate";
             this.LblDate.Size = new System.Drawing.Size(100, 0);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.Label5,
+            this.LblLocation});
+            this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel4.Flex = 1;
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(0, 100);
             // 
             // Label5
             // 
@@ -134,7 +136,7 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 250);
+            this.Size = new System.Drawing.Size(0, 100);
 
         }
         #endregion

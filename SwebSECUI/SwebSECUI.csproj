@@ -75,6 +75,12 @@
     <Compile Include="AssetsManager\frmAssInventory.Designer.cs">
       <DependentUpon>frmAssInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssetsManager\frmAssInventoryCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssetsManager\frmAssInventoryCreate.Designer.cs">
+      <DependentUpon>frmAssInventoryCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssetsManager\frmBoCreate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -171,11 +177,29 @@
     <Compile Include="AssetsManager\frmRtoDetail.Designer.cs">
       <DependentUpon>frmRtoDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssetsManager\frmScrapCreateSN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssetsManager\frmScrapCreateSN.Designer.cs">
+      <DependentUpon>frmScrapCreateSN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetsManager\frmScrapDetailSN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssetsManager\frmScrapDetailSN.Designer.cs">
+      <DependentUpon>frmScrapDetailSN.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssetsManager\frmScrapRowsSN.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="AssetsManager\frmScrapRowsSN.Designer.cs">
       <DependentUpon>frmScrapRowsSN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssetsManager\frmTransferCreateSN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AssetsManager\frmTransferCreateSN.Designer.cs">
+      <DependentUpon>frmTransferCreateSN.cs</DependentUpon>
     </Compile>
     <Compile Include="AssetsManager\frmTransferRowsSN.cs">
       <SubType>Component</SubType>
@@ -251,17 +275,35 @@
     <Compile Include="Layout\frmAssetsSNShowLayout.Designer.cs">
       <DependentUpon>frmAssetsSNShowLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\frmAssInventoryLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmAssInventoryLayout.Designer.cs">
+      <DependentUpon>frmAssInventoryLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\frmAssSNRDLayout.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Layout\frmAssSNRDLayout.Designer.cs">
       <DependentUpon>frmAssSNRDLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\frmOrderCreateSNLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmOrderCreateSNLayout.Designer.cs">
+      <DependentUpon>frmOrderCreateSNLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\frmRepairRowsLayout.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Layout\frmRepairRowsLayout.Designer.cs">
       <DependentUpon>frmRepairRowsLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\frmScrapRowsLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\frmScrapRowsLayout.Designer.cs">
+      <DependentUpon>frmScrapRowsLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\OperCreateAssExLayout.cs">
       <SubType>Component</SubType>
@@ -274,6 +316,12 @@
     </Compile>
     <Compile Include="Layout\OperCreateAssLayout.Designer.cs">
       <DependentUpon>OperCreateAssLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\OperDetailAssLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\OperDetailAssLayout.Designer.cs">
+      <DependentUpon>OperDetailAssLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\RestoreOrderLayout.cs">
       <SubType>Component</SubType>
@@ -356,14 +404,23 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AssetsManager\frmAssInventory.resx">
+      <DependentUpon>frmAssInventory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssetsManager\frmBoCreate.resx">
       <DependentUpon>frmBoCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmBoDetail.resx">
+      <DependentUpon>frmBoDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AssetsManager\frmBorrowOrder.resx">
       <DependentUpon>frmBorrowOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AssetsManager\frmCoCreate.resx">
       <DependentUpon>frmCoCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmCoDetail.resx">
+      <DependentUpon>frmCoDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AssetsManager\frmCollarOrder.resx">
       <DependentUpon>frmCollarOrder.cs</DependentUpon>
@@ -389,8 +446,20 @@
     <EmbeddedResource Include="AssetsManager\frmRsoCreate.resx">
       <DependentUpon>frmRsoCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmRsoDetail.resx">
+      <DependentUpon>frmRsoDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AssetsManager\frmRtoCreate.resx">
       <DependentUpon>frmRtoCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmRtoDetail.resx">
+      <DependentUpon>frmRtoDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmScrapCreateSN.resx">
+      <DependentUpon>frmScrapCreateSN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssetsManager\frmScrapRowsSN.resx">
+      <DependentUpon>frmScrapRowsSN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogon.resx">
       <DependentUpon>FrmLogon.cs</DependentUpon>
@@ -404,17 +473,32 @@
     <EmbeddedResource Include="Layout\frmAssetsExLayout.resx">
       <DependentUpon>frmAssetsExLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAssetsSNShowLayout.resx">
+      <DependentUpon>frmAssetsSNShowLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmAssInventoryLayout.resx">
+      <DependentUpon>frmAssInventoryLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmAssSNRDLayout.resx">
       <DependentUpon>frmAssSNRDLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmOrderCreateSNLayout.resx">
+      <DependentUpon>frmOrderCreateSNLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmRepairRowsLayout.resx">
       <DependentUpon>frmRepairRowsLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\frmScrapRowsLayout.resx">
+      <DependentUpon>frmScrapRowsLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\OperCreateAssExLayout.resx">
       <DependentUpon>OperCreateAssExLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\OperCreateAssLayout.resx">
       <DependentUpon>OperCreateAssLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\OperDetailAssLayout.resx">
+      <DependentUpon>OperDetailAssLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\ReturnOrderLayout.resx">
       <DependentUpon>ReturnOrderLayout.cs</DependentUpon>
@@ -427,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterData\frmAssetsDetail.resx">
       <DependentUpon>frmAssetsDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SwebForm1.resx">
+      <DependentUpon>SwebForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>

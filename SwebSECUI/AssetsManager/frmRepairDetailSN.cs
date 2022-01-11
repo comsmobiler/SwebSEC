@@ -56,9 +56,9 @@ namespace SwebSECUI.AssetsManager
                 lblDealMan.Text = User.USER_NAME;
                 DatePicker.Value = ROData.APPLYDATE;
                 if (ROData.COST != 0)
-                    lblPrice.Text = ROData.COST.ToString();
-                lblContent.Text = ROData.REPAIRCONTENT;
-                if (String.IsNullOrEmpty(ROData.NOTE)) lblNote.Text = ROData.NOTE;
+                    txtPrice.Text = ROData.COST.ToString();
+                txtContent.Text = ROData.REPAIRCONTENT;
+                if (String.IsNullOrEmpty(ROData.NOTE)) txtNote.Text = ROData.NOTE;
 
                 DataTable tableAssets = new DataTable();      //未开启SN的资产列表
                 tableAssets.Columns.Add("ASSID");             //资产编号
@@ -83,14 +83,29 @@ namespace SwebSECUI.AssetsManager
                     ListAssetsSN.DataSource = tableAssets;
                     ListAssetsSN.DataBind();
                 }
-                if (Client.Session["Role"].ToString() == "SMOSECUser") plButton.Visible = false;
+                if (Client.Session["Role"].ToString() == "SMOSECUser") SaveBtn.Visible = false;
                 //如果维修单已完成，则隐藏维修单处理按钮
-                if (ROData.STATUS == 1) plButton.Visible = false;
+                if (ROData.STATUS == 1) SaveBtn.Visible = false;
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmRepairRowsSN() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            frmRepairDealSN frm = new frmRepairDealSN();
+            frm.ROID = ROID;
+            frm.Flex = 1;
+            this.Parent.Parent.Controls.Add(frm);
+            this.Parent.Parent.Controls.RemoveAt(0);
         }
     }
 }

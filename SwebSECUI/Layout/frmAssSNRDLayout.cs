@@ -79,7 +79,7 @@ namespace SwebSECUI.Layout
                 Check.Checked = false;
             else
                 Check.Checked = true;
-            ((frmRepairDealSN)(Parent)).upCheckState();
+            ((frmRepairDealSN)Parent).upCheckState();
         }
     }
 }

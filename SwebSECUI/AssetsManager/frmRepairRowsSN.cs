@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using SMOSEC.Domain.Entity;
 using SMOSEC.DTOs.Enum;
+using System.Data;
 
 namespace SwebSECUI.AssetsManager
 {
@@ -26,7 +27,7 @@ namespace SwebSECUI.AssetsManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCreate_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Add(new frmRepairCreateSN() { Flex = 1 });
             this.Parent.Controls.RemoveAt(0);
@@ -48,6 +49,10 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("ROID");
+                dt.Columns.Add("APPLYDATE");
+                dt.Columns.Add("REPAIRCONTENT)");
                 List<AssRepairOrder> Data = new List<AssRepairOrder>();
                 if (Client.Session["Role"].ToString() == "SMOSECUser")
                 {
@@ -59,9 +64,68 @@ namespace SwebSECUI.AssetsManager
                 }
                 if (Data.Count > 0)
                 {
-                    listRepairOrder.DataSource = Data;
-                    listRepairOrder.DataBind();
+                    foreach (var data in Data)
+                    {
+                        dt.Rows.Add(data.ROID, data.APPLYDATE.ToString("yyyy-MM-dd"), data.REPAIRCONTENT);
+                    }
+                    gridView1.DataSource = Data;
+                    gridView1.DataBind();
                 }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string roid = selectrow["ROID"].ToString();
+                    frmRepairDetailSN frm = new frmRepairDetailSN();
+                    frm.ROID = roid;
+                    frm.Flex = 1;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else { Toast("未选择行！"); }
+            });
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("ROID");
+                dt.Columns.Add("APPLYDATE");
+                dt.Columns.Add("REPAIRCONTENT)");
+                List<AssRepairOrder> Data = new List<AssRepairOrder>();
+                if (Client.Session["Role"].ToString() == "SMOSECUser")
+                {
+                    Data = autofacConfig.assRepairOrderService.GetByUser(Client.Session["UserID"].ToString());
+                }
+                else
+                {
+                    Data = autofacConfig.assRepairOrderService.GetByUser(null);
+                }
+                if (Data.Count > 0)
+                {
+                    foreach (var data in Data)
+                    {
+                        dt.Rows.Add(data.ROID, data.APPLYDATE.ToString("yyyy-MM-dd"), data.REPAIRCONTENT);
+                    }
+                }
+                gridView1.Reload(dt);
             }
             catch (Exception ex)
             {

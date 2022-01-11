@@ -159,6 +159,7 @@ namespace SwebSECUI
             this.txtPassWord.SecurityMode = true;
             this.txtPassWord.Size = new System.Drawing.Size(100, 30);
             this.txtPassWord.WaterMarkText = "密码";
+            this.txtPassWord.SubmitEditing += new System.EventHandler(this.txtPassWord_SubmitEditing);
             // 
             // btnLogon
             // 

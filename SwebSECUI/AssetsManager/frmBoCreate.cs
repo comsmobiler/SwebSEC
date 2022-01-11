@@ -8,6 +8,7 @@ using SMOSEC.CommLib;
 using SMOSEC.Domain.Entity;
 using SMOSEC.DTOs.InputDTO;
 
+
 namespace SwebSECUI.AssetsManager
 {
     ////ToolboxItem用于控制是否添加自定义控件到工具箱，true添加，false不添加
@@ -21,7 +22,7 @@ namespace SwebSECUI.AssetsManager
         }
         #region  定义变量
         private AutofacConfig _autofacConfig = new AutofacConfig();//调用配置类
-
+        AutofacConfig autofacConfig = new AutofacConfig();
         public List<string> AssIdList = new List<string>(); //所有行项的ASSID的集合
 
         public DataTable AssTable = new DataTable();   //行项数据的表格
@@ -46,7 +47,7 @@ namespace SwebSECUI.AssetsManager
                 AssBorrowOrderInputDto assBorrowOrderInput = new AssBorrowOrderInputDto
                 {
                     AssIds = AssIdList,
-                    BORROWDATE = DateTime.Now,
+                    BORROWDATE = DPickerCO.Value,
                     BORROWER = BoManId,
                     BRHANDLEMAN = HManId,
                     CREATEUSER = UserId,
@@ -100,6 +101,7 @@ namespace SwebSECUI.AssetsManager
                             //btnLocation.Text = location.NAME;
                             //btnLocation.Enabled = false;
                             //btnLocation1.Enabled = false;
+                            comboBox2.Tag = location.NAME;
                         }
                         break;
                     case "SMOSECUser":
@@ -109,6 +111,7 @@ namespace SwebSECUI.AssetsManager
                             //btnBOMan.Text = user.USER_NAME;
                             //btnBOMan.Enabled = false;
                             //btnBOMan1.Enabled = false;
+                            treeSelect1.Tag = user.USER_NAME;
                         }
                         break;
                 }
@@ -118,7 +121,21 @@ namespace SwebSECUI.AssetsManager
             {
                 Toast(ex.Message);
             }
-        }
+            ///添加借用人
+            List<coreUser> listRole = autofacConfig.coreUserService.GetAll();
+             foreach (coreUser role in listRole)
+
+             {
+               treeSelect1.Nodes.Add(new TreeSelectNode(role.USER_ID, role.USER_NAME));
+             }
+
+            ///添加来源区域
+            List<AssLocation> locations = _autofacConfig.assLocationService.GetEnableAll();
+            foreach (var location in locations)
+            {
+                comboBox2.Nodes.Add(new TreeSelectNode(location.LOCATIONID,location.NAME));
+            }
+         }
 
         /// <summary>
         /// 绑定数据
@@ -201,14 +218,14 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
-                if (string.IsNullOrEmpty(comboBox2.Text))
+                if (string.IsNullOrEmpty(LocationId))
                 {
                     throw new Exception("请先选择区域");
                 }
                 else
                 {
-                    string barCode = e.ToString();
-                    DataTable info = _autofacConfig.SettingService.GetUnUsedAssEx(LocationId, barCode);
+                    string txtCode1 = txtCode.Text;
+                    DataTable info = _autofacConfig.SettingService.GetUnUsedAssEx(LocationId, txtCode1);
                     if (info.Rows.Count == 0)
                     {
                         throw new Exception("未在该区域的闲置物品中找到该物品");
@@ -216,7 +233,7 @@ namespace SwebSECUI.AssetsManager
                     else
                     {
                         DataRow row = info.Rows[0];
-                        AddAss(row["ASSID"].ToString(), barCode, row["IMAGE"].ToString(), row["NAME"].ToString());
+                        AddAss(row["ASSID"].ToString(), txtCode1, row["IMAGE"].ToString(), row["NAME"].ToString());
                         BindListView();
                     }
                 }
@@ -231,13 +248,59 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
-                if (string.IsNullOrEmpty(comboBox2.Text))
+                if (string.IsNullOrEmpty(LocationId))
                 {
                     throw new Exception("请先选择区域");
                 }
                 else
                 {
                     txtCode.ReadOnly = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmBorrowOrder() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
+        }
+
+        private void txtCode_SubmitEditing(object sender, EventArgs e)
+        {
+            btnSelect_Click(null, null);
+        }
+
+        private void comboBox2_Press(object sender, TreeSelectPressEventArgs args)
+        {
+            LocationId = args.TreeID;
+            try
+            {
+                AssLocation location = _autofacConfig.assLocationService.GetByID(LocationId);
+                coreUser manager = _autofacConfig.coreUserService.GetUserByID(location.MANAGER);
+                HManId = location.MANAGER;
+                txtManager.Text = manager.USER_NAME;
+                ClearInfo();
+            }
+            catch ( Exception ex)
+            {
+                Toast(ex.Message);
+            }
+
+        }
+
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
+        {
+            BoManId = args.TreeID;
+            try
+            {
+                if (treeSelect1.Tag != null)
+                {
+
+                    BoManId = treeSelect1.Tag.ToString();
                 }
             }
             catch (Exception ex)

@@ -21,7 +21,7 @@ namespace SwebSECUI.AssetsManager
         }
         #region 变量
         private AutofacConfig _autofacConfig = new AutofacConfig();//调用配置类
-
+        AutofacConfig autofacConfig = new AutofacConfig();
         public List<string> AssIdList = new List<string>();
 
         public DataTable AssTable = new DataTable();
@@ -107,7 +107,7 @@ namespace SwebSECUI.AssetsManager
                             var user = _autofacConfig.coreUserService.GetUserByID(UserId);
                             LocationId = user.USER_LOCATIONID;
                             var location = _autofacConfig.assLocationService.GetByID(LocationId);
-                            btnLocation.Text = location.NAME;
+                            treeSelect2.Tag = location.NAME;
                             //btnLocation.Enabled = false;
                             //btnLocation1.Enabled = false;
                         }
@@ -116,12 +116,12 @@ namespace SwebSECUI.AssetsManager
                         {
                             CoManId = UserId;
                             var user = _autofacConfig.coreUserService.GetUserByID(UserId);
-                            btnCOMan.Text = user.USER_NAME;
+                            treeSelect1.Tag = user.USER_NAME;
                             //btnCOMan.Enabled = false;
                             //btnCOMan1.Enabled = false;
-                            var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
-                            DepId = user.USER_DEPARTMENTID;
-                            txtDep.Text = department.NAME;
+                            //var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
+                            //DepId = user.USER_DEPARTMENTID;
+                            //txtDep.Text = department.NAME;
                         }
                         break;
                 }
@@ -130,6 +130,21 @@ namespace SwebSECUI.AssetsManager
             {
                 Toast(ex.Message);
             }
+            ///添加借用人
+            List<coreUser> listRole = autofacConfig.coreUserService.GetAll();
+            foreach (coreUser role in listRole)
+
+            {
+                treeSelect1.Nodes.Add(new TreeSelectNode(role.USER_ID, role.USER_NAME));
+            }
+
+            ///添加来源区域
+            List<AssLocation> locations = _autofacConfig.assLocationService.GetEnableAll();
+            foreach (var location in locations)
+            {
+                treeSelect2.Nodes.Add(new TreeSelectNode(location.LOCATIONID, location.NAME));
+            }
+
         }
 
         /// <summary>
@@ -215,14 +230,14 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
-                if (string.IsNullOrEmpty(btnLocation.Text))
+                if (string.IsNullOrEmpty(LocationId))
                 {
                     throw new Exception("请先选择区域");
                 }
                 else
                 {
-                    string barCode = e.ToString();
-                    DataTable info = _autofacConfig.SettingService.GetUnUsedAssEx(LocationId, barCode);
+                    string txtCode1 = txtCode.Text;
+                    DataTable info = _autofacConfig.SettingService.GetUnUsedAssEx(LocationId, txtCode1);
                     if (info.Rows.Count == 0)
                     {
                         throw new Exception("未在该区域的闲置物品中找到该物品");
@@ -230,7 +245,7 @@ namespace SwebSECUI.AssetsManager
                     else
                     {
                         DataRow row = info.Rows[0];
-                        AddAss(row["ASSID"].ToString(), barCode, row["IMAGE"].ToString(), row["NAME"].ToString());
+                        AddAss(row["ASSID"].ToString(), txtCode1, row["IMAGE"].ToString(), row["NAME"].ToString());
                         BindListView();
                     }
                 }
@@ -246,7 +261,7 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
-                if (string.IsNullOrEmpty(btnLocation.Text))
+                if (string.IsNullOrEmpty(LocationId))
                 {
                     throw new Exception("请先选择退库的区域");
                 }
@@ -254,6 +269,54 @@ namespace SwebSECUI.AssetsManager
                 {
                     txtCode.ReadOnly = false;
                 }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmCollarOrder() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
+        }
+
+        private void txtCode_SubmitEditing(object sender, EventArgs e)
+        {
+            btnSelect_Click(null, null);
+        }
+
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
+        {
+            CoManId = args.TreeID;
+            try
+            {
+                if (treeSelect1.Tag != null)
+                {
+                    //CoManId = treeSelect1.Tag.ToString();
+                    var user = _autofacConfig.coreUserService.GetUserByID(CoManId);
+                    var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
+                    DepId = user.USER_DEPARTMENTID;
+                    if (department != null) txtDep.Text = department.NAME;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
+        }
+
+        private void treeSelect2_Press(object sender, TreeSelectPressEventArgs args)
+        {
+            LocationId = args.TreeID;
+            try
+            {
+                AssLocation location = _autofacConfig.assLocationService.GetByID(LocationId);
+                coreUser manager = _autofacConfig.coreUserService.GetUserByID(location.MANAGER);
+                HManId = location.MANAGER;
+                txtHMan.Text = manager.USER_NAME;
+                ClearInfo();
             }
             catch (Exception ex)
             {

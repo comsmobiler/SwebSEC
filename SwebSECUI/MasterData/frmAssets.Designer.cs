@@ -19,14 +19,22 @@ namespace SwebSECUI.MasterData
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            Swebui.Controls.TreeSelectNode treeSelectNode1 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode2 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode3 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode4 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode5 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode6 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode7 = new Swebui.Controls.TreeSelectNode();
             this.panel1 = new Swebui.Controls.Panel();
             this.panel3 = new Swebui.Controls.Panel();
             this.fontIcon1 = new Swebui.Controls.FontIcon();
             this.txtNote = new Swebui.Controls.TextBox();
+            this.btnSearch = new Swebui.Controls.Button();
             this.tpSearch = new Swebui.Controls.Panel();
-            this.btnDep = new Swebui.Controls.Button();
-            this.btnStatus = new Swebui.Controls.Button();
-            this.btnType = new Swebui.Controls.Button();
+            this.treeSelect1 = new Swebui.Controls.TreeSelect();
+            this.treeSelect2 = new Swebui.Controls.TreeSelect();
+            this.treeSelect3 = new Swebui.Controls.TreeSelect();
             this.panel2 = new Swebui.Controls.Panel();
             this.gridAssRows = new Swebui.Controls.ListView();
             this.panel4 = new Swebui.Controls.Panel();
@@ -43,10 +51,11 @@ namespace SwebSECUI.MasterData
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.fontIcon1,
-            this.txtNote});
+            this.txtNote,
+            this.btnSearch});
             this.panel3.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel3.Flex = 1;
             this.panel3.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
@@ -65,56 +74,80 @@ namespace SwebSECUI.MasterData
             // txtNote
             // 
             this.txtNote.BackColor = System.Drawing.Color.Transparent;
-            this.txtNote.Border = new Swebui.Controls.Border(1F, 0F, 0F, 0F);
-            this.txtNote.Flex = 1;
+            this.txtNote.Border = new Swebui.Controls.Border(1F);
             this.txtNote.FontSize = 15F;
+            this.txtNote.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtNote.Name = "txtNote";
             this.txtNote.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
-            this.txtNote.Size = new System.Drawing.Size(100, 30);
+            this.txtNote.Size = new System.Drawing.Size(337, 30);
             this.txtNote.WaterMarkText = "请输入资产名称或资产条码";
-            this.txtNote.TextChanged += new System.EventHandler(this.txtFactor_TextChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.NumberOfLines = 0;
+            this.btnSearch.Size = new System.Drawing.Size(100, 35);
+            this.btnSearch.Text = "搜索";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tpSearch
             // 
             this.tpSearch.BackColor = System.Drawing.Color.White;
             this.tpSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.tpSearch.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.btnDep,
-            this.btnStatus,
-            this.btnType});
+            this.treeSelect1,
+            this.treeSelect2,
+            this.treeSelect3});
             this.tpSearch.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.tpSearch.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.tpSearch.Name = "tpSearch";
-            this.tpSearch.Size = new System.Drawing.Size(0, 50);
+            this.tpSearch.Size = new System.Drawing.Size(0, 40);
             // 
-            // btnDep
+            // treeSelect1
             // 
-            this.btnDep.BackColor = System.Drawing.Color.White;
-            this.btnDep.Flex = 1;
-            this.btnDep.Name = "btnDep";
-            this.btnDep.NumberOfLines = 0;
-            this.btnDep.Size = new System.Drawing.Size(100, 0);
-            this.btnDep.Text = "部门选择▼";
-            this.btnDep.Click += new System.EventHandler(this.btnDep_Click);
+            this.treeSelect1.DefaultValue = new string[0];
+            this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.treeSelect1.Name = "treeSelect1";
+            this.treeSelect1.Placeholder = "部门选择▼";
+            this.treeSelect1.Size = new System.Drawing.Size(200, 0);
             // 
-            // btnStatus
+            // treeSelect2
             // 
-            this.btnStatus.BackColor = System.Drawing.Color.White;
-            this.btnStatus.Flex = 1;
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.NumberOfLines = 0;
-            this.btnStatus.Size = new System.Drawing.Size(100, 0);
-            this.btnStatus.Text = "资产状态▼";
-            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
+            this.treeSelect2.DefaultValue = new string[0];
+            this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.treeSelect2.Name = "treeSelect2";
+            treeSelectNode1.Text = "全部";
+            treeSelectNode1.TreeID = null;
+            treeSelectNode2.Text = "闲置";
+            treeSelectNode2.TreeID = "0";
+            treeSelectNode3.Text = "调拨中";
+            treeSelectNode3.TreeID = "1";
+            treeSelectNode4.Text = "使用中";
+            treeSelectNode4.TreeID = "2";
+            treeSelectNode5.Text = "维修中";
+            treeSelectNode5.TreeID = "3";
+            treeSelectNode6.Text = "报废";
+            treeSelectNode6.TreeID = "4";
+            treeSelectNode7.Text = "借用中";
+            treeSelectNode7.TreeID = "5";
+            this.treeSelect2.Nodes.AddRange(new Swebui.Controls.TreeSelectNode[] {
+            treeSelectNode1,
+            treeSelectNode2,
+            treeSelectNode3,
+            treeSelectNode4,
+            treeSelectNode5,
+            treeSelectNode6,
+            treeSelectNode7});
+            this.treeSelect2.Placeholder = "资产状态▼";
+            this.treeSelect2.Size = new System.Drawing.Size(200, 0);
             // 
-            // btnType
+            // treeSelect3
             // 
-            this.btnType.BackColor = System.Drawing.Color.White;
-            this.btnType.Flex = 1;
-            this.btnType.Name = "btnType";
-            this.btnType.NumberOfLines = 0;
-            this.btnType.Size = new System.Drawing.Size(100, 0);
-            this.btnType.Text = "类别选择▼";
-            this.btnType.Click += new System.EventHandler(this.btnType_Click);
+            this.treeSelect3.DefaultValue = new string[0];
+            this.treeSelect3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.treeSelect3.Name = "treeSelect3";
+            this.treeSelect3.Placeholder = "类别选择▼";
+            this.treeSelect3.Size = new System.Drawing.Size(200, 0);
             // 
             // panel2
             // 
@@ -148,7 +181,7 @@ namespace SwebSECUI.MasterData
             this.label1.Flex = 1;
             this.label1.FontSize = 16F;
             this.label1.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
-            this.label1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
             this.label1.Text = "资产列表";
@@ -171,12 +204,13 @@ namespace SwebSECUI.MasterData
         private Panel panel3;
         private FontIcon fontIcon1;
         private TextBox txtNote;
-        private Button btnDep;
-        private Button btnStatus;
-        private Button btnType;
         private Panel panel2;
         private Panel panel4;
         private Label label1;
         internal ListView gridAssRows;
+        private TreeSelect treeSelect1;
+        private TreeSelect treeSelect2;
+        private TreeSelect treeSelect3;
+        internal Button btnSearch;
     }
 }
