@@ -25,7 +25,8 @@ namespace SwebSECUI.Layout
         /// <param name="e"></param>
         private void Check_CheckedChanged(object sender, EventArgs e)
         {
-            ((frmRepairDealSN)(Parent)).upCheckState();
+            frmRepairDealSN frm = new frmRepairDealSN();
+            frm.upCheckState();
         }
         /// <summary>
         /// 获取当前行是否选中
@@ -79,7 +80,8 @@ namespace SwebSECUI.Layout
                 Check.Checked = false;
             else
                 Check.Checked = true;
-            ((frmRepairDealSN)Parent).upCheckState();
+            frmRepairDealSN frm = new frmRepairDealSN();
+            frm.upCheckState();
         }
     }
 }

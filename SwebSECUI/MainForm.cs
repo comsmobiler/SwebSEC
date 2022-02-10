@@ -76,43 +76,47 @@ namespace SwebSECUI
                     frmAssets frmassets1 = new frmAssets();
                     AddTabPage(menuItem, frmassets1);
                     break;
-                case "FrmBorrowOrder":
+                case "FrmBorrowOrder"://借用
                      frmBorrowOrder frmborroworder = new frmBorrowOrder();
                     AddTabPage(menuItem, frmborroworder);
                     break;
-                case "FrmReturnOrder":
+                case "FrmReturnOrder"://归还
                     frmReturnOrder frmreturnOrder = new frmReturnOrder();
                     AddTabPage(menuItem, frmreturnOrder);
                     break;
-                case "FrmCollarOrder":
+                case "FrmCollarOrder"://领用
                     frmCollarOrder frmcollarOrder = new frmCollarOrder();
                     AddTabPage(menuItem, frmcollarOrder);
                     break;
-                case "FrmRestoreOrder":
+                case "FrmRestoreOrder"://退库
                     frmRestoreOrder frmrestoreOrder = new frmRestoreOrder();
                     AddTabPage(menuItem, frmrestoreOrder);
                     break;
-                case "FrmRepairRowsSN":
+                case "FrmRepairRowsSN"://维修
                     frmRepairRowsSN frmrepairRowsSN = new frmRepairRowsSN();
                     AddTabPage(menuItem, frmrepairRowsSN);
                     break;
-                case "FrmScrapRowsSN":
+                case "FrmScrapRowsSN"://报废
                     frmScrapRowsSN frmscrapRowsSN = new frmScrapRowsSN();
                     AddTabPage(menuItem, frmscrapRowsSN);
                     break;
-                case "FrmAssInventory":
+                case "FrmTransferRowsSN"://调拨
+                    frmTransferRowsSN frmtransferRowsSN = new frmTransferRowsSN();
+                    AddTabPage(menuItem, frmtransferRowsSN);
+                    break;
+                case "FrmAssInventory"://盘点
                     frmAssInventory frmAssinventory = new frmAssInventory();
                     AddTabPage(menuItem, frmAssinventory);
                     break;
-                case "FrmAssetsTypeRows":
+                case "FrmAssetsTypeRows"://资产分类
                     frmAssetsTypeRows frmAssetstypeRows = new frmAssetsTypeRows();
                     AddTabPage(menuItem, frmAssetstypeRows);
                     break;
-                case "FrmLocationRows":
+                case "FrmLocationRows"://区域
                     frmLocationRows frmlocationRows = new frmLocationRows();
                     AddTabPage(menuItem, frmlocationRows);
                     break;
-                case "FrmDepartment":
+                case "FrmDepartment"://部门
                     frmDepartment frmdepartment = new frmDepartment();
                     AddTabPage(menuItem, frmdepartment);
                     break;

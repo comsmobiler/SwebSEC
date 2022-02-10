@@ -57,5 +57,25 @@ namespace SwebSECUI
         {
 
         }
+
+        private void SwebForm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
+        {
+
+        }
+
+        private void plRow_Press(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Check_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -42,27 +42,35 @@ namespace SwebSECUI.AssetsManager
             this.panel4 = new Swebui.Controls.Panel();
             this.label3 = new Swebui.Controls.Label();
             this.label4 = new Swebui.Controls.Label();
+            this.label2 = new Swebui.Controls.Label();
             this.panel6 = new Swebui.Controls.Panel();
             this.txtHMan = new Swebui.Controls.TextBox();
             this.txtNote = new Swebui.Controls.TextBox();
+            this.label7 = new Swebui.Controls.Label();
             this.panel9 = new Swebui.Controls.Panel();
             this.ListAss = new Swebui.Controls.ListView();
+            this.panel7 = new Swebui.Controls.Panel();
+            this.label8 = new Swebui.Controls.Label();
+            this.label11 = new Swebui.Controls.Label();
+            this.label12 = new Swebui.Controls.Label();
+            this.label13 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.Title1});
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(0, 50);
+            this.panel1.Size = new System.Drawing.Size(0, 40);
             // 
             // Title1
             // 
+            this.Title1.Bold = true;
             this.Title1.Flex = 1;
-            this.Title1.FontSize = 15F;
+            this.Title1.FontSize = 18F;
             this.Title1.Margin = new Swebui.Controls.Margin(10F);
             this.Title1.Name = "Title1";
             this.Title1.Size = new System.Drawing.Size(0, 35);
-            this.Title1.Text = "领用单创建";
+            this.Title1.Text = "领用单详情";
             this.Title1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel2
@@ -155,10 +163,10 @@ namespace SwebSECUI.AssetsManager
             // DPickerCO
             // 
             this.DPickerCO.BackColor = System.Drawing.Color.White;
-            this.DPickerCO.Border = new Swebui.Controls.Border(1F);
             this.DPickerCO.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.DPickerCO.Enable = false;
             this.DPickerCO.Flex = 1;
+            this.DPickerCO.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Left;
             this.DPickerCO.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.DPickerCO.Name = "DPickerCO";
             this.DPickerCO.Size = new System.Drawing.Size(100, 0);
@@ -207,6 +215,7 @@ namespace SwebSECUI.AssetsManager
             // label29
             // 
             this.label29.Flex = 1;
+            this.label29.ForeColor = System.Drawing.Color.Silver;
             this.label29.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(100, 0);
@@ -235,21 +244,19 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtPlace
             // 
-            this.txtPlace.Border = new Swebui.Controls.Border(1F);
             this.txtPlace.Flex = 1;
             this.txtPlace.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtPlace.Name = "txtPlace";
             this.txtPlace.ReadOnly = true;
             this.txtPlace.Size = new System.Drawing.Size(100, 0);
-            this.txtPlace.WaterMarkText = "（选填）";
             // 
             // DPickerRs
             // 
             this.DPickerRs.BackColor = System.Drawing.Color.White;
-            this.DPickerRs.Border = new Swebui.Controls.Border(1F);
             this.DPickerRs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.DPickerRs.Enable = false;
             this.DPickerRs.Flex = 1;
+            this.DPickerRs.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Left;
             this.DPickerRs.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.DPickerRs.Name = "DPickerRs";
             this.DPickerRs.Size = new System.Drawing.Size(100, 0);
@@ -259,7 +266,8 @@ namespace SwebSECUI.AssetsManager
             // 
             this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label3,
-            this.label4});
+            this.label4,
+            this.label2});
             this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel4.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
             this.panel4.Name = "panel4";
@@ -286,11 +294,21 @@ namespace SwebSECUI.AssetsManager
             this.label4.Text = "备注";
             this.label4.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
+            // label2
+            // 
+            this.label2.Flex = 1;
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 0);
+            this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
             // panel6
             // 
             this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.txtHMan,
-            this.txtNote});
+            this.txtNote,
+            this.label7});
             this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel6.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel6.Name = "panel6";
@@ -299,7 +317,6 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtHMan
             // 
-            this.txtHMan.Border = new Swebui.Controls.Border(1F);
             this.txtHMan.Flex = 1;
             this.txtHMan.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtHMan.Name = "txtHMan";
@@ -310,19 +327,26 @@ namespace SwebSECUI.AssetsManager
             // 
             this.txtNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.txtNote.Flex = 1;
-            this.txtNote.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Right;
             this.txtNote.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtNote.Name = "txtNote";
             this.txtNote.ReadOnly = true;
             this.txtNote.Size = new System.Drawing.Size(100, 0);
-            this.txtNote.WaterMarkText = "(选填)";
+            // 
+            // label7
+            // 
+            this.label7.Flex = 1;
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 0);
+            this.label7.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel9
             // 
             this.panel9.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.ListAss});
             this.panel9.Flex = 1;
-            this.panel9.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel9.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(0, 168);
             // 
@@ -334,6 +358,55 @@ namespace SwebSECUI.AssetsManager
             this.ListAss.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.ListAss.Size = new System.Drawing.Size(0, 300);
             this.ListAss.TemplateControlName = "OperDetailAssLayout";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.label8,
+            this.label11,
+            this.label12,
+            this.label13});
+            this.panel7.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel7.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel7.Name = "panel7";
+            this.panel7.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel7.Size = new System.Drawing.Size(0, 35);
+            // 
+            // label8
+            // 
+            this.label8.Flex = 1;
+            this.label8.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 0);
+            this.label8.Text = "图片";
+            this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.Flex = 1;
+            this.label11.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 0);
+            this.label11.Text = "SN号";
+            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.Flex = 1;
+            this.label12.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.Text = "资产条码";
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label13
+            // 
+            this.label13.Flex = 1;
+            this.label13.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 0);
+            this.label13.Text = "资产名称";
+            this.label13.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmCoDetail
             // 
@@ -347,6 +420,7 @@ namespace SwebSECUI.AssetsManager
             this.panel3,
             this.panel4,
             this.panel6,
+            this.panel7,
             this.panel9});
             this.Load += new System.EventHandler(this.frmCoDetail_Load);
 
@@ -381,5 +455,12 @@ namespace SwebSECUI.AssetsManager
         internal DatePicker DPickerRs;
         internal TextBox txtCOMan;
         internal TextBox txtLocation;
+        private Label label2;
+        private Label label7;
+        private Panel panel7;
+        private Label label8;
+        private Label label11;
+        private Label label12;
+        private Label label13;
     }
 }

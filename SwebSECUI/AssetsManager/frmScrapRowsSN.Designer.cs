@@ -26,6 +26,7 @@ namespace SwebSECUI.AssetsManager
             this.MenuTitle = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
             this.btnAdd = new Swebui.Controls.Button();
+            this.EditBtn = new Swebui.Controls.Button();
             this.panel2 = new Swebui.Controls.Panel();
             this.gridView1 = new Swebui.Controls.GridView();
             // 
@@ -41,7 +42,7 @@ namespace SwebSECUI.AssetsManager
             this.MenuTitle.BackColor = System.Drawing.Color.White;
             this.MenuTitle.Bold = true;
             this.MenuTitle.Flex = 1;
-            this.MenuTitle.FontSize = 16F;
+            this.MenuTitle.FontSize = 18F;
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);
@@ -51,7 +52,9 @@ namespace SwebSECUI.AssetsManager
             // spContent
             // 
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.btnAdd});
+            this.btnAdd,
+            this.EditBtn});
+            this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.Name = "spContent";
             this.spContent.Size = new System.Drawing.Size(0, 50);
             // 
@@ -71,6 +74,22 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // EditBtn
+            // 
+            this.EditBtn.BackColor = System.Drawing.Color.White;
+            this.EditBtn.Border = new Swebui.Controls.Border(1F);
+            this.EditBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.EditBtn.BorderRadius = 5;
+            this.EditBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.EditBtn.IconName = "fa fa-pencil-square-o";
+            this.EditBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.EditBtn.Name = "EditBtn";
+            this.EditBtn.NumberOfLines = 0;
+            this.EditBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.EditBtn.Size = new System.Drawing.Size(80, 35);
+            this.EditBtn.Text = "查看";
+            this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
@@ -81,6 +100,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // gridView1
             // 
+            this.gridView1.AllowPaging = true;
             gridViewColumn1.DisplayMember = "SOID";
             gridViewColumn1.HeaderText = "单号";
             gridViewColumn2.DisplayMember = "SCRAPDATE";
@@ -115,5 +135,6 @@ namespace SwebSECUI.AssetsManager
         internal Button btnAdd;
         private Panel panel2;
         private GridView gridView1;
+        internal Button EditBtn;
     }
 }

@@ -52,7 +52,7 @@ namespace SwebSECUI.AssetsManager
                 DataTable dt = new DataTable();
                 dt.Columns.Add("ROID");
                 dt.Columns.Add("APPLYDATE");
-                dt.Columns.Add("REPAIRCONTENT)");
+                dt.Columns.Add("REPAIRCONTENT");
                 List<AssRepairOrder> Data = new List<AssRepairOrder>();
                 if (Client.Session["Role"].ToString() == "SMOSECUser")
                 {
@@ -68,7 +68,7 @@ namespace SwebSECUI.AssetsManager
                     {
                         dt.Rows.Add(data.ROID, data.APPLYDATE.ToString("yyyy-MM-dd"), data.REPAIRCONTENT);
                     }
-                    gridView1.DataSource = Data;
+                    gridView1.DataSource = dt;
                     gridView1.DataBind();
                 }
             }
@@ -108,7 +108,7 @@ namespace SwebSECUI.AssetsManager
                 DataTable dt = new DataTable();
                 dt.Columns.Add("ROID");
                 dt.Columns.Add("APPLYDATE");
-                dt.Columns.Add("REPAIRCONTENT)");
+                dt.Columns.Add("REPAIRCONTENT");
                 List<AssRepairOrder> Data = new List<AssRepairOrder>();
                 if (Client.Session["Role"].ToString() == "SMOSECUser")
                 {

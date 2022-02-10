@@ -45,7 +45,7 @@ namespace SMOSEC.DTOs.OutputDTO
         /// <summary>
         /// 操作类型
         /// </summary>
-        public int PROCESSMODE { get; set; }
+        public int PROCESSMODENAME { get; set; }
         /// <summary>
         /// 操作内容
         /// </summary>
@@ -62,5 +62,15 @@ namespace SMOSEC.DTOs.OutputDTO
         /// 过期时间
         /// </summary>
         public DateTime? EXPIRYDATE { get; set; }
+        /// <summary>
+        /// 处理人
+        /// </summary>
+        public DateTime? HANDLEMAN { get; set; }
+        /// <summary>
+        /// 处理时间
+        /// </summary>
+        public DateTime? HANDLEDATE { get; set; }
+
+
     }
 }

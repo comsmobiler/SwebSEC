@@ -22,25 +22,21 @@ namespace SwebSECUI.Layout
             this.panel1 = new Swebui.Controls.Panel();
             this.panel2 = new Swebui.Controls.Panel();
             this.Image = new Swebui.Controls.Image();
-            this.panel3 = new Swebui.Controls.Panel();
-            this.panel5 = new Swebui.Controls.Panel();
-            this.label1 = new Swebui.Controls.Label();
             this.LblSN = new Swebui.Controls.Label();
-            this.panel6 = new Swebui.Controls.Panel();
-            this.label2 = new Swebui.Controls.Label();
             this.lblASSID = new Swebui.Controls.Label();
-            this.panel7 = new Swebui.Controls.Panel();
-            this.label3 = new Swebui.Controls.Label();
             this.LblName = new Swebui.Controls.Label();
             // 
             // panel1
             // 
+            this.panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel2,
-            this.panel3});
+            this.LblSN,
+            this.lblASSID,
+            this.LblName});
             this.panel1.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel1.Flex = 1;
-            this.panel1.Margin = new Swebui.Controls.Margin(10F);
+            this.panel1.Margin = new Swebui.Controls.Margin(5F, 0F, 5F, 5F);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 100);
             // 
@@ -48,8 +44,10 @@ namespace SwebSECUI.Layout
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.Image});
+            this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.Flex = 1;
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 0);
+            this.panel2.Size = new System.Drawing.Size(45, 0);
             // 
             // Image
             // 
@@ -58,35 +56,9 @@ namespace SwebSECUI.Layout
             this.Image.Flex = 1;
             this.Image.Name = "Image";
             this.Image.ResourceID = "";
-            this.Image.Size = new System.Drawing.Size(0, 45);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.panel5,
-            this.panel6,
-            this.panel7});
-            this.panel3.Flex = 1;
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 0);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.label1,
-            this.LblSN});
-            this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel5.Flex = 1;
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(0, 68);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 0);
-            this.label1.Text = "SN号";
-            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            this.Image.Size = new System.Drawing.Size(45, 45);
+            this.Image.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
+            this.Image.Zooming = true;
             // 
             // LblSN
             // 
@@ -94,28 +66,11 @@ namespace SwebSECUI.Layout
             this.LblSN.DataMember = "SN";
             this.LblSN.DisplayMember = "SN";
             this.LblSN.Flex = 1;
+            this.LblSN.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.LblSN.Name = "LblSN";
             this.LblSN.Size = new System.Drawing.Size(100, 0);
             this.LblSN.Text = "资产条码";
             this.LblSN.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.label2,
-            this.lblASSID});
-            this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel6.Flex = 1;
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(0, 68);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 0);
-            this.label2.Text = "资产条码";
-            this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // lblASSID
             // 
@@ -123,28 +78,11 @@ namespace SwebSECUI.Layout
             this.lblASSID.DataMember = "ASSID";
             this.lblASSID.DisplayMember = "ASSID";
             this.lblASSID.Flex = 1;
+            this.lblASSID.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.lblASSID.Name = "lblASSID";
             this.lblASSID.Size = new System.Drawing.Size(100, 0);
             this.lblASSID.Text = "资产条码";
             this.lblASSID.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.label3,
-            this.LblName});
-            this.panel7.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel7.Flex = 1;
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(0, 68);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 0);
-            this.label3.Text = "资产名称";
-            this.label3.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // LblName
             // 
@@ -152,6 +90,7 @@ namespace SwebSECUI.Layout
             this.LblName.DataMember = "NAME";
             this.LblName.DisplayMember = "NAME";
             this.LblName.Flex = 1;
+            this.LblName.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(100, 0);
             this.LblName.Text = "资产条码";
@@ -161,7 +100,7 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 80);
+            this.Size = new System.Drawing.Size(0, 45);
 
         }
         #endregion
@@ -169,15 +108,8 @@ namespace SwebSECUI.Layout
         private Panel panel1;
         private Panel panel2;
         internal Image Image;
-        private Panel panel3;
-        private Panel panel5;
-        internal Label label1;
         private Label LblSN;
-        private Panel panel6;
-        internal Label label2;
         internal Label lblASSID;
-        private Panel panel7;
-        internal Label label3;
         internal Label LblName;
     }
 }

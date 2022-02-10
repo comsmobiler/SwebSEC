@@ -43,7 +43,7 @@ namespace SwebSECUI.AssetsManager
             this.MenuTitle.BackColor = System.Drawing.Color.White;
             this.MenuTitle.Bold = true;
             this.MenuTitle.Flex = 1;
-            this.MenuTitle.FontSize = 16F;
+            this.MenuTitle.FontSize = 18F;
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);
@@ -98,6 +98,7 @@ namespace SwebSECUI.AssetsManager
             this.btnRefresh.Border = new Swebui.Controls.Border(1F);
             this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
             this.btnRefresh.BorderRadius = 5;
+            this.btnRefresh.Enabled = false;
             this.btnRefresh.ForeColor = System.Drawing.Color.DimGray;
             this.btnRefresh.IconName = "fa fa-pencil-square-o";
             this.btnRefresh.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
@@ -106,6 +107,7 @@ namespace SwebSECUI.AssetsManager
             this.btnRefresh.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
             this.btnRefresh.Size = new System.Drawing.Size(80, 35);
             this.btnRefresh.Text = "刷新";
+            this.btnRefresh.Visible = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // panel2
@@ -118,6 +120,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // gridView1
             // 
+            this.gridView1.AllowPaging = true;
             gridViewColumn1.DisplayMember = "ROID";
             gridViewColumn1.HeaderText = "单号";
             gridViewColumn2.DisplayMember = "APPLYDATE";

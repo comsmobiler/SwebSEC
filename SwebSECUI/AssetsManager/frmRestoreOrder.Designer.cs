@@ -43,7 +43,7 @@ namespace SwebSECUI.AssetsManager
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Bold = true;
             this.label1.Flex = 1;
-            this.label1.FontSize = 15F;
+            this.label1.FontSize = 18F;
             this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
@@ -101,6 +101,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // gridView1
             // 
+            this.gridView1.AllowPaging = true;
             gridViewColumn1.DisplayMember = "Rsoid";
             gridViewColumn1.HeaderText = "单号";
             gridViewColumn2.DisplayMember = "Restoredate";

@@ -61,7 +61,7 @@ namespace SwebSECUI.AssetsManager
                 {
                     ShowResult = ShowResult.Yes;
                     Toast("添加成功");
-                    Close();
+                    BackBtn_Click(null,null);
                 }
                 else
                 {

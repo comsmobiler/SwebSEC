@@ -45,6 +45,13 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("CoId");
+                dt.Columns.Add("Userid");
+                dt.Columns.Add("Collardate");
+                dt.Columns.Add("LocationName");
+                dt.Columns.Add("Place");
+                dt.Columns.Add("InUsedDep");
                 string LocationId = "";
                 string UserId = Client.Session["UserID"].ToString();
                 if (Client.Session["Role"].ToString() == "SMOSECAdmin")
@@ -60,7 +67,11 @@ namespace SwebSECUI.AssetsManager
                
                 if (assborrowTable.Rows.Count > 0)
                 {
-                    gridView1.DataSource = assborrowTable;
+                    foreach (DataRow data in assborrowTable.Rows)
+                    {
+                        dt.Rows.Add(data["CoId"], data["Userid"], ((DateTime)data["Collardate"]).ToString("yyyy-MM-dd"), data["LocationName"],data["Place"], data["InUsedDep"]);
+                    }
+                    gridView1.DataSource = dt;
                     gridView1.DataBind();
                 }
             }

@@ -19,17 +19,17 @@ namespace SwebSECUI.AssetsManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn11 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn12 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
-            this.label1 = new Swebui.Controls.Label();
             this.plButton = new Swebui.Controls.Panel();
             this.btnAdd = new Swebui.Controls.Button();
             this.ViewBtn = new Swebui.Controls.Button();
             this.panel3 = new Swebui.Controls.Panel();
             this.gridView1 = new Swebui.Controls.GridView();
+            this.label1 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
@@ -37,18 +37,6 @@ namespace SwebSECUI.AssetsManager
             this.label1});
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 50);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Bold = true;
-            this.label1.Flex = 1;
-            this.label1.FontSize = 16F;
-            this.label1.Margin = new Swebui.Controls.Margin(10F);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 35);
-            this.label1.Text = "归还单列表";
-            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // plButton
             // 
@@ -102,24 +90,37 @@ namespace SwebSECUI.AssetsManager
             // 
             // gridView1
             // 
-            gridViewColumn1.DisplayMember = "Rtoid";
-            gridViewColumn1.HeaderText = "单号";
-            gridViewColumn2.DisplayMember = "Returndate";
-            gridViewColumn2.HeaderText = "日期";
-            gridViewColumn3.DisplayMember = "HandleMan";
-            gridViewColumn3.HeaderText = "处理人";
-            gridViewColumn4.DisplayMember = "LocationName";
-            gridViewColumn4.HeaderText = "区域";
+            this.gridView1.AllowPaging = true;
+            gridViewColumn9.DisplayMember = "Rtoid";
+            gridViewColumn9.HeaderText = "单号";
+            gridViewColumn10.DisplayMember = "Returndate";
+            gridViewColumn10.HeaderText = "日期";
+            gridViewColumn11.DisplayMember = "HandleMan";
+            gridViewColumn11.HeaderText = "处理人";
+            gridViewColumn12.DisplayMember = "LocationName";
+            gridViewColumn12.HeaderText = "区域";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn1,
-            gridViewColumn2,
-            gridViewColumn3,
-            gridViewColumn4});
+            gridViewColumn9,
+            gridViewColumn10,
+            gridViewColumn11,
+            gridViewColumn12});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Name = "gridView1";
             this.gridView1.RowWidth = 0;
             this.gridView1.Size = new System.Drawing.Size(0, 30);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Bold = true;
+            this.label1.Flex = 1;
+            this.label1.FontSize = 18F;
+            this.label1.Margin = new Swebui.Controls.Margin(10F);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 35);
+            this.label1.Text = "归还单列表";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmReturnOrder
             // 
@@ -136,9 +137,9 @@ namespace SwebSECUI.AssetsManager
         private Panel panel1;
         private Panel plButton;
         private Panel panel3;
-        private Label label1;
         internal Button btnAdd;
         internal Button ViewBtn;
         private GridView gridView1;
+        private Label label1;
     }
 }

@@ -23,9 +23,6 @@ namespace SwebSECUI.AssetsManager
             this.title1 = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
-            this.panel2 = new Swebui.Controls.Panel();
-            this.Checkall = new Swebui.Controls.CheckBox();
-            this.lblCheckall = new Swebui.Controls.Label();
             this.btnSave = new Swebui.Controls.Button();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
@@ -44,9 +41,16 @@ namespace SwebSECUI.AssetsManager
             this.panel6 = new Swebui.Controls.Panel();
             this.txtContent = new Swebui.Controls.TextBox();
             this.txtNote = new Swebui.Controls.TextBox();
-            this.btnSelect = new Swebui.Controls.Button();
+            this.label1 = new Swebui.Controls.Label();
             this.panel7 = new Swebui.Controls.Panel();
             this.ListAssetsSN = new Swebui.Controls.ListView();
+            this.panel4 = new Swebui.Controls.Panel();
+            this.panel2 = new Swebui.Controls.Panel();
+            this.Checkall = new Swebui.Controls.CheckBox();
+            this.lblCheckall = new Swebui.Controls.Label();
+            this.label7 = new Swebui.Controls.Label();
+            this.label8 = new Swebui.Controls.Label();
+            this.label11 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
@@ -62,7 +66,6 @@ namespace SwebSECUI.AssetsManager
             this.title1.Bold = true;
             this.title1.Flex = 1;
             this.title1.FontSize = 16F;
-            this.title1.ForeColor = System.Drawing.Color.White;
             this.title1.Margin = new Swebui.Controls.Margin(10F);
             this.title1.Name = "title1";
             this.title1.Size = new System.Drawing.Size(0, 35);
@@ -73,7 +76,6 @@ namespace SwebSECUI.AssetsManager
             // 
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
-            this.panel2,
             this.btnSave});
             this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.Name = "spContent";
@@ -95,33 +97,6 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.Checkall,
-            this.lblCheckall});
-            this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 0);
-            // 
-            // Checkall
-            // 
-            this.Checkall.BackColor = System.Drawing.Color.Transparent;
-            this.Checkall.BorderColor = System.Drawing.Color.Black;
-            this.Checkall.BorderRadius = 0;
-            this.Checkall.Margin = new Swebui.Controls.Margin(5F);
-            this.Checkall.Name = "Checkall";
-            this.Checkall.Size = new System.Drawing.Size(54, 0);
-            this.Checkall.CheckedChanged += new System.EventHandler(this.Checkall_CheckedChanged);
-            // 
-            // lblCheckall
-            // 
-            this.lblCheckall.Flex = 1;
-            this.lblCheckall.Margin = new Swebui.Controls.Margin(10F);
-            this.lblCheckall.Name = "lblCheckall";
-            this.lblCheckall.Size = new System.Drawing.Size(100, 0);
-            this.lblCheckall.Text = "全选";
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.White;
@@ -129,7 +104,7 @@ namespace SwebSECUI.AssetsManager
             this.btnSave.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
             this.btnSave.BorderRadius = 5;
             this.btnSave.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSave.IconName = "fa fa-angle-left";
+            this.btnSave.IconName = "fa fa-floppy-o";
             this.btnSave.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
             this.btnSave.Name = "btnSave";
             this.btnSave.NumberOfLines = 0;
@@ -202,10 +177,10 @@ namespace SwebSECUI.AssetsManager
             // DatePicker
             // 
             this.DatePicker.BackColor = System.Drawing.Color.White;
-            this.DatePicker.Border = new Swebui.Controls.Border(1F);
             this.DatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.DatePicker.Enable = false;
             this.DatePicker.Flex = 1;
+            this.DatePicker.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Left;
             this.DatePicker.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.DatePicker.Name = "DatePicker";
             this.DatePicker.Size = new System.Drawing.Size(100, 0);
@@ -224,7 +199,6 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtPrice
             // 
-            this.txtPrice.Border = new Swebui.Controls.Border(1F);
             this.txtPrice.Flex = 1;
             this.txtPrice.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtPrice.Name = "txtPrice";
@@ -280,14 +254,13 @@ namespace SwebSECUI.AssetsManager
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(100, 0);
             this.label29.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            this.label29.Visible = false;
             // 
             // panel6
             // 
             this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.txtContent,
             this.txtNote,
-            this.btnSelect});
+            this.label1});
             this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel6.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel6.Name = "panel6";
@@ -296,7 +269,6 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtContent
             // 
-            this.txtContent.Border = new Swebui.Controls.Border(1F);
             this.txtContent.Flex = 1;
             this.txtContent.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtContent.Name = "txtContent";
@@ -306,7 +278,6 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtNote
             // 
-            this.txtNote.Border = new Swebui.Controls.Border(1F);
             this.txtNote.Flex = 1;
             this.txtNote.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtNote.Name = "txtNote";
@@ -314,36 +285,99 @@ namespace SwebSECUI.AssetsManager
             this.txtNote.Size = new System.Drawing.Size(100, 0);
             this.txtNote.WaterMarkText = "（选填）";
             // 
-            // btnSelect
+            // label1
             // 
-            this.btnSelect.BackColor = System.Drawing.Color.White;
-            this.btnSelect.Enabled = false;
-            this.btnSelect.Flex = 1;
-            this.btnSelect.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.NumberOfLines = 0;
-            this.btnSelect.Size = new System.Drawing.Size(100, 0);
-            this.btnSelect.Visible = false;
+            this.label1.Flex = 1;
+            this.label1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 0);
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel7
             // 
             this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.ListAssetsSN});
             this.panel7.Flex = 1;
-            this.panel7.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 0F);
+            this.panel7.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(0, 100);
             // 
             // ListAssetsSN
             // 
             this.ListAssetsSN.BackColor = System.Drawing.Color.White;
-            this.ListAssetsSN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.ListAssetsSN.Border = new Swebui.Controls.Border(1F);
+            this.ListAssetsSN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ListAssetsSN.Flex = 1;
             this.ListAssetsSN.Name = "ListAssetsSN";
             this.ListAssetsSN.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.ListAssetsSN.ShowSplitLine = true;
             this.ListAssetsSN.Size = new System.Drawing.Size(0, 300);
+            this.ListAssetsSN.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.TemplateControlName = "frmAssSNRDLayout";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.panel2,
+            this.label7,
+            this.label8,
+            this.label11});
+            this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel4.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel4.Name = "panel4";
+            this.panel4.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel4.Size = new System.Drawing.Size(0, 45);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.Checkall,
+            this.lblCheckall});
+            this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.Flex = 1;
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 0);
+            // 
+            // Checkall
+            // 
+            this.Checkall.BackColor = System.Drawing.Color.Transparent;
+            this.Checkall.BorderColor = System.Drawing.Color.Black;
+            this.Checkall.BorderRadius = 0;
+            this.Checkall.Name = "Checkall";
+            this.Checkall.Size = new System.Drawing.Size(30, 45);
+            this.Checkall.CheckedChanged += new System.EventHandler(this.Checkall_CheckedChanged);
+            // 
+            // lblCheckall
+            // 
+            this.lblCheckall.Flex = 1;
+            this.lblCheckall.Name = "lblCheckall";
+            this.lblCheckall.Size = new System.Drawing.Size(100, 0);
+            this.lblCheckall.Text = "全选";
+            this.lblCheckall.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.Flex = 1;
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 0);
+            this.label7.Text = "图片";
+            this.label7.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.Flex = 1;
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 0);
+            this.label8.Text = "资产名称";
+            this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.Flex = 1;
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 0);
+            this.label11.Text = "SN号";
+            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmRepairDealSN
             // 
@@ -355,6 +389,7 @@ namespace SwebSECUI.AssetsManager
             this.panel13,
             this.panel5,
             this.panel6,
+            this.panel4,
             this.panel7});
             this.Load += new System.EventHandler(this.frmRepairDealSN_Load);
 
@@ -382,12 +417,16 @@ namespace SwebSECUI.AssetsManager
         private Panel panel6;
         internal TextBox txtContent;
         private TextBox txtNote;
-        private Button btnSelect;
         private Panel panel7;
         private ListView ListAssetsSN;
+        internal Button btnSave;
+        private Label label1;
+        private Panel panel4;
+        private Label label7;
+        private Label label8;
+        private Label label11;
         private Panel panel2;
         internal CheckBox Checkall;
         internal Label lblCheckall;
-        internal Button btnSave;
     }
 }

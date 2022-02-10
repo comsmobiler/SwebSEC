@@ -19,19 +19,19 @@ namespace SwebSECUI.AssetsManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn11 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn12 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
             this.plButton = new Swebui.Controls.Panel();
             this.btnAdd = new Swebui.Controls.Button();
+            this.ViewBtn = new Swebui.Controls.Button();
             this.panel2 = new Swebui.Controls.Panel();
             this.gridView1 = new Swebui.Controls.GridView();
-            this.ViewBtn = new Swebui.Controls.Button();
             // 
             // panel1
             // 
@@ -45,7 +45,7 @@ namespace SwebSECUI.AssetsManager
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Bold = true;
             this.label1.Flex = 1;
-            this.label1.FontSize = 16F;
+            this.label1.FontSize = 18F;
             this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
@@ -77,42 +77,6 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.gridView1});
-            this.panel2.Flex = 1;
-            this.panel2.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 100);
-            // 
-            // gridView1
-            // 
-            gridViewColumn7.DisplayMember = "CoId";
-            gridViewColumn7.HeaderText = "单号";
-            gridViewColumn8.DisplayMember = "Userid";
-            gridViewColumn8.HeaderText = "领用人";
-            gridViewColumn9.DisplayMember = "Collardate";
-            gridViewColumn9.HeaderText = "日期";
-            gridViewColumn10.DisplayMember = "LocationName";
-            gridViewColumn10.HeaderText = "区域";
-            gridViewColumn11.DisplayMember = "Place";
-            gridViewColumn11.HeaderText = "地点";
-            gridViewColumn12.DisplayMember = "InUsedDep";
-            gridViewColumn12.HeaderText = "部门";
-            this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn7,
-            gridViewColumn8,
-            gridViewColumn9,
-            gridViewColumn10,
-            gridViewColumn11,
-            gridViewColumn12});
-            this.gridView1.DataSource = null;
-            this.gridView1.Flex = 1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.RowWidth = 0;
-            this.gridView1.Size = new System.Drawing.Size(0, 30);
-            // 
             // ViewBtn
             // 
             this.ViewBtn.BackColor = System.Drawing.Color.White;
@@ -128,6 +92,43 @@ namespace SwebSECUI.AssetsManager
             this.ViewBtn.Size = new System.Drawing.Size(80, 35);
             this.ViewBtn.Text = "查看";
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.gridView1});
+            this.panel2.Flex = 1;
+            this.panel2.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(0, 100);
+            // 
+            // gridView1
+            // 
+            this.gridView1.AllowPaging = true;
+            gridViewColumn1.DisplayMember = "CoId";
+            gridViewColumn1.HeaderText = "单号";
+            gridViewColumn2.DisplayMember = "Userid";
+            gridViewColumn2.HeaderText = "领用人";
+            gridViewColumn3.DisplayMember = "Collardate";
+            gridViewColumn3.HeaderText = "日期";
+            gridViewColumn4.DisplayMember = "LocationName";
+            gridViewColumn4.HeaderText = "区域";
+            gridViewColumn5.DisplayMember = "Place";
+            gridViewColumn5.HeaderText = "地点";
+            gridViewColumn6.DisplayMember = "InUsedDep";
+            gridViewColumn6.HeaderText = "部门";
+            this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3,
+            gridViewColumn4,
+            gridViewColumn5,
+            gridViewColumn6});
+            this.gridView1.DataSource = null;
+            this.gridView1.Flex = 1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.RowWidth = 0;
+            this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 
             // frmCollarOrder
             // 

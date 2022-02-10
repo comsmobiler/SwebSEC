@@ -46,9 +46,9 @@ namespace SwebSECUI.Layout
                                 case "SwbSECUI.AssetsManager.frmScrapCreateSN":
                                     ((frmScrapCreateSN)this.Parent).ReMoveAssSN(lblName.BindDataValue.ToString(), lblSN.BindDataValue.ToString());
                                     break;
-                                    //case "SwbSECUI.AssetsManager.frmTransferCreateSN":
-                                    //    ((frmTransferCreateSN)this.Parent).ReMoveAssSN(lblName.BindDataValue.ToString(), lblSN.BindDataValue.ToString());
-                                    //    break;
+                                case "SwbSECUI.AssetsManager.frmTransferCreateSN":
+                                    ((frmTransferCreateSN)this.Parent).ReMoveAssSN(lblName.BindDataValue.ToString(), lblSN.BindDataValue.ToString());
+                                    break;
                             }
                         }
                     }

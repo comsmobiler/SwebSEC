@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using SMOSEC.Domain.Entity;
 using SMOSEC.DTOs.Enum;
+using System.Data;
 
 namespace SwebSECUI.AssetsManager
 {
@@ -42,6 +43,10 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("SOID");
+                dt.Columns.Add("SCRAPDATE");
+                dt.Columns.Add("NOTE");
                 List<AssScrapOrder> Data = new List<AssScrapOrder>();
                 if (Client.Session["Role"].ToString() == "SMOSECUser")
                 {
@@ -53,7 +58,11 @@ namespace SwebSECUI.AssetsManager
                 }
                 if (Data.Count > 0)
                 {
-                    gridView1.DataSource = Data;
+                    foreach (var data in Data)
+                    {
+                        dt.Rows.Add(data.SOID,data.SCRAPDATE.ToString("yyyy-MM-dd"),data.NOTE);
+                    }
+                    gridView1.DataSource = dt;
                     gridView1.DataBind();
                 }
             }
@@ -61,6 +70,24 @@ namespace SwebSECUI.AssetsManager
             {
                 Toast(ex.Message);
             }
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string roid = selectrow["SOID"].ToString();
+                    frmScrapDetailSN frm = new frmScrapDetailSN();
+                    frm.SOID = roid;
+                    frm.Flex = 1;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else { Toast("未选择行！"); }
+            });
         }
     }
 }

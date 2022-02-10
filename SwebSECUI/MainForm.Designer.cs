@@ -139,7 +139,7 @@ namespace SwebSECUI
             menuItem8.Text = "维修";
             menuItem9.Id = "FrmScrapRowsSN";
             menuItem9.Text = "报废";
-            menuItem10.Id = "FrmAssInventory";
+            menuItem10.Id = "FrmTransferRowsSN";
             menuItem10.Text = "调拨";
             menuItem11.Id = "FrmAssInventory";
             menuItem11.Text = "盘点";
@@ -203,6 +203,7 @@ namespace SwebSECUI
             // 
             // MainForm
             // 
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1,
             this.panel2});

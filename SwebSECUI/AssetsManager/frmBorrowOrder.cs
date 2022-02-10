@@ -50,27 +50,26 @@ namespace SwebSECUI.AssetsManager
                 dt.Columns.Add("BORROWER");
                 dt.Columns.Add("BORROWDATE");
                 dt.Columns.Add("LOCATIONNAME");
-                List<AssBorrowOrder> assborrowTable = new List<AssBorrowOrder>();
                 string LocationId = "";
                 string UserId = Client.Session["UserID"].ToString();
                 if (Client.Session["Role"].ToString() == "SMOSECAdmin")
                 {
                     var user = _autofacConfig.coreUserService.GetUserByID(UserId);
                     LocationId = user.USER_LOCATIONID;
+                 
                 }
                 if (Client.Session["Role"].ToString() == "SMOSECUser")
                 {
                     plButton.Visible = false;
                 }
-                DataTable dataTable = _autofacConfig.AssetsService.GetBoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
-                if (dataTable.Rows.Count > 0)
+                DataTable table = _autofacConfig.AssetsService.GetBoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
+                if (table.Rows.Count > 0)
                 {
-                    foreach (var data in assborrowTable)
+                    foreach (DataRow data in table.Rows)
                     {
-                        dt.Rows.Add(data.BOID, data.BORROWER, data.BORROWDATE.ToString(), data.LOCATIONID);
+                        dt.Rows.Add(data["BOID"], data["BORROWER"], ((DateTime)data["BORROWDATE"]).ToString("yyyy-MM-dd"), data["LOCATIONNAME"]);
                     }
-
-                    gridView1.DataSource = assborrowTable;
+                    gridView1.DataSource = dt;
                     gridView1.DataBind();
                 }
             }

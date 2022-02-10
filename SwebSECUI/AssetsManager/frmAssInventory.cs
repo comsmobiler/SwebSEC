@@ -7,6 +7,9 @@ using System.Data;
 using System.Drawing;
 using SMOSEC.DTOs.Enum;
 using SwebSECUI.Layout;
+using SMOSEC.CommLib;
+using SMOSEC.DTOs.InputDTO;
+using SwebSECUI.AssetsManager;
 
 namespace SwebSECUI.AssetsManager
 {
@@ -57,29 +60,29 @@ namespace SwebSECUI.AssetsManager
                 }
 
                 DataTable assInventoryList = _autofacConfig.AssInventoryService.GetAssInventoryList(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
-                listView.Rows.Clear();
+
                 if (assInventoryList.Rows.Count > 0)
                 {
-                    listView.DataSource = assInventoryList;
-                    listView.DataBind();
+                    gridView1.DataSource = assInventoryList;
+                    gridView1.DataBind();
                 }
-                foreach (var row in listView.Rows)
-                {
-                    frmAssInventoryLayout layout = (frmAssInventoryLayout)row.Control;
-                    switch (layout.label1.Text)
-                    {
-                        case "盘点结束":
-                            layout.label1.ForeColor = Color.FromArgb(43, 125, 43);
-                            break;
-                        case "盘点中":
-                            layout.label1.ForeColor = Color.FromArgb(43, 140, 255);
-                            layout.btnStart.Text = "继续盘点";
-                            break;
-                        case "盘点未开始":
-                            layout.label1.ForeColor = Color.FromArgb(211, 215, 217);
-                            break;
-                    }
-                }
+                //foreach (var row in gridView1)
+                //{
+                //    frmAssInventoryLayout layout = (frmAssInventoryLayout)row.Control;
+                //    switch (layout.label1.Text)
+                //    {
+                //        case "盘点结束":
+                //            layout.label1.ForeColor = Color.FromArgb(43, 125, 43);
+                //            break;
+                //        case "盘点中":
+                //            layout.label1.ForeColor = Color.FromArgb(43, 140, 255);
+                //            layout.btnStart.Text = "继续盘点";
+                //            break;
+                //        case "盘点未开始":
+                //            layout.label1.ForeColor = Color.FromArgb(211, 215, 217);
+                //            break;
+                //    }
+                //}
 
             }
             catch (Exception ex)
@@ -87,6 +90,76 @@ namespace SwebSECUI.AssetsManager
                 Toast(ex.Message);
             }
         }
+        /// <summary>
+        /// 编辑盘点单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["IID"].ToString();
+                    frmAssInventoryEdit frm = new frmAssInventoryEdit() { Flex = 1 };
+                    frm.IID = id;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
 
-    }
+            });
+        }
+        /// <summary>
+        /// 删除盘点单
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DelBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["IID"].ToString();
+                    gridView1.RemoveRow();
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
+            });
+        }
+        /// <summary>
+        /// 开始盘点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StartBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["IID"].ToString();
+                    frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
+                    frm.IID = id;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
+
+            });
+        }
+    } 
 }

@@ -49,6 +49,11 @@ namespace SwebSECUI.AssetsManager
         {
             try
             {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Rsoid");
+                dt.Columns.Add("Restoredate");
+                dt.Columns.Add("HandleMan");
+                dt.Columns.Add("LocationName");
                 string LocationId = "";
                 string UserId = Client.Session["UserID"].ToString();
                 if (Client.Session["Role"].ToString() == "SMOSECAdmin")
@@ -61,20 +66,21 @@ namespace SwebSECUI.AssetsManager
                     plButton.Visible = false;
                 }
                 DataTable assborrowTable = _autofacConfig.AssetsService.GetRsoByUserId(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
-                //ListViewCO.Rows.Clear();
-                //if (assborrowTable.Rows.Count > 0)
-                //{
-                //    ListViewCO.DataSource = assborrowTable;
-                //    ListViewCO.DataBind();
-                //}
-                gridView1.DataSource = assborrowTable;
-                gridView1.DataBind();
+                if (assborrowTable.Rows.Count > 0)
+                {
+                    foreach (DataRow data in assborrowTable.Rows)
+                    {
+                        dt.Rows.Add(data["Rsoid"], ((DateTime)data["Restoredate"]).ToString("yyyy-MM-dd"), data["HandleMan"], data["LocationName"]);
+                    }
+                    gridView1.DataSource = dt;
+                    gridView1.DataBind();
+                }
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
-
+            
         }
 
         private void ViewBtn_Click(object sender, EventArgs e)

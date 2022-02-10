@@ -70,8 +70,8 @@ namespace SwebSECUI.AssetsManager
                 if (r.IsSuccess)
                 {
                     ShowResult = ShowResult.Yes;
-                    Form.Close();          //创建成功
                     Toast("创建报废单成功!");
+                    BackBtn_Click(null,null);
                 }
                 else
                 {

@@ -104,8 +104,8 @@ namespace SwebSECUI.AssetsManager
             frmRepairDealSN frm = new frmRepairDealSN();
             frm.ROID = ROID;
             frm.Flex = 1;
-            this.Parent.Parent.Controls.Add(frm);
-            this.Parent.Parent.Controls.RemoveAt(0);
+            this.Parent.Controls.Add(frm);
+            this.Parent.Controls.RemoveAt(0);
         }
     }
 }

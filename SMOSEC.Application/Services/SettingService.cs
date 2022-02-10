@@ -81,33 +81,33 @@ namespace SMOSEC.Application.Services
         public AssetsOutputDto GetAssetsByID(string ID)
         {
             var dto = from assetse in SMOSECDbContext.Assetss
-                from user in SMOSECDbContext.coreUsers
-                join type in SMOSECDbContext.AssetsTypes on assetse.TYPEID equals type.TYPEID
-                join location in SMOSECDbContext.AssLocations on assetse.LOCATIONID equals location.LOCATIONID
-                where assetse.ASSID==ID&&user.USER_ID==location.MANAGER
-                select new AssetsOutputDto
-                {
-                   AssId = assetse.ASSID,
-                   BuyDate = assetse.BUYDATE,
-                   CurrentUser = assetse.CURRENTUSER,
-                   DepartmentId = assetse.DEPARTMENTID,
-                   ExpiryDate = assetse.EXPIRYDATE,
-                   Image = assetse.IMAGE,
-                   LocationId = assetse.LOCATIONID,
-                   LocationName = location.NAME,
-                   ManagerName = user.USER_NAME,
-                   Name = assetse.NAME,
-                   Note = assetse.NOTE,
-                   Place = assetse.PLACE,
-                   Price = assetse.PRICE,
-                   SN = assetse.SN,
-                   Specification = assetse.SPECIFICATION,
-                   TypeId = assetse.TYPEID,
-                   TypeName = type.NAME,
-                   Vendor = assetse.VENDOR,
-                   Unit = assetse.UNIT,
-                   Status=assetse.STATUS
-                };
+                      from user in SMOSECDbContext.coreUsers
+                      join type in SMOSECDbContext.AssetsTypes on assetse.TYPEID equals type.TYPEID
+                      join location in SMOSECDbContext.AssLocations on assetse.LOCATIONID equals location.LOCATIONID
+                      where assetse.ASSID == ID && user.USER_ID == location.MANAGER
+                      select new AssetsOutputDto
+                      {
+                          AssId = assetse.ASSID,
+                          BuyDate = assetse.BUYDATE,
+                          CurrentUser = assetse.CURRENTUSER,
+                          DepartmentId = assetse.DEPARTMENTID,
+                          ExpiryDate = assetse.EXPIRYDATE,
+                          Image = assetse.IMAGE,
+                          LocationId = assetse.LOCATIONID,
+                          LocationName = location.NAME,
+                          ManagerName = user.USER_NAME,
+                          Name = assetse.NAME,
+                          Note = assetse.NOTE,
+                          Place = assetse.PLACE,
+                          Price = assetse.PRICE,
+                          SN = assetse.SN,
+                          Specification = assetse.SPECIFICATION,
+                          TypeId = assetse.TYPEID,
+                          TypeName = type.NAME,
+                          Vendor = assetse.VENDOR,
+                          Unit = assetse.UNIT,
+                          Status = assetse.STATUS
+                      };
             var assdto = dto.AsNoTracking().FirstOrDefault();
 
             if (assdto != null)
@@ -116,11 +116,11 @@ namespace SMOSEC.Application.Services
                 if (!string.IsNullOrEmpty(CID))
                 {
                     var name = from user in SMOSECDbContext.coreUsers
-                        where user.USER_ID == CID
-                        select user.USER_NAME;
+                               where user.USER_ID == CID
+                               select user.USER_NAME;
                     assdto.CurrentUserName = name.FirstOrDefault();
                 }
-                if ( !string.IsNullOrEmpty(assdto.DepartmentId))
+                if (!string.IsNullOrEmpty(assdto.DepartmentId))
                 {
                     var department = _departmentRepository.GetByID(assdto.DepartmentId);
 
@@ -130,7 +130,7 @@ namespace SMOSEC.Application.Services
                 }
             }
             return assdto;
-//            return dto.AsNoTracking().FirstOrDefault();
+            //            return dto.AsNoTracking().FirstOrDefault();
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace SMOSEC.Application.Services
         /// <returns></returns>
         public DataTable GetAllAss(string LocationId)
         {
-            var list = _AssetsRepository.GetAll().Where(x=>x.STATUS !=6);
+            var list = _AssetsRepository.GetAll().Where(x => x.STATUS != 6);
             if (!string.IsNullOrEmpty(LocationId))
             {
                 list = list.Where(a => a.LOCATIONID == LocationId);
@@ -188,12 +188,12 @@ namespace SMOSEC.Application.Services
         {
             int status = (int)STATUS.借用中;
             var result = _AssetsRepository.GetAssByStatus(LocationID, Name, UserID, status);
-            var dtos=Mapper.Map<List<Assets>,List<AssSelectOutputDto>> (result.ToList());
+            var dtos = Mapper.Map<List<Assets>, List<AssSelectOutputDto>>(result.ToList());
             foreach (var dto in dtos)
             {
                 dto.IsChecked = false;
             }
-            return LINQToDataTable.ToDataTable(dtos);            
+            return LINQToDataTable.ToDataTable(dtos);
         }
 
         /// <summary>
@@ -229,25 +229,25 @@ namespace SMOSEC.Application.Services
         /// <param name="ASSID">资产编号</param>
         /// <param name="CID">耗材编号</param>
         /// <returns></returns>
-        public DataTable GetRecords(string ASSID,string CID)
+        public DataTable GetRecords(string ASSID, string CID)
         {
             if (!string.IsNullOrEmpty(ASSID))
             {
                 var result = from processRecord in SMOSECDbContext.AssProcessRecords
-                    join assetse in SMOSECDbContext.Assetss on processRecord.ASSID equals assetse.ASSID
-                    join user in SMOSECDbContext.coreUsers on processRecord.HANDLEMAN equals user.USER_ID
-                    where processRecord.ASSID == ASSID
-                    select new
-                    {
-                        PrId = processRecord.PRID,
-                        ProcessMode = processRecord.PROCESSMODE,
-                        ProcessContent = processRecord.PROCESSCONTENT,
-                        AssId = processRecord.ASSID,
-                        HandleDate = processRecord.HANDLEDATE,
-                        ProcessModeName = "",
-                        HandleMan = user.USER_NAME,
-                        SN = assetse.SN
-                    };
+                             join assetse in SMOSECDbContext.Assetss on processRecord.ASSID equals assetse.ASSID
+                             join user in SMOSECDbContext.coreUsers on processRecord.HANDLEMAN equals user.USER_ID
+                             where processRecord.ASSID == ASSID
+                             select new
+                             {
+                                 PrId = processRecord.PRID,
+                                 ProcessMode = processRecord.PROCESSMODE,
+                                 ProcessContent = processRecord.PROCESSCONTENT,
+                                 AssId = processRecord.ASSID,
+                                 HandleDate = processRecord.HANDLEDATE,
+                                 ProcessModeName = "",
+                                 HandleMan = user.USER_NAME,
+                                 SN = assetse.SN
+                             };
                 DataTable tempTable = LINQToDataTable.ToDataTable(result);
                 foreach (DataRow row in tempTable.Rows)
                 {
@@ -258,19 +258,19 @@ namespace SMOSEC.Application.Services
             else
             {
                 var result = from processRecord in SMOSECDbContext.AssProcessRecords
-                    join comConsumablese in SMOSECDbContext.Consumableses on processRecord.CID equals comConsumablese.CID
-                    join user in SMOSECDbContext.coreUsers on processRecord.HANDLEMAN equals user.USER_ID
-                    where processRecord.CID == CID
-                    select new
-                    {
-                        PrId = processRecord.PRID,
-                        ProcessMode = processRecord.PROCESSMODE,
-                        ProcessContent = processRecord.PROCESSCONTENT,
-                        CId = processRecord.CID,
-                        HandleDate = processRecord.HANDLEDATE,
-                        ProcessModeName = "",
-                        HandleMan = user.USER_NAME
-                    };
+                             join comConsumablese in SMOSECDbContext.Consumableses on processRecord.CID equals comConsumablese.CID
+                             join user in SMOSECDbContext.coreUsers on processRecord.HANDLEMAN equals user.USER_ID
+                             where processRecord.CID == CID
+                             select new
+                             {
+                                 PrId = processRecord.PRID,
+                                 ProcessMode = processRecord.PROCESSMODE,
+                                 ProcessContent = processRecord.PROCESSCONTENT,
+                                 CId = processRecord.CID,
+                                 HandleDate = processRecord.HANDLEDATE,
+                                 ProcessModeName = "",
+                                 HandleMan = user.USER_NAME
+                             };
                 DataTable tempTable = LINQToDataTable.ToDataTable(result);
                 foreach (DataRow row in tempTable.Rows)
                 {
@@ -289,12 +289,12 @@ namespace SMOSEC.Application.Services
         {
             DateTime targetDateTime = DateTime.Now.Date.AddDays(days);
             DateTime Now = DateTime.Now.Date;
-            var result = from ass in SMOSECDbContext.Assetss 
-                where ass.EXPIRYDATE >= Now && ass.EXPIRYDATE <= targetDateTime
-                select new
-                {
+            var result = from ass in SMOSECDbContext.Assetss
+                         where ass.EXPIRYDATE >= Now && ass.EXPIRYDATE <= targetDateTime
+                         select new
+                         {
 
-                };
+                         };
 
             return LINQToDataTable.ToDataTable(_AssetsRepository.GetImminentAssets(days));
         }
@@ -315,7 +315,7 @@ namespace SMOSEC.Application.Services
             {
                 dto.IsChecked = false;
             }
-            return LINQToDataTable.ToDataTable(dtos);            
+            return LINQToDataTable.ToDataTable(dtos);
         }
 
         /// <summary>
@@ -443,18 +443,33 @@ namespace SMOSEC.Application.Services
                 {
                     result = result.Where(a => a.DEPARTMENTID == DepId);
                 }
-                DataTable table = LINQToDataTable.ToDataTable(result);
+                //DataTable table =
+                //    LINQToDataTable.ToDataTable(result);
+                DataTable table = new DataTable();
+                table.Columns.Add("ASSID");
+                table.Columns.Add("Name");
+                table.Columns.Add("Price");
                 table.Columns.Add("StatusName");
-                table.Columns.Add("DepName");
-                foreach (DataRow row in table.Rows)
+                table.Columns.Add("DEPARTMENTNAME");
+                foreach (var ass in result.ToList())
                 {
-                    Department dep = _departmentRepository.GetByID(row["DEPARTMENTID"].ToString()).FirstOrDefault();
-                    row["StatusName"] = Enum.GetName(typeof(STATUS), row["Status"]);
-                    if (dep != null)
+                    DataRow row = table.NewRow();
+                    row["ASSID"] = ass.ASSID;
+                    row["Name"] = ass.NAME;
+                    row["Price"] = ass.PRICE;
+                    if (string.IsNullOrEmpty(ass.DEPARTMENTID) == false)
                     {
-                        row["DepName"] = dep.NAME;
+                        Department dep = _departmentRepository.GetByID(ass.DEPARTMENTID.ToString()).FirstOrDefault();
+
+                        if (dep != null)
+                        {
+                            row["DEPARTMENTNAME"] = dep.NAME;
+                        }
                     }
+                    row["StatusName"] = Enum.GetName(typeof(STATUS), ass.STATUS);
+                    table.Rows.Add(row);
                 }
+
                 return table;
             }
             else
@@ -473,17 +488,29 @@ namespace SMOSEC.Application.Services
                 {
                     result = result.Where(a => a.DEPARTMENTID == DepId);
                 }
-                DataTable table = LINQToDataTable.ToDataTable(result);
+                DataTable table = new DataTable();
+                table.Columns.Add("ASSID");
+                table.Columns.Add("Name");
+                table.Columns.Add("Price");
                 table.Columns.Add("StatusName");
-                table.Columns.Add("DepName");
-                foreach (DataRow row in table.Rows)
+                table.Columns.Add("DEPARTMENTNAME");
+                foreach (var ass in result.ToList())
                 {
-                    Department dep = _departmentRepository.GetByID(row["DEPARTMENTID"].ToString()).FirstOrDefault();
-                    row["StatusName"] = Enum.GetName(typeof(STATUS), row["Status"]);
+                    DataRow row = table.NewRow();
+                    row["ASSID"] = ass.ASSID;
+                    row["Name"] = ass.NAME;
+                    row["Price"] = ass.PRICE;
+                    if (string.IsNullOrEmpty(ass.DEPARTMENTID) == false)
+                    {          
+                        Department dep = _departmentRepository.GetByID(ass.DEPARTMENTID.ToString()).FirstOrDefault();
+                  
                     if (dep != null)
                     {
-                        row["DepName"] = dep.NAME;
+                        row["DEPARTMENTNAME"] = dep.NAME;
                     }
+                    }
+                    row["StatusName"] = Enum.GetName(typeof(STATUS), ass.STATUS);
+                    table.Rows.Add(row);
                 }
                 return table;
             }
@@ -504,14 +531,14 @@ namespace SMOSEC.Application.Services
             }
             return LINQToDataTable.ToDataTable(result);
         }
-
+      
         /// <summary>
         /// 得到所有的Sn
         /// </summary>
         /// <returns></returns>
         public List<string> GetAllSns()
         {
-            var lists=new List<string>();
+            var lists = new List<string>();
             lists = _AssetsRepository.GetAll().Select(a => a.SN).ToList();
             return lists;
         }
@@ -527,20 +554,20 @@ namespace SMOSEC.Application.Services
             {
                 var list = _AssetsRepository.GetAll().Where(a => Sns.Contains(a.SN));
                 var result = from assetse in list
-                    join location in SMOSECDbContext.AssLocations on assetse.LOCATIONID equals location.LOCATIONID
-                    join type in SMOSECDbContext.AssetsTypes on assetse.TYPEID equals type.TYPEID
-                    select new
-                    {
-                        ASSID = assetse.ASSID,
-                        Image = assetse.IMAGE,
-                        LocationName = location.NAME,
-                        Name = assetse.NAME,
-                        Price = assetse.PRICE,
-                        SN = assetse.SN,
-                        TypeName = type.NAME,
-                        Specification = assetse.SPECIFICATION,
-                        RESULTNAME=""
-                    };
+                             join location in SMOSECDbContext.AssLocations on assetse.LOCATIONID equals location.LOCATIONID
+                             join type in SMOSECDbContext.AssetsTypes on assetse.TYPEID equals type.TYPEID
+                             select new
+                             {
+                                 ASSID = assetse.ASSID,
+                                 Image = assetse.IMAGE,
+                                 LocationName = location.NAME,
+                                 Name = assetse.NAME,
+                                 Price = assetse.PRICE,
+                                 SN = assetse.SN,
+                                 TypeName = type.NAME,
+                                 Specification = assetse.SPECIFICATION,
+                                 RESULTNAME = ""
+                             };
                 return LINQToDataTable.ToDataTable(result);
             }
             else
@@ -577,8 +604,8 @@ namespace SMOSEC.Application.Services
                 {
                     Assets assets = Mapper.Map<AssetsInputDto, Assets>(entity);
                     assets.STATUS = (int)STATUS.闲置;
-                    assets.CREATEDATE=DateTime.Now;
-                    assets.MODIFYDATE=DateTime.Now;
+                    assets.CREATEDATE = DateTime.Now;
+                    assets.MODIFYDATE = DateTime.Now;
                     _unitOfWork.RegisterNew(assets);
                     var pr = new AssProcessRecord
                     {
@@ -590,7 +617,7 @@ namespace SMOSEC.Application.Services
                         MODIFYDATE = DateTime.Now,
                         MODIFYUSER = entity.ModifyUser,
                         PROCESSCONTENT = entity.CreateUser + "入库了" + entity.AssId + ",数量为1",
-                        PROCESSMODE = (int) PROCESSMODE.入库,
+                        PROCESSMODE = (int)PROCESSMODE.入库,
                         QUANTITY = 1
                     };
                     _unitOfWork.RegisterNew(pr);
@@ -599,7 +626,7 @@ namespace SMOSEC.Application.Services
                     RInfo.IsSuccess = result;
                     RInfo.ErrorInfo = entity.AssId;
                     return RInfo;
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -670,11 +697,11 @@ namespace SMOSEC.Application.Services
                         MODIFYUSER = entity.ModifyUser,
                         PROCESSCONTENT = entity.CreateUser + "修改了" + entity.AssId
                     };
-                    pr.PROCESSCONTENT = "修改资产"+entity.AssId+"。修改前数据:"+originAss.BuyDate
-                        +","+originAss.DepartmentId+","+originAss.ExpiryDate+","+originAss.Image
-                        +","+originAss.Name+","+originAss.Note+","+originAss.Place+","+originAss.Price
-                        +","+originAss.SN+","+originAss.Specification+","+originAss.TypeId
-                        +","+originAss.Unit+","+originAss.Vendor+"  修改后数据：" + assets.BUYDATE
+                    pr.PROCESSCONTENT = "修改资产" + entity.AssId + "。修改前数据:" + originAss.BuyDate
+                        + "," + originAss.DepartmentId + "," + originAss.ExpiryDate + "," + originAss.Image
+                        + "," + originAss.Name + "," + originAss.Note + "," + originAss.Place + "," + originAss.Price
+                        + "," + originAss.SN + "," + originAss.Specification + "," + originAss.TypeId
+                        + "," + originAss.Unit + "," + originAss.Vendor + "  修改后数据：" + assets.BUYDATE
                         + "," + assets.DEPARTMENTID + "," + assets.EXPIRYDATE + "," + assets.IMAGE
                         + "," + assets.NAME + "," + assets.NOTE + "," + assets.PLACE + "," + assets.PRICE
                         + "," + assets.SN + "," + assets.SPECIFICATION + "," + assets.TYPEID
@@ -709,12 +736,12 @@ namespace SMOSEC.Application.Services
         /// <param name="assid"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public ReturnInfo DeleteAssets(string assid,string userId)
+        public ReturnInfo DeleteAssets(string assid, string userId)
         {
             ReturnInfo RInfo = new ReturnInfo();
             StringBuilder sb = new StringBuilder();
             Assets assets = _AssetsRepository.GetByID(assid).FirstOrDefault();
-            if(assets != null)
+            if (assets != null)
             {
                 assets.STATUS = (int)STATUS.已删除;
                 assets.MODIFYDATE = DateTime.Now;
