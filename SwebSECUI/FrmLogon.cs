@@ -17,10 +17,13 @@ namespace SwebSECUI
         }
         #region "definition"
         AutofacConfig autofacConfig = new AutofacConfig();//调用配置类
-        private DateTime toasttime;
         #endregion
-        /// <summary>
 
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogon_Click(object sender, EventArgs e)
         {
             try
@@ -52,23 +55,35 @@ namespace SwebSECUI
                 Toast(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             Show(new FrmRegister());
         }
-
+        /// <summary>
+        /// 快速登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmRegister frm = new FrmRegister();
-            frm.isForgetPwd = true;
-            frm.UserID = txtUserName.Text.Trim();
-            this.Show(frm);
-        }
+            try
+            {
+                String Role = autofacConfig.coreUserService.GetUserByID("13123456789").USER_ROLE;
+                Client.Session["UserID"] = "13123456789";
+                Client.Session["Role"] = Role;
+                MainForm frm = new MainForm();
+                Show(frm);
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
 
-        private void txtPassWord_SubmitEditing(object sender, EventArgs e)
-        {
-            btnLogon_Click(null,null);
         }
     }
 }
