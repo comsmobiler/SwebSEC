@@ -53,7 +53,7 @@ namespace SwebSECUI.AssetsManager
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Bold = true;
             this.label1.Flex = 1;
-            this.label1.FontSize = 16F;
+            this.label1.FontSize = 18F;
             this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
@@ -158,6 +158,8 @@ namespace SwebSECUI.AssetsManager
             // 
             // txtName
             // 
+            this.txtName.Border = new Swebui.Controls.Border(1F);
+            this.txtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.txtName.Flex = 1;
             this.txtName.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtName.Name = "txtName";
@@ -166,23 +168,25 @@ namespace SwebSECUI.AssetsManager
             // 
             // treeSelect1
             // 
+            this.treeSelect1.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect1.DefaultValue = new string[0];
             this.treeSelect1.Flex = 1;
             this.treeSelect1.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect1.Name = "treeSelect1";
-            this.treeSelect1.Placeholder = "选择（必填）   > ";
             this.treeSelect1.Size = new System.Drawing.Size(100, 0);
             this.treeSelect1.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect1_Press);
             // 
             // treeSelect2
             // 
+            this.treeSelect2.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect2.DefaultValue = new string[0];
             this.treeSelect2.Flex = 1;
             this.treeSelect2.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect2.Name = "treeSelect2";
-            this.treeSelect2.Placeholder = "选择（必填）   > ";
             this.treeSelect2.Size = new System.Drawing.Size(100, 0);
             this.treeSelect2.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect2_Press);
             // 
@@ -241,23 +245,26 @@ namespace SwebSECUI.AssetsManager
             // 
             // treeSelect3
             // 
+            this.treeSelect3.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect3.DefaultValue = new string[0];
+            this.treeSelect3.DropDownHeight = 280;
             this.treeSelect3.Flex = 1;
             this.treeSelect3.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect3.Name = "treeSelect3";
-            this.treeSelect3.Placeholder = "选择（必填）   > ";
             this.treeSelect3.Size = new System.Drawing.Size(100, 0);
             this.treeSelect3.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect3_Press);
             // 
             // treeSelect4
             // 
+            this.treeSelect4.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect4.DefaultValue = new string[0];
             this.treeSelect4.Flex = 1;
             this.treeSelect4.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect4.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect4.Name = "treeSelect4";
-            this.treeSelect4.Placeholder = "选择（必填）   > ";
             this.treeSelect4.Size = new System.Drawing.Size(100, 0);
             this.treeSelect4.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect4_Press);
             // 

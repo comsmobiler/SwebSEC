@@ -108,8 +108,7 @@ namespace SwebSECUI.AssetsManager
                             LocationId = user.USER_LOCATIONID;
                             var location = _autofacConfig.assLocationService.GetByID(LocationId);
                             treeSelect2.Tag = location.NAME;
-                            //btnLocation.Enabled = false;
-                            //btnLocation1.Enabled = false;
+
                         }
                         break;
                     case "SMOSECUser":
@@ -117,11 +116,6 @@ namespace SwebSECUI.AssetsManager
                             CoManId = UserId;
                             var user = _autofacConfig.coreUserService.GetUserByID(UserId);
                             treeSelect1.Tag = user.USER_NAME;
-                            //btnCOMan.Enabled = false;
-                            //btnCOMan1.Enabled = false;
-                            //var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
-                            //DepId = user.USER_DEPARTMENTID;
-                            //txtDep.Text = department.NAME;
                         }
                         break;
                 }
@@ -298,7 +292,7 @@ namespace SwebSECUI.AssetsManager
                     var user = _autofacConfig.coreUserService.GetUserByID(CoManId);
                     var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
                     DepId = user.USER_DEPARTMENTID;
-                    if (department != null) txtDep.Text = department.NAME;
+                    /*if (department != null)*/ txtDep.Text = department.NAME;
                 }
             }
             catch (Exception ex)

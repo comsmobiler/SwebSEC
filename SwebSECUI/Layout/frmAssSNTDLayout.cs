@@ -25,7 +25,8 @@ namespace SwebSECUI.Layout
         /// <param name="e"></param>
         private void Check_CheckedChanged(object sender, EventArgs e)
         {
-            ((frmTransferDealSN)Parent).upCheckState();
+            frmTransferDealSN frm = new frmTransferDealSN();
+            frm.upCheckState();
         }
         /// <summary>
         /// 点击修改选中状态
@@ -39,7 +40,8 @@ namespace SwebSECUI.Layout
                 Check.Checked = false;
             else
                 Check.Checked = true;
-            ((frmTransferDealSN)Parent).upCheckState();
+            frmTransferDealSN frm = new frmTransferDealSN();
+            frm.upCheckState();
         }
         /// <summary>
         /// 获取行项数据

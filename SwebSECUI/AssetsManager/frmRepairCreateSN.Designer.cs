@@ -47,10 +47,10 @@ namespace SwebSECUI.AssetsManager
             this.panel4 = new Swebui.Controls.Panel();
             this.label7 = new Swebui.Controls.Label();
             this.label8 = new Swebui.Controls.Label();
-            this.panel7 = new Swebui.Controls.Panel();
-            this.ListAssetsSN = new Swebui.Controls.ListView();
             this.label11 = new Swebui.Controls.Label();
             this.label12 = new Swebui.Controls.Label();
+            this.panel7 = new Swebui.Controls.Panel();
+            this.ListAssetsSN = new Swebui.Controls.ListView();
             // 
             // panel1
             // 
@@ -361,6 +361,23 @@ namespace SwebSECUI.AssetsManager
             this.label8.Text = "资产名称";
             this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
+            // label11
+            // 
+            this.label11.Flex = 1;
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 0);
+            this.label11.Text = "资产条码";
+            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.Flex = 1;
+            this.label12.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.Text = "SN号";
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
             // panel7
             // 
             this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
@@ -382,23 +399,6 @@ namespace SwebSECUI.AssetsManager
             this.ListAssetsSN.Size = new System.Drawing.Size(0, 300);
             this.ListAssetsSN.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.TemplateControlName = "frmOrderCreateSNLayout";
-            // 
-            // label11
-            // 
-            this.label11.Flex = 1;
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 0);
-            this.label11.Text = "资产条码";
-            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.Flex = 1;
-            this.label12.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 0);
-            this.label12.Text = "SN号";
-            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmRepairCreateSN
             // 

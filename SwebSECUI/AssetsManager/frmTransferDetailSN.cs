@@ -101,8 +101,8 @@ namespace SwebSECUI.AssetsManager
             frmTransferDealSN frm = new frmTransferDealSN();
             frm.TOID = TOID;
             frm.Flex = 1;
-            this.Parent.Parent.Controls.Add(frm);
-            this.Parent.Parent.Controls.RemoveAt(0);
+            this.Parent.Controls.Add(frm);
+            this.Parent.Controls.RemoveAt(0);
             frm.Type = PROCESSMODE.调拨确认;
             Bind();   //刷新数据显示
         }
@@ -116,8 +116,8 @@ namespace SwebSECUI.AssetsManager
             frmTransferDealSN frm = new frmTransferDealSN();
             frm.TOID = TOID;
             frm.Flex = 1;
-            this.Parent.Parent.Controls.Add(frm);
-            this.Parent.Parent.Controls.RemoveAt(0);
+            this.Parent.Controls.Add(frm);
+            this.Parent.Controls.RemoveAt(0);
             frm.Type = PROCESSMODE.调拨取消;
             Bind();   //刷新数据显示
         }

@@ -47,11 +47,11 @@ namespace SwebSECUI.AssetsManager
             this.panel6 = new Swebui.Controls.Panel();
             this.txtHMan = new Swebui.Controls.TextBox();
             this.txtNote = new Swebui.Controls.TextBox();
-            this.panel9 = new Swebui.Controls.Panel();
-            this.ListAss = new Swebui.Controls.ListView();
             this.panel8 = new Swebui.Controls.Panel();
             this.txtCode = new Swebui.Controls.TextBox();
             this.btnSelect = new Swebui.Controls.Button();
+            this.panel9 = new Swebui.Controls.Panel();
+            this.ListAss = new Swebui.Controls.ListView();
             this.panel7 = new Swebui.Controls.Panel();
             this.label7 = new Swebui.Controls.Label();
             this.label8 = new Swebui.Controls.Label();
@@ -63,7 +63,7 @@ namespace SwebSECUI.AssetsManager
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.Title1});
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(0, 40);
+            this.panel1.Size = new System.Drawing.Size(0, 50);
             // 
             // Title1
             // 
@@ -362,26 +362,6 @@ namespace SwebSECUI.AssetsManager
             this.txtNote.Size = new System.Drawing.Size(100, 0);
             this.txtNote.WaterMarkText = "(选填)";
             // 
-            // panel9
-            // 
-            this.panel9.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.ListAss});
-            this.panel9.Flex = 1;
-            this.panel9.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(0, 168);
-            // 
-            // ListAss
-            // 
-            this.ListAss.Border = new Swebui.Controls.Border(1F);
-            this.ListAss.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.ListAss.Flex = 1;
-            this.ListAss.Name = "ListAss";
-            this.ListAss.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
-            this.ListAss.Size = new System.Drawing.Size(0, 300);
-            this.ListAss.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.ListAss.TemplateControlName = "OperCreateAssLayout";
-            // 
             // panel8
             // 
             this.panel8.Controls.AddRange(new Swebui.Controls.SwebControl[] {
@@ -417,6 +397,26 @@ namespace SwebSECUI.AssetsManager
             this.btnSelect.Size = new System.Drawing.Size(100, 0);
             this.btnSelect.Text = "搜索";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.ListAss});
+            this.panel9.Flex = 1;
+            this.panel9.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(0, 168);
+            // 
+            // ListAss
+            // 
+            this.ListAss.Border = new Swebui.Controls.Border(1F);
+            this.ListAss.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.ListAss.Flex = 1;
+            this.ListAss.Name = "ListAss";
+            this.ListAss.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.ListAss.Size = new System.Drawing.Size(0, 300);
+            this.ListAss.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.ListAss.TemplateControlName = "OperCreateAssLayout";
             // 
             // panel7
             // 

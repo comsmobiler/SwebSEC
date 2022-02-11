@@ -127,6 +127,7 @@ namespace SwebSECUI.AssetsManager
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;
             this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 
@@ -137,7 +138,6 @@ namespace SwebSECUI.AssetsManager
             this.panel1,
             this.plButton,
             this.panel2});
-            this.Margin = new Swebui.Controls.Margin(10F);
             this.Load += new System.EventHandler(this.frmCollarOrder_Load);
 
         }

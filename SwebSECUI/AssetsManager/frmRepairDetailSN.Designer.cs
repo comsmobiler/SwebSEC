@@ -171,6 +171,7 @@ namespace SwebSECUI.AssetsManager
             this.lblDealMan.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.lblDealMan.Name = "lblDealMan";
             this.lblDealMan.Size = new System.Drawing.Size(100, 0);
+            this.lblDealMan.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // DatePicker
             // 

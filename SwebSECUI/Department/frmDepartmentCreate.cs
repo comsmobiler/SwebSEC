@@ -7,6 +7,7 @@ using SMOSEC.DTOs.InputDTO;
 using SMOSEC.Domain.Entity;
 using SMOSEC.CommLib;
 using SMOSEC.DTOs.OutputDTO;
+using Swebui;
 
 namespace SwebSECUI.Department
 {
@@ -116,7 +117,7 @@ namespace SwebSECUI.Department
                     //如果该选中责任人已是部门责任人，则报错
                     if (isLeader == true)
                     {
-                        throw new Exception(treeSelect1.Tag + "已是部门责任人，请先解散部门！");
+                        throw new Exception(treeSelect1.Tag.ToString() + "已是部门责任人，请先解散部门！");
                     }
                     //
                     UserDepDto userdep = AutofacConfig.coreUserService.GetUseDepByUserID(treeSelect1.Tag.ToString());
@@ -124,13 +125,12 @@ namespace SwebSECUI.Department
                     if (userdep != null & string.IsNullOrEmpty(userdep.DEPARTMENTID) == false & isLeader == false)
                         //if (AutofacConfig.userService.GetAllUsers().Count > 0 & isLeader== false)
                         //{
-                        MessageBox.Show(treeSelect1.Tag + "已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs Args) =>
+                        MessageBox.Show(treeSelect1.Tag.ToString() + "已是部门成员，是否确定为该部门责任人？", MessageBoxButtons.YesNo, (Object s1, MessageBoxHandlerArgs Args) =>
                         {
                             //此委托为异步委托事件
                             if (Args.Result == ShowResult.Yes)
                             {
-                                leader = treeSelect1.Tag.ToString();
-                                
+                                leader = treeSelect1.Tag.ToString(); 
                             }
                         });
                     //}
@@ -189,18 +189,18 @@ namespace SwebSECUI.Department
                         imgPortrait.ResourceID = "bumenicon";
                     }
                     coreUser userinfo = AutofacConfig.coreUserService.GetUserByID(leader);
-                    treeSelect1.Tag = userinfo.USER_NAME;
+                    treeSelect1.Placeholder = userinfo.USER_NAME;
                     SaveBtn.Text = "提交";
                     btnAssignUser.Visible = true;
                     // btnSave.Top = 190;
-                    btnAssignUser.Top = treeSelect1.Top + treeSelect1.Height + 10;
-                    SaveBtn.Top = btnAssignUser.Top + btnAssignUser.Height + 10;
+                    //btnAssignUser.Top = treeSelect1.Top + treeSelect1.Height + 10;
+                    //SaveBtn.Top = btnAssignUser.Top + btnAssignUser.Height + 10;
                 }
                 else
                 {
                     btnAssignUser.Visible = false;
                     // btnSave.Top = 145;
-                    SaveBtn.Top = treeSelect1.Top + treeSelect1.Height + 10;
+                    //SaveBtn.Top = treeSelect1.Top + treeSelect1.Height + 10;
                 }
             }
             catch (Exception ex)
@@ -215,22 +215,35 @@ namespace SwebSECUI.Department
         /// <param name="e"></param>
         private void btnUp_Click(object sender, EventArgs e)
         {
-            this.Client.FileUpload((obj, args) => {
-                if (args.isError == true)
-                    if (imgPortrait.ResourceID.Trim().Length > 0 & string.IsNullOrEmpty(D_Portrait) == false)
+            try
+            {
+                Client.FileUpload((obj, args) =>
+                {
+
+                    if (string.IsNullOrEmpty(args.error))
                     {
-                        args.SaveFile(D_Portrait + ".png");
-                        imgPortrait.ResourceID = D_Portrait;
+                        string imgName = "";
+                        if (string.IsNullOrEmpty(imgPortrait.ResourceID))
+                        {
+                            string[] name = args.ResourceID.Split('.');
+                            imgName = DateTime.Now.ToString("yyyyMMddHHmmss") + "." + name[1];
+                        }
+                        else
+                        {
+                            string[] name = args.ResourceID.Split('.');
+                            string[] firstName = imgPortrait.ResourceID.Split(',');
+                            imgName = firstName[0] + "." + name[1];
+                        }
+                        args.SaveFile(imgName, SwebResourceManager.DefaultImagePath);
+                        imgPortrait.ResourceID = imgName;
                         imgPortrait.Refresh();
                     }
-                    else
-                    {
-                        args.SaveFile(args.ResourceID + ".png");
-                        D_Portrait = args.ResourceID;
-                        imgPortrait.ResourceID = args.ResourceID;
-                        imgPortrait.Refresh();
-                    }
-            });
+                });
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
         }
         /// <summary>
         /// 跳转到分配部门界面
@@ -249,10 +262,10 @@ namespace SwebSECUI.Department
                     department.NAME = dep.NAME;
                     department.MANAGER = dep.MANAGER;
                     department.IMAGEID = dep.IMAGEID;
-                    frmDepAssignUser frmDepAssignUser = new frmDepAssignUser();
-                    frmDepAssignUser.department = department;
-                    frmDepAssignUser.Flex = 1;
-                    this.Parent.Controls.Add(frmDepAssignUser);
+                    frmDepAssignUser frm = new frmDepAssignUser();
+                    frm.department = department;
+                    frm.Flex = 1;
+                    this.Parent.Controls.Add(frm);
                     this.Parent.Controls.RemoveAt(0);
                 }
 

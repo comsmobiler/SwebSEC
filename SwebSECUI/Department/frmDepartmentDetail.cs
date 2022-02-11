@@ -39,7 +39,10 @@ namespace SwebSECUI.Department
         /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            this.Parent.Controls.Add(new frmDepartmentCreate() { Flex = 1 });
+            frmDepartmentCreate frm = new frmDepartmentCreate();
+            frm.D_ID = D_ID;
+            frm.Flex = 1;
+            this.Parent.Controls.Add(frm);
             this.Parent.Controls.RemoveAt(0);
             Bind();
         }
@@ -110,10 +113,6 @@ namespace SwebSECUI.Department
                                         break;
                                 }
                             }
-                            //else
-                            //{
-                            //    userinfo.U_Portrait = userinfo.U_Portrait;
-                            //}
                         }
                     }
                     gridUserData.DataSource = listDepUser;
@@ -153,8 +152,8 @@ namespace SwebSECUI.Department
                                     if (result.IsSuccess == true)
                                     {
                                         ShowResult = ShowResult.Yes;
-                                        Close();
                                         Toast("部门已删除！", ToastLength.SHORT);
+                                        BackBtn_Click(null,null);
                                     }
                                     else
                                     {
@@ -185,6 +184,11 @@ namespace SwebSECUI.Department
                     }
                 }
             });
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

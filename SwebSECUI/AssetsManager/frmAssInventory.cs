@@ -10,6 +10,7 @@ using SwebSECUI.Layout;
 using SMOSEC.CommLib;
 using SMOSEC.DTOs.InputDTO;
 using SwebSECUI.AssetsManager;
+using SMOSEC.DTOs.OutputDTO;
 
 namespace SwebSECUI.AssetsManager
 {
@@ -66,24 +67,6 @@ namespace SwebSECUI.AssetsManager
                     gridView1.DataSource = assInventoryList;
                     gridView1.DataBind();
                 }
-                //foreach (var row in gridView1)
-                //{
-                //    frmAssInventoryLayout layout = (frmAssInventoryLayout)row.Control;
-                //    switch (layout.label1.Text)
-                //    {
-                //        case "盘点结束":
-                //            layout.label1.ForeColor = Color.FromArgb(43, 125, 43);
-                //            break;
-                //        case "盘点中":
-                //            layout.label1.ForeColor = Color.FromArgb(43, 140, 255);
-                //            layout.btnStart.Text = "继续盘点";
-                //            break;
-                //        case "盘点未开始":
-                //            layout.label1.ForeColor = Color.FromArgb(211, 215, 217);
-                //            break;
-                //    }
-                //}
-
             }
             catch (Exception ex)
             {
@@ -128,7 +111,29 @@ namespace SwebSECUI.AssetsManager
                 {
                     Dictionary<string, object> selectrow = args.SelectedRows[0];
                     string id = selectrow["IID"].ToString();
-                    gridView1.RemoveRow();
+                    MessageBox.Show("你确定要该盘点单吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args1) =>
+                    {
+                        try
+                        {
+                            if (args1.Result == ShowResult.OK)     //删除该盘点单
+                            {
+                                ReturnInfo rInfo = _autofacConfig.AssInventoryService.DeleteInventory(id);
+                                if (rInfo.IsSuccess)
+                                {
+                                    Toast("删除盘点单成功.");
+                                    RefreshBtn_Click(null, null);
+                                }
+                                else
+                                {
+                                    throw new Exception(rInfo.ErrorInfo);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Form.Toast(ex.Message);
+                        }
+                    });
                 }
                 else
                 {
@@ -149,10 +154,22 @@ namespace SwebSECUI.AssetsManager
                 {
                     Dictionary<string, object> selectrow = args.SelectedRows[0];
                     string id = selectrow["IID"].ToString();
-                    frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
-                    frm.IID = id;
-                    this.Parent.Controls.Add(frm);
-                    this.Parent.Controls.RemoveAt(0);
+                    AddAIResultInputDto inputDto = new AddAIResultInputDto {IID = id};
+                    var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(id);
+                    ReturnInfo returnInfo = _autofacConfig.AssInventoryService.AddAssInventoryResult(inputDto);
+                    if (returnInfo.IsSuccess)
+                    {
+                        frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
+                        frm.IID = id;
+                        this.Parent.Controls.Add(frm);
+                        this.Parent.Controls.RemoveAt(0);
+                        frmAssInventoryResult result = new frmAssInventoryResult { IID = id, LocationId = inventory.LOCATIONID, DepartmentId = inventory.DEPARTMENTID, typeId = inventory.TYPEID };
+                        Bind();
+                    }
+                    else
+                    {
+                        Toast(returnInfo.ErrorInfo);
+                    }
                 }
                 else
                 {
@@ -160,6 +177,24 @@ namespace SwebSECUI.AssetsManager
                 }
 
             });
+        }
+
+        private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            string LocationId = "";
+            string UserId = Client.Session["UserID"].ToString();
+            if (Client.Session["Role"].ToString() == "SMOSECAdmin")
+            {
+                var user = _autofacConfig.coreUserService.GetUserByID(UserId);
+                LocationId = user.USER_LOCATIONID;
+            }
+            DataTable assInventoryList = _autofacConfig.AssInventoryService.GetAssInventoryList(Client.Session["Role"].ToString() == "SMOSECUser" ? Client.Session["UserID"].ToString() : "", LocationId);
+            if (assInventoryList.Rows.Count > 0)
+            {
+                gridView1.DataSource = assInventoryList;
+                gridView1.DataBind();
+            }
+            gridView1.Reload(assInventoryList);
         }
     } 
 }

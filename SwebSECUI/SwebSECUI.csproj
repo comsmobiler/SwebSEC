@@ -330,6 +330,12 @@
     <Compile Include="FrmLogon.Designer.cs">
       <DependentUpon>FrmLogon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\AssetsTypeCreateDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\AssetsTypeCreateDialog.Designer.cs">
+      <DependentUpon>AssetsTypeCreateDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\BorrowOrderLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -485,6 +491,18 @@
     </Compile>
     <Compile Include="Layout\ReturnOrderLayout.Designer.cs">
       <DependentUpon>ReturnOrderLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\SwebUserControl1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\SwebUserControl1.Designer.cs">
+      <DependentUpon>SwebUserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\SwebUserControl2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\SwebUserControl2.Designer.cs">
+      <DependentUpon>SwebUserControl2.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Component</SubType>
@@ -670,8 +688,14 @@
     <EmbeddedResource Include="Department\frmDepAssignUser.resx">
       <DependentUpon>frmDepAssignUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Department\frmDepPerMessage.resx">
+      <DependentUpon>frmDepPerMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogon.resx">
       <DependentUpon>FrmLogon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\AssetsTypeCreateDialog.resx">
+      <DependentUpon>AssetsTypeCreateDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\BorrowOrderLayout.resx">
       <DependentUpon>BorrowOrderLayout.cs</DependentUpon>
@@ -747,6 +771,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\ReturnOrderLayout.resx">
       <DependentUpon>ReturnOrderLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\SwebUserControl1.resx">
+      <DependentUpon>SwebUserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

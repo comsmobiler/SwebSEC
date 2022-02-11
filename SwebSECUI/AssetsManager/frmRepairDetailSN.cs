@@ -58,7 +58,7 @@ namespace SwebSECUI.AssetsManager
                 if (ROData.COST != 0)
                     txtPrice.Text = ROData.COST.ToString();
                 txtContent.Text = ROData.REPAIRCONTENT;
-                if (String.IsNullOrEmpty(ROData.NOTE)) txtNote.Text = ROData.NOTE;
+                /*if (String.IsNullOrEmpty(ROData.NOTE))*/ txtNote.Text = ROData.NOTE;
 
                 DataTable tableAssets = new DataTable();      //未开启SN的资产列表
                 tableAssets.Columns.Add("ASSID");             //资产编号

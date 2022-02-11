@@ -20,6 +20,7 @@ namespace SwebSECUI.Layout
         private void InitializeComponent()
         {
             this.panel1 = new Swebui.Controls.Panel();
+            this.panel2 = new Swebui.Controls.Panel();
             this.image1 = new Swebui.Controls.Image();
             this.lblName = new Swebui.Controls.Label();
             this.plEdit = new Swebui.Controls.Panel();
@@ -35,8 +36,7 @@ namespace SwebSECUI.Layout
             // panel1
             // 
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.image1,
-            this.lblName,
+            this.panel2,
             this.plEdit,
             this.plDelete,
             this.plEnable});
@@ -45,45 +45,56 @@ namespace SwebSECUI.Layout
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(0, 100);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.image1,
+            this.lblName});
+            this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(190, 0);
+            // 
             // image1
             // 
             this.image1.Name = "image1";
             this.image1.ResourceID = "quyu";
-            this.image1.Size = new System.Drawing.Size(45, 0);
+            this.image1.Size = new System.Drawing.Size(30, 45);
             this.image1.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
             // 
             // lblName
             // 
             this.lblName.DataMember = "LOCATIONID";
             this.lblName.DisplayMember = "NAME";
+            this.lblName.Flex = 1;
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(300, 0);
             this.lblName.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // plEdit
             // 
+            this.plEdit.Border = new Swebui.Controls.Border(1F);
+            this.plEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.plEdit.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.fontIcon1,
             this.label1});
             this.plEdit.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.plEdit.Flex = 1;
+            this.plEdit.Margin = new Swebui.Controls.Margin(5F, 0F, 0F, 0F);
             this.plEdit.Name = "plEdit";
-            this.plEdit.Size = new System.Drawing.Size(100, 0);
+            this.plEdit.Size = new System.Drawing.Size(160, 0);
             this.plEdit.Touchable = true;
             this.plEdit.Press += new System.EventHandler(this.plEdit_Press);
             // 
             // fontIcon1
             // 
             this.fontIcon1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(181)))), ((int)(((byte)(231)))));
-            this.fontIcon1.Margin = new Swebui.Controls.Margin(10F);
+            this.fontIcon1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.fontIcon1.Name = "fontIcon1";
             this.fontIcon1.ResourceID = "pencil";
-            this.fontIcon1.Size = new System.Drawing.Size(80, 0);
+            this.fontIcon1.Size = new System.Drawing.Size(30, 45);
             // 
             // label1
             // 
             this.label1.Flex = 1;
-            this.label1.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 0);
             this.label1.Text = "编辑";
@@ -95,24 +106,23 @@ namespace SwebSECUI.Layout
             this.fontIcon2,
             this.label2});
             this.plDelete.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.plDelete.Flex = 1;
+            this.plDelete.Margin = new Swebui.Controls.Margin(5F, 0F, 0F, 0F);
             this.plDelete.Name = "plDelete";
-            this.plDelete.Size = new System.Drawing.Size(100, 0);
+            this.plDelete.Size = new System.Drawing.Size(160, 0);
             this.plDelete.Touchable = true;
             this.plDelete.Press += new System.EventHandler(this.plDelete_Press);
             // 
             // fontIcon2
             // 
             this.fontIcon2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(181)))), ((int)(((byte)(231)))));
-            this.fontIcon2.Margin = new Swebui.Controls.Margin(10F);
+            this.fontIcon2.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.fontIcon2.Name = "fontIcon2";
             this.fontIcon2.ResourceID = "pencil";
-            this.fontIcon2.Size = new System.Drawing.Size(80, 0);
+            this.fontIcon2.Size = new System.Drawing.Size(30, 45);
             // 
             // label2
             // 
             this.label2.Flex = 1;
-            this.label2.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 0);
             this.label2.Text = "删除";
@@ -124,19 +134,18 @@ namespace SwebSECUI.Layout
             this.image2,
             this.lblEnable});
             this.plEnable.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.plEnable.Flex = 1;
+            this.plEnable.Margin = new Swebui.Controls.Margin(5F, 0F, 0F, 0F);
             this.plEnable.Name = "plEnable";
-            this.plEnable.Size = new System.Drawing.Size(300, 0);
+            this.plEnable.Size = new System.Drawing.Size(160, 0);
             this.plEnable.Touchable = true;
             this.plEnable.Press += new System.EventHandler(this.plEnable_Press);
             // 
             // image2
             // 
             this.image2.DisplayMember = "IMGENABLE";
-            this.image2.Margin = new Swebui.Controls.Margin(10F);
             this.image2.Name = "image2";
             this.image2.ResourceID = "on";
-            this.image2.Size = new System.Drawing.Size(67, 0);
+            this.image2.Size = new System.Drawing.Size(45, 45);
             this.image2.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
             // 
             // lblEnable
@@ -154,22 +163,23 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 50);
+            this.Size = new System.Drawing.Size(685, 45);
 
         }
         #endregion
 
         private Panel panel1;
+        private Panel panel2;
         internal Image image1;
         internal Label lblName;
+        internal Panel plEdit;
         internal FontIcon fontIcon1;
         private Label label1;
+        internal Panel plDelete;
         internal FontIcon fontIcon2;
         private Label label2;
         internal Panel plEnable;
         private Image image2;
         internal Label lblEnable;
-        internal Panel plEdit;
-        internal Panel plDelete;
     }
 }

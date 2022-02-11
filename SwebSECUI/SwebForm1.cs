@@ -77,5 +77,20 @@ namespace SwebSECUI
         {
 
         }
+
+        private void plEdit_Press(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plDelete_Press(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plEnable_Press(object sender, EventArgs e)
+        {
+
+        }
     }
 }

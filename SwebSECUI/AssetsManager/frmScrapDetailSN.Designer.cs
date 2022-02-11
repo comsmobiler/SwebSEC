@@ -56,7 +56,7 @@ namespace SwebSECUI.AssetsManager
             this.Title1.Margin = new Swebui.Controls.Margin(10F);
             this.Title1.Name = "Title1";
             this.Title1.Size = new System.Drawing.Size(0, 35);
-            this.Title1.Text = "资产报废单创建";
+            this.Title1.Text = "资产报废单详情";
             this.Title1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // spContent
@@ -160,6 +160,7 @@ namespace SwebSECUI.AssetsManager
             this.lblDealMan.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.lblDealMan.Name = "lblDealMan";
             this.lblDealMan.Size = new System.Drawing.Size(100, 0);
+            this.lblDealMan.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // DatePicker
             // 

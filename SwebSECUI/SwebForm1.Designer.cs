@@ -19,87 +19,60 @@ namespace SwebSECUI
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.plRow = new Swebui.Controls.Panel();
-            this.Check = new Swebui.Controls.CheckBox();
-            this.imgAss = new Swebui.Controls.Image();
-            this.panel2 = new Swebui.Controls.Panel();
-            this.lblName = new Swebui.Controls.Label();
-            this.lblSN = new Swebui.Controls.Label();
+            this.panel4 = new Swebui.Controls.Panel();
+            this.label1 = new Swebui.Controls.Label();
+            this.label2 = new Swebui.Controls.Label();
+            this.gridUserData = new Swebui.Controls.ListView();
             // 
-            // plRow
+            // panel4
             // 
-            this.plRow.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.Check,
-            this.imgAss,
-            this.panel2});
-            this.plRow.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.plRow.Name = "plRow";
-            this.plRow.Size = new System.Drawing.Size(0, 100);
-            this.plRow.Touchable = true;
-            this.plRow.Press += new System.EventHandler(this.plRow_Press);
+            this.panel4.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.label1,
+            this.label2});
+            this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel4.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(0, 45);
             // 
-            // Check
+            // label1
             // 
-            this.Check.BackColor = System.Drawing.Color.Transparent;
-            this.Check.BorderColor = System.Drawing.Color.Black;
-            this.Check.BorderRadius = 0;
-            this.Check.DataMember = "ROROWID";
-            this.Check.Margin = new Swebui.Controls.Margin(10F, 5F, 0F, 5F);
-            this.Check.Name = "Check";
-            this.Check.Size = new System.Drawing.Size(45, 45);
-            this.Check.CheckedChanged += new System.EventHandler(this.Check_CheckedChanged);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 45);
+            this.label1.Text = "头像";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // imgAss
+            // label2
             // 
-            this.imgAss.DisplayMember = "IMAGE";
-            this.imgAss.Margin = new Swebui.Controls.Margin(5F);
-            this.imgAss.Name = "imgAss";
-            this.imgAss.ResourceID = "";
-            this.imgAss.Size = new System.Drawing.Size(45, 45);
-            this.imgAss.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
+            this.label2.Flex = 1;
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 0);
+            this.label2.Text = "成员名称";
+            this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // panel2
+            // gridUserData
             // 
-            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.lblName,
-            this.lblSN});
-            this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel2.Flex = 1;
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 0);
-            // 
-            // lblName
-            // 
-            this.lblName.DataMember = "ASSID";
-            this.lblName.DisplayMember = "NAME";
-            this.lblName.Flex = 1;
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(100, 0);
-            this.lblName.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // lblSN
-            // 
-            this.lblSN.DataMember = "SN";
-            this.lblSN.DisplayMember = "SN";
-            this.lblSN.Flex = 1;
-            this.lblSN.Name = "lblSN";
-            this.lblSN.Size = new System.Drawing.Size(100, 0);
-            this.lblSN.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            this.gridUserData.Flex = 1;
+            this.gridUserData.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.gridUserData.Name = "gridUserData";
+            this.gridUserData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
+            this.gridUserData.Size = new System.Drawing.Size(0, 300);
+            this.gridUserData.TemplateControlName = "frmUserLayout";
             // 
             // SwebForm1
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.plRow});
+            this.panel4,
+            this.gridUserData});
             this.Load += new System.EventHandler(this.SwebForm1_Load);
 
         }
         #endregion
 
-        private Swebui.Controls.Panel plRow;
-        internal Swebui.Controls.CheckBox Check;
-        internal Swebui.Controls.Image imgAss;
-        private Swebui.Controls.Panel panel2;
-        internal Swebui.Controls.Label lblName;
-        internal Swebui.Controls.Label lblSN;
+        private Swebui.Controls.Panel panel4;
+        private Swebui.Controls.Label label1;
+        private Swebui.Controls.Label label2;
+        private Swebui.Controls.ListView gridUserData;
     }
 }

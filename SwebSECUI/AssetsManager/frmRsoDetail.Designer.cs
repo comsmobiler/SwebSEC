@@ -63,7 +63,7 @@ namespace SwebSECUI.AssetsManager
             this.Title1.Margin = new Swebui.Controls.Margin(10F);
             this.Title1.Name = "Title1";
             this.Title1.Size = new System.Drawing.Size(0, 35);
-            this.Title1.Text = "退库单创建";
+            this.Title1.Text = "退库单详情";
             this.Title1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel2

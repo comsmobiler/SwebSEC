@@ -39,11 +39,14 @@ namespace SwebSECUI.AssetsManager
             this.panel4 = new Swebui.Controls.Panel();
             this.treeSelect3 = new Swebui.Controls.TreeSelect();
             this.txtNote = new Swebui.Controls.TextBox();
-            this.label4 = new Swebui.Controls.Label();
-            this.panel5 = new Swebui.Controls.Panel();
-            this.label6 = new Swebui.Controls.Label();
+            this.panel6 = new Swebui.Controls.Panel();
             this.txtCode = new Swebui.Controls.TextBox();
-            this.btnAdd = new Swebui.Controls.Button();
+            this.btnSelect = new Swebui.Controls.Button();
+            this.panel5 = new Swebui.Controls.Panel();
+            this.label7 = new Swebui.Controls.Label();
+            this.label8 = new Swebui.Controls.Label();
+            this.label11 = new Swebui.Controls.Label();
+            this.label12 = new Swebui.Controls.Label();
             this.panel7 = new Swebui.Controls.Panel();
             this.ListAssetsSN = new Swebui.Controls.ListView();
             // 
@@ -59,7 +62,7 @@ namespace SwebSECUI.AssetsManager
             this.Title1.BackColor = System.Drawing.Color.White;
             this.Title1.Bold = true;
             this.Title1.Flex = 1;
-            this.Title1.FontSize = 15F;
+            this.Title1.FontSize = 18F;
             this.Title1.Margin = new Swebui.Controls.Margin(10F);
             this.Title1.Name = "Title1";
             this.Title1.Size = new System.Drawing.Size(0, 35);
@@ -105,7 +108,7 @@ namespace SwebSECUI.AssetsManager
             this.SaveBtn.NumberOfLines = 0;
             this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
             this.SaveBtn.Size = new System.Drawing.Size(80, 35);
-            this.SaveBtn.Text = "提交";
+            this.SaveBtn.Text = "保存";
             this.SaveBtn.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel12
@@ -164,11 +167,12 @@ namespace SwebSECUI.AssetsManager
             // 
             // treeSelect1
             // 
+            this.treeSelect1.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect1.DefaultValue = new string[0];
             this.treeSelect1.Flex = 1;
             this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect1.Name = "treeSelect1";
-            this.treeSelect1.Placeholder = "选择（必填）   > ";
             this.treeSelect1.Size = new System.Drawing.Size(100, 0);
             this.treeSelect1.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect1_Press);
             // 
@@ -176,7 +180,7 @@ namespace SwebSECUI.AssetsManager
             // 
             this.DatePicker.BackColor = System.Drawing.Color.White;
             this.DatePicker.Border = new Swebui.Controls.Border(1F);
-            this.DatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
+            this.DatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.DatePicker.Flex = 1;
             this.DatePicker.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.DatePicker.Name = "DatePicker";
@@ -185,11 +189,12 @@ namespace SwebSECUI.AssetsManager
             // 
             // treeSelect2
             // 
+            this.treeSelect2.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect2.DefaultValue = new string[0];
             this.treeSelect2.Flex = 1;
             this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect2.Name = "treeSelect2";
-            this.treeSelect2.Placeholder = "选择（必填）   > ";
             this.treeSelect2.Size = new System.Drawing.Size(100, 0);
             this.treeSelect2.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect2_Press);
             // 
@@ -232,6 +237,7 @@ namespace SwebSECUI.AssetsManager
             this.label3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 0);
+            this.label3.Text = "请输入SN号";
             this.label3.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel4
@@ -239,7 +245,7 @@ namespace SwebSECUI.AssetsManager
             this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.treeSelect3,
             this.txtNote,
-            this.label4});
+            this.panel6});
             this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel4.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel4.Name = "panel4";
@@ -248,17 +254,20 @@ namespace SwebSECUI.AssetsManager
             // 
             // treeSelect3
             // 
+            this.treeSelect3.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect3.DefaultValue = new string[0];
             this.treeSelect3.Flex = 1;
             this.treeSelect3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect3.Name = "treeSelect3";
-            this.treeSelect3.Placeholder = "选择（必填）   > ";
+            this.treeSelect3.Placeholder = " ";
             this.treeSelect3.Size = new System.Drawing.Size(100, 0);
             this.treeSelect3.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect3_Press);
             // 
             // txtNote
             // 
             this.txtNote.Border = new Swebui.Controls.Border(1F);
+            this.txtNote.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.txtNote.Flex = 1;
             this.txtNote.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtNote.Name = "txtNote";
@@ -267,74 +276,108 @@ namespace SwebSECUI.AssetsManager
             this.txtNote.TouchEnter += new System.EventHandler(this.txtCode_TouchEnter);
             this.txtNote.SubmitEditing += new System.EventHandler(this.txtCode_SubmitEditing);
             // 
-            // label4
+            // panel6
             // 
-            this.label4.Flex = 1;
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 0);
-            this.label4.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.label6,
+            this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.txtCode,
-            this.btnAdd});
-            this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel5.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
-            this.panel5.Name = "panel5";
-            this.panel5.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
-            this.panel5.Size = new System.Drawing.Size(0, 30);
-            // 
-            // label6
-            // 
-            this.label6.Flex = 1;
-            this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 0);
-            this.label6.Text = "请输入编号";
-            this.label6.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            this.btnSelect});
+            this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel6.Flex = 1;
+            this.panel6.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(300, 0);
             // 
             // txtCode
             // 
             this.txtCode.Border = new Swebui.Controls.Border(1F);
-            this.txtCode.Flex = 1;
+            this.txtCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.txtCode.Flex = 8;
             this.txtCode.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 0);
+            this.txtCode.TouchEnter += new System.EventHandler(this.txtCode_TouchEnter);
             this.txtCode.SubmitEditing += new System.EventHandler(this.txtCode_SubmitEditing);
             // 
-            // btnAdd
+            // btnSelect
             // 
-            this.btnAdd.Flex = 1;
-            this.btnAdd.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.NumberOfLines = 0;
-            this.btnAdd.Size = new System.Drawing.Size(100, 0);
-            this.btnAdd.Text = "添加";
-            this.btnAdd.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnSelect.BackColor = System.Drawing.Color.White;
+            this.btnSelect.Border = new Swebui.Controls.Border(1F);
+            this.btnSelect.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.btnSelect.Flex = 2;
+            this.btnSelect.ForeColor = System.Drawing.Color.Black;
+            this.btnSelect.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.NumberOfLines = 0;
+            this.btnSelect.Size = new System.Drawing.Size(100, 0);
+            this.btnSelect.Text = "搜索";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.label7,
+            this.label8,
+            this.label11,
+            this.label12});
+            this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel5.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel5.Name = "panel5";
+            this.panel5.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel5.Size = new System.Drawing.Size(0, 45);
+            // 
+            // label7
+            // 
+            this.label7.Flex = 1;
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 0);
+            this.label7.Text = "图片";
+            this.label7.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.Flex = 1;
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 0);
+            this.label8.Text = "资产名称";
+            this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label11
+            // 
+            this.label11.Flex = 1;
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 0);
+            this.label11.Text = "资产编号";
+            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.Flex = 1;
+            this.label12.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.Text = "SN号";
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel7
             // 
             this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.ListAssetsSN});
             this.panel7.Flex = 1;
-            this.panel7.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 0F);
+            this.panel7.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(0, 100);
             // 
             // ListAssetsSN
             // 
             this.ListAssetsSN.BackColor = System.Drawing.Color.White;
+            this.ListAssetsSN.Border = new Swebui.Controls.Border(1F);
             this.ListAssetsSN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.Flex = 1;
             this.ListAssetsSN.Name = "ListAssetsSN";
             this.ListAssetsSN.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.ListAssetsSN.ShowSplitLine = true;
             this.ListAssetsSN.Size = new System.Drawing.Size(0, 300);
+            this.ListAssetsSN.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.TemplateControlName = "frmOrderCreateSNLayout";
             // 
             // frmTransferCreateSN
@@ -374,12 +417,15 @@ namespace SwebSECUI.AssetsManager
         private Panel panel4;
         private TreeSelect treeSelect3;
         private TextBox txtNote;
-        private Label label4;
         private Panel panel5;
-        private Label label6;
-        private TextBox txtCode;
-        private Button btnAdd;
         private Panel panel7;
         private ListView ListAssetsSN;
+        private Panel panel6;
+        private TextBox txtCode;
+        private Button btnSelect;
+        private Label label7;
+        private Label label8;
+        private Label label11;
+        private Label label12;
     }
 }

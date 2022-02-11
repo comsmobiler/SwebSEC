@@ -42,7 +42,7 @@ namespace SwebSECUI.AssetsManager
             this.MenuTitle.BackColor = System.Drawing.Color.White;
             this.MenuTitle.Bold = true;
             this.MenuTitle.Flex = 1;
-            this.MenuTitle.FontSize = 16F;
+            this.MenuTitle.FontSize = 18F;
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);
@@ -87,7 +87,7 @@ namespace SwebSECUI.AssetsManager
             this.EditBtn.NumberOfLines = 0;
             this.EditBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
             this.EditBtn.Size = new System.Drawing.Size(80, 35);
-            this.EditBtn.Text = "编辑";
+            this.EditBtn.Text = "查看";
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
             // panel2
@@ -114,6 +114,7 @@ namespace SwebSECUI.AssetsManager
             this.gridView1.Flex = 1;
             this.gridView1.Margin = new Swebui.Controls.Margin(10F, 10F, 0F, 0F);
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;
             this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 
