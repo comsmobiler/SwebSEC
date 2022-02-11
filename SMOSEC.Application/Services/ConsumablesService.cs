@@ -106,7 +106,16 @@ namespace SMOSEC.Application.Services
                     HANDLEDATE=outboundOrder.HANDLEDATE,
                     NOTE=outboundOrder.NOTE
                 };
-            return LINQToDataTable.ToDataTable(result);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("OOID");
+            dt.Columns.Add("HANDLEMANNAME");
+            dt.Columns.Add("BUSINESSDATE");
+            dt.Columns.Add("LOCATIONNAME");
+            foreach (var dto in result.ToList())
+            {
+                dt.Rows.Add(dto.OOID, dto.HANDLEMANNAME, dto.BUSINESSDATE.ToString("yyyy-MM-dd"), dto.LOCATIONNAME);
+            }
+            return dt;
         }
 
         /// <summary>
@@ -224,7 +233,15 @@ namespace SMOSEC.Application.Services
                     NOTE = warehouseReceipt.NOTE,
                     VENDOR = warehouseReceipt.VENDOR
                 };
-            return LINQToDataTable.ToDataTable(result);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("WRID");
+            dt.Columns.Add("HANDLEMANNAME");
+            dt.Columns.Add("BUSINESSDATE");
+            dt.Columns.Add("LOCATIONNAME");
+            foreach (var dto in result.ToList()) {
+                dt.Rows.Add(dto.WRID,dto.HANDLEMANNAME,dto.BUSINESSDATE.ToString("yyyy-MM-dd"),dto.LOCATIONNAME);
+            }
+            return dt;
         }
 
         /// <summary>

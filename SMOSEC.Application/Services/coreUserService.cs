@@ -69,7 +69,7 @@ namespace SMOSEC.Application.Services
         /// <returns></returns>
         public List<coreUser> GetAll()
         {
-            return _coreUserRepository.GetAll().OrderBy(x=>x.USER_NAME).AsNoTracking().ToList();
+            return _coreUserRepository.GetAll().OrderBy(x => x.USER_NAME).AsNoTracking().ToList();
         }
         /// <summary>
         /// 得到某个部门的所有用户
@@ -176,11 +176,7 @@ namespace SMOSEC.Application.Services
         /// <returns></returns>
         public Boolean PhoneIsExit(String Phone)
         {
-            coreUser coreUser = _coreUserRepository.GetByPhone(Phone).FirstOrDefault();
-            if (coreUser == null)  //如果查不到用户信息，则说明该手机号未被注册
-                return false;
-            else
-                return true;
+            return _coreUserRepository.IsExists(Phone);
         }
         /// <summary>
         /// 判断邮箱是否注册
@@ -283,17 +279,63 @@ namespace SMOSEC.Application.Services
                     case EuserInfo.修改生日:
                         coreUser.USER_BIRTHDAY = entity.USER_BIRTHDAY;
                         break;
-                    case EuserInfo.修改所属区域:                       
+                    case EuserInfo.修改所属区域:
                         coreUser.USER_LOCATIONID = entity.USER_LOCATIONID;
                         break;
                 }
                 _unitOfWork.RegisterDirty(coreUser);
-                if(Type== EuserInfo.修改所属区域)    //由于用户所在区域变更，用户所领用借用的资产区域也一起变更
+                if (Type == EuserInfo.修改所属区域)    //由于用户所在区域变更，用户所领用借用的资产区域也一起变更
                 {
                     List<Assets> listAss = _assetsRepository.GetByUser(entity.USER_ID).ToList();
                     if (listAss.Count > 0)
                     {
-                        foreach(Assets Row in listAss)
+                        foreach (Assets Row in listAss)
+                        {
+                            Row.LOCATIONID = coreUser.USER_LOCATIONID;
+                            _unitOfWork.RegisterDirty(Row);
+                        }
+                    }
+                }
+                bool result = _unitOfWork.Commit();
+                RInfo.IsSuccess = result;
+                RInfo.ErrorInfo = "修改信息成功!";
+                return RInfo;
+            }
+            catch (Exception ex)
+            {
+                _unitOfWork.Rollback();
+                RInfo.IsSuccess = false;
+                RInfo.ErrorInfo = ex.Message;
+                return RInfo;
+            }
+        }
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public ReturnInfo UpdateUser(coreUser entity)
+        {
+            ReturnInfo RInfo = new ReturnInfo();
+            coreUser coreUser = _coreUserRepository.GetByID(entity.USER_ID).FirstOrDefault();
+            if (coreUser == null) throw new Exception("该用户不存在，请检查！");
+            try
+            {
+                string location = coreUser.USER_LOCATIONID;
+                coreUser.USER_ADDRESS = entity.USER_ADDRESS;
+                coreUser.USER_SEX = entity.USER_SEX;
+                coreUser.USER_NAME = entity.USER_NAME;
+                coreUser.USER_BIRTHDAY = entity.USER_BIRTHDAY;
+                coreUser.USER_LOCATIONID = entity.USER_LOCATIONID;
+                coreUser.USER_EMAIL = entity.USER_EMAIL;
+                coreUser.USER_PHONE = entity.USER_PHONE;
+                _unitOfWork.RegisterDirty(coreUser);
+                if (!location.Equals(entity.USER_LOCATIONID))    //由于用户所在区域变更，用户所领用借用的资产区域也一起变更
+                {
+                    List<Assets> listAss = _assetsRepository.GetByUser(entity.USER_ID).ToList();
+                    if (listAss.Count > 0)
+                    {
+                        foreach (Assets Row in listAss)
                         {
                             Row.LOCATIONID = coreUser.USER_LOCATIONID;
                             _unitOfWork.RegisterDirty(Row);

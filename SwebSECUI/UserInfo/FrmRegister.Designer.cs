@@ -20,6 +20,8 @@ namespace SwebSECUI.UserInfo
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            Swebui.Controls.TreeSelectNode treeSelectNode1 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode2 = new Swebui.Controls.TreeSelectNode();
             this.panel1 = new Swebui.Controls.Panel();
             this.panel2 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
@@ -34,19 +36,15 @@ namespace SwebSECUI.UserInfo
             this.panel7 = new Swebui.Controls.Panel();
             this.label3 = new Swebui.Controls.Label();
             this.txtPwd1 = new Swebui.Controls.TextBox();
-            this.tpPwd1 = new Swebui.Controls.Panel();
-            this.fontPwd1 = new Swebui.Controls.FontIcon();
             this.panel8 = new Swebui.Controls.Panel();
             this.label4 = new Swebui.Controls.Label();
             this.txtPwd2 = new Swebui.Controls.TextBox();
-            this.tpPwd2 = new Swebui.Controls.Panel();
-            this.fontPwd2 = new Swebui.Controls.FontIcon();
             this.panel9 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
-            this.comboBox1 = new Swebui.Controls.ComboBox();
+            this.comboBox1 = new Swebui.Controls.TreeSelect();
             this.panel10 = new Swebui.Controls.Panel();
             this.label6 = new Swebui.Controls.Label();
-            this.comboBox2 = new Swebui.Controls.ComboBox();
+            this.comboBox2 = new Swebui.Controls.TreeSelect();
             this.btnSave = new Swebui.Controls.Button();
             // 
             // panel1
@@ -90,11 +88,13 @@ namespace SwebSECUI.UserInfo
             this.panel3.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel3.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 40);
+            this.panel3.Size = new System.Drawing.Size(600, 35);
             // 
             // txtTel
             // 
-            this.txtTel.BorderRadius = 8;
+            this.txtTel.Border = new Swebui.Controls.Border(1F);
+            this.txtTel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.txtTel.BorderRadius = 4;
             this.txtTel.Flex = 1;
             this.txtTel.FontSize = 15F;
             this.txtTel.Margin = new Swebui.Controls.Margin(50F, 0F, 50F, 0F);
@@ -108,9 +108,9 @@ namespace SwebSECUI.UserInfo
             this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.button1});
             this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel4.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 100F);
+            this.panel4.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(600, 40);
+            this.panel4.Size = new System.Drawing.Size(600, 35);
             // 
             // button1
             // 
@@ -119,7 +119,7 @@ namespace SwebSECUI.UserInfo
             this.button1.Margin = new Swebui.Controls.Margin(200F, 0F, 200F, 0F);
             this.button1.Name = "button1";
             this.button1.NumberOfLines = 0;
-            this.button1.Size = new System.Drawing.Size(100, 40);
+            this.button1.Size = new System.Drawing.Size(100, 35);
             this.button1.Text = "注册";
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -135,6 +135,7 @@ namespace SwebSECUI.UserInfo
             this.btnSave});
             this.panel5.Flex = 1;
             this.panel5.Name = "panel5";
+            this.panel5.Padding = new Swebui.Controls.Padding(50F, 0F, 50F, 0F);
             this.panel5.Size = new System.Drawing.Size(600, 30);
             this.panel5.Visible = false;
             // 
@@ -146,21 +147,22 @@ namespace SwebSECUI.UserInfo
             this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel6.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(0, 40);
+            this.panel6.Size = new System.Drawing.Size(0, 35);
             // 
             // label2
             // 
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label2.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 0);
+            this.label2.Size = new System.Drawing.Size(120, 35);
             this.label2.Text = "昵称";
             this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // txtName
             // 
             this.txtName.Border = new Swebui.Controls.Border(1F);
-            this.txtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.txtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.txtName.BorderRadius = 4;
             this.txtName.Flex = 1;
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtName.Name = "txtName";
@@ -171,19 +173,18 @@ namespace SwebSECUI.UserInfo
             // 
             this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label3,
-            this.txtPwd1,
-            this.tpPwd1});
+            this.txtPwd1});
             this.panel7.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel7.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(0, 40);
+            this.panel7.Size = new System.Drawing.Size(0, 35);
             // 
             // label3
             // 
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label3.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 0);
+            this.label3.Size = new System.Drawing.Size(120, 35);
             this.label3.Text = "新密码";
             this.label3.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
@@ -191,7 +192,8 @@ namespace SwebSECUI.UserInfo
             // 
             this.txtPwd1.BackColor = System.Drawing.Color.Transparent;
             this.txtPwd1.Border = new Swebui.Controls.Border(1F);
-            this.txtPwd1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.txtPwd1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.txtPwd1.BorderRadius = 4;
             this.txtPwd1.Flex = 1;
             this.txtPwd1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtPwd1.MaxLength = 12;
@@ -200,41 +202,22 @@ namespace SwebSECUI.UserInfo
             this.txtPwd1.Size = new System.Drawing.Size(100, 0);
             this.txtPwd1.WaterMarkText = "请输入6-12位密码";
             // 
-            // tpPwd1
-            // 
-            this.tpPwd1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.fontPwd1});
-            this.tpPwd1.Name = "tpPwd1";
-            this.tpPwd1.Size = new System.Drawing.Size(50, 0);
-            this.tpPwd1.Touchable = true;
-            this.tpPwd1.Visible = false;
-            this.tpPwd1.Press += new System.EventHandler(this.tpPwd1_Press);
-            // 
-            // fontPwd1
-            // 
-            this.fontPwd1.Flex = 1;
-            this.fontPwd1.Name = "fontPwd1";
-            this.fontPwd1.Padding = new Swebui.Controls.Padding(5F);
-            this.fontPwd1.ResourceID = "eye-slash";
-            this.fontPwd1.Size = new System.Drawing.Size(0, 30);
-            // 
             // panel8
             // 
             this.panel8.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label4,
-            this.txtPwd2,
-            this.tpPwd2});
+            this.txtPwd2});
             this.panel8.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel8.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(0, 40);
+            this.panel8.Size = new System.Drawing.Size(0, 35);
             // 
             // label4
             // 
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.label4.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 0);
+            this.label4.Size = new System.Drawing.Size(120, 35);
             this.label4.Text = "确认密码";
             this.label4.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
@@ -242,7 +225,8 @@ namespace SwebSECUI.UserInfo
             // 
             this.txtPwd2.BackColor = System.Drawing.Color.Transparent;
             this.txtPwd2.Border = new Swebui.Controls.Border(1F);
-            this.txtPwd2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.txtPwd2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.txtPwd2.BorderRadius = 4;
             this.txtPwd2.Flex = 1;
             this.txtPwd2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
             this.txtPwd2.MaxLength = 12;
@@ -250,24 +234,6 @@ namespace SwebSECUI.UserInfo
             this.txtPwd2.SecurityMode = true;
             this.txtPwd2.Size = new System.Drawing.Size(100, 0);
             this.txtPwd2.WaterMarkText = "请输入6-12位密码";
-            // 
-            // tpPwd2
-            // 
-            this.tpPwd2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.fontPwd2});
-            this.tpPwd2.Name = "tpPwd2";
-            this.tpPwd2.Size = new System.Drawing.Size(50, 0);
-            this.tpPwd2.Touchable = true;
-            this.tpPwd2.Visible = false;
-            this.tpPwd2.Press += new System.EventHandler(this.tpPwd2_Press);
-            // 
-            // fontPwd2
-            // 
-            this.fontPwd2.Flex = 1;
-            this.fontPwd2.Name = "fontPwd2";
-            this.fontPwd2.Padding = new Swebui.Controls.Padding(5F);
-            this.fontPwd2.ResourceID = "eye-slash";
-            this.fontPwd2.Size = new System.Drawing.Size(0, 30);
             // 
             // panel9
             // 
@@ -277,26 +243,35 @@ namespace SwebSECUI.UserInfo
             this.panel9.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel9.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(0, 40);
+            this.panel9.Size = new System.Drawing.Size(0, 35);
             // 
             // label5
             // 
             this.label5.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 0);
+            this.label5.Size = new System.Drawing.Size(120, 35);
             this.label5.Text = "角色选择";
             this.label5.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // comboBox1
             // 
             this.comboBox1.Border = new Swebui.Controls.Border(1F);
-            this.comboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.comboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.comboBox1.BorderRadius = 4;
+            this.comboBox1.DefaultValue = new string[0];
+            this.comboBox1.DropDownHeight = 280;
             this.comboBox1.Flex = 1;
+            this.comboBox1.ListBackgroundColor = System.Drawing.Color.White;
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Placeholder = "";
-            this.comboBox1.PopupHeight = 0;
+            treeSelectNode1.Text = "管理员";
+            treeSelectNode1.TreeID = "ADMIN";
+            treeSelectNode2.Text = "用户";
+            treeSelectNode2.TreeID = "SMOSECUser";
+            this.comboBox1.Nodes.AddRange(new Swebui.Controls.TreeSelectNode[] {
+            treeSelectNode1,
+            treeSelectNode2});
             this.comboBox1.Size = new System.Drawing.Size(100, 0);
-            this.comboBox1.Text = "";
+            this.comboBox1.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.comboBox1_Press);
             // 
             // panel10
             // 
@@ -306,26 +281,28 @@ namespace SwebSECUI.UserInfo
             this.panel10.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel10.Margin = new Swebui.Controls.Margin(0F, 30F, 0F, 0F);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(0, 40);
+            this.panel10.Size = new System.Drawing.Size(0, 35);
             // 
             // label6
             // 
             this.label6.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 0);
+            this.label6.Size = new System.Drawing.Size(120, 35);
             this.label6.Text = "所属区域";
             this.label6.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // comboBox2
             // 
             this.comboBox2.Border = new Swebui.Controls.Border(1F);
-            this.comboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.comboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.comboBox2.BorderRadius = 4;
+            this.comboBox2.DefaultValue = new string[0];
+            this.comboBox2.DropDownHeight = 280;
             this.comboBox2.Flex = 1;
+            this.comboBox2.ListBackgroundColor = System.Drawing.Color.White;
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Placeholder = "";
-            this.comboBox2.PopupHeight = 0;
             this.comboBox2.Size = new System.Drawing.Size(100, 0);
-            this.comboBox2.Text = "";
+            this.comboBox2.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.comboBox2_Press);
             // 
             // btnSave
             // 
@@ -363,19 +340,15 @@ namespace SwebSECUI.UserInfo
         private Swebui.Controls.Panel panel7;
         private Swebui.Controls.Label label3;
         private Swebui.Controls.TextBox txtPwd1;
-        private Swebui.Controls.Panel tpPwd1;
-        private Swebui.Controls.FontIcon fontPwd1;
         private Swebui.Controls.Panel panel8;
         private Swebui.Controls.Label label4;
         private Swebui.Controls.TextBox txtPwd2;
-        private Swebui.Controls.Panel tpPwd2;
-        private Swebui.Controls.FontIcon fontPwd2;
         private Swebui.Controls.Panel panel9;
         private Swebui.Controls.Label label5;
-        private Swebui.Controls.ComboBox comboBox1;
+        private Swebui.Controls.TreeSelect comboBox1;
         private Swebui.Controls.Panel panel10;
         private Swebui.Controls.Label label6;
-        private Swebui.Controls.ComboBox comboBox2;
+        private Swebui.Controls.TreeSelect comboBox2;
         private Swebui.Controls.Button btnSave;
     }
 }

@@ -126,6 +126,7 @@ namespace SwebSECUI
             menuItem1.Icon = "home";
             menuItem1.Id = "Home";
             menuItem1.Text = "主页";
+            menuItem2.Icon = "archive";
             menuItem3.Id = "FrmAssets";
             menuItem3.Text = "资产列表";
             menuItem4.Id = "FrmBorrowOrder";
@@ -164,6 +165,7 @@ namespace SwebSECUI
             menuItem13,
             menuItem14});
             menuItem2.Text = "资产管理";
+            menuItem15.Icon = "cube";
             menuItem16.Id = "FrmConsumables";
             menuItem16.Text = "耗材";
             menuItem17.Id = "FrmWarehouseReceipt";
@@ -181,6 +183,7 @@ namespace SwebSECUI
             menuItem19,
             menuItem20});
             menuItem15.Text = "耗材管理";
+            menuItem21.Icon = "user-circle-o";
             menuItem21.Id = "FrmMessage";
             menuItem21.Text = "账户信息";
             this.menuView1.Items.AddRange(new Swebui.Controls.MenuItem[] {

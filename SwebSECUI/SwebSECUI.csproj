@@ -268,17 +268,53 @@
     <Compile Include="ConsumablesManager\frmConInventory.Designer.cs">
       <DependentUpon>frmConInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsumablesManager\frmConQuant.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConQuant.Designer.cs">
+      <DependentUpon>frmConQuant.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsumablesManager\frmConsumables.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ConsumablesManager\frmConsumables.Designer.cs">
       <DependentUpon>frmConsumables.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesCreate.Designer.cs">
+      <DependentUpon>frmConsumablesCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesDetail.Designer.cs">
+      <DependentUpon>frmConsumablesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesDetailEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConsumablesDetailEdit.Designer.cs">
+      <DependentUpon>frmConsumablesDetailEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsumablesManager\frmOutboundOrder.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ConsumablesManager\frmOutboundOrder.Designer.cs">
       <DependentUpon>frmOutboundOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmOutOrderCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmOutOrderCreate.Designer.cs">
+      <DependentUpon>frmOutOrderCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmOutOrderDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmOutOrderDetail.Designer.cs">
+      <DependentUpon>frmOutOrderDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsumablesManager\frmTransferRows.cs">
       <SubType>Component</SubType>
@@ -291,6 +327,18 @@
     </Compile>
     <Compile Include="ConsumablesManager\frmWarehouseReceipt.Designer.cs">
       <DependentUpon>frmWarehouseReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmWRCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmWRCreate.Designer.cs">
+      <DependentUpon>frmWRCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmWRDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmWRDetail.Designer.cs">
+      <DependentUpon>frmWRDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="DataGridviewbyUser.cs" />
     <Compile Include="DepartmentMode.cs" />
@@ -341,6 +389,24 @@
     </Compile>
     <Compile Include="Layout\CollarOrderLayout.Designer.cs">
       <DependentUpon>CollarOrderLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConOutChooseLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConOutChooseLayout.Designer.cs">
+      <DependentUpon>ConOutChooseLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConChooseLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConChooseLayout.Designer.cs">
+      <DependentUpon>ConChooseLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConDetialLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConDetialLayout.Designer.cs">
+      <DependentUpon>ConDetialLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\frmAIResultLayout.cs">
       <SubType>Component</SubType>
@@ -474,6 +540,12 @@
     <Compile Include="Layout\OperDetailAssLayout.Designer.cs">
       <DependentUpon>OperDetailAssLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\PWDLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\PWDLayout.Designer.cs">
+      <DependentUpon>PWDLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\RestoreOrderLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -555,18 +627,6 @@
     </Compile>
     <Compile Include="UserInfo\FrmRegister.Designer.cs">
       <DependentUpon>FrmRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo\frmRegisterTel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmRegisterTel.Designer.cs">
-      <DependentUpon>frmRegisterTel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfo\frmVerificationCode.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserInfo\frmVerificationCode.Designer.cs">
-      <DependentUpon>frmVerificationCode.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -658,6 +718,39 @@
     <EmbeddedResource Include="AssetsManager\frmTransferRowsSN.resx">
       <DependentUpon>frmTransferRowsSN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConQuant.resx">
+      <DependentUpon>frmConQuant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConsumables.resx">
+      <DependentUpon>frmConsumables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConsumablesCreate.resx">
+      <DependentUpon>frmConsumablesCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConsumablesDetail.resx">
+      <DependentUpon>frmConsumablesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConsumablesDetailEdit.resx">
+      <DependentUpon>frmConsumablesDetailEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmOutboundOrder.resx">
+      <DependentUpon>frmOutboundOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmOutOrderCreate.resx">
+      <DependentUpon>frmOutOrderCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmOutOrderDetail.resx">
+      <DependentUpon>frmOutOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmWarehouseReceipt.resx">
+      <DependentUpon>frmWarehouseReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmWRCreate.resx">
+      <DependentUpon>frmWRCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmWRDetail.resx">
+      <DependentUpon>frmWRDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Department\frmDepartment.resx">
       <DependentUpon>frmDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -678,6 +771,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\CollarOrderLayout.resx">
       <DependentUpon>CollarOrderLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConOutChooseLayout.resx">
+      <DependentUpon>ConOutChooseLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConChooseLayout.resx">
+      <DependentUpon>ConChooseLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConDetialLayout.resx">
+      <DependentUpon>ConDetialLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmAIResultLayout.resx">
       <DependentUpon>frmAIResultLayout.cs</DependentUpon>
@@ -745,6 +847,9 @@
     <EmbeddedResource Include="Layout\OperDetailAssLayout.resx">
       <DependentUpon>OperDetailAssLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\PWDLayout.resx">
+      <DependentUpon>PWDLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\ReturnOrderLayout.resx">
       <DependentUpon>ReturnOrderLayout.cs</DependentUpon>
     </EmbeddedResource>
@@ -775,11 +880,11 @@
     <EmbeddedResource Include="SwebForm1.resx">
       <DependentUpon>SwebForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo\frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInfo\FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserInfo\frmVerificationCode.resx">
-      <DependentUpon>frmVerificationCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

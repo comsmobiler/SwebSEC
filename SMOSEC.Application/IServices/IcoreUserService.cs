@@ -100,6 +100,12 @@ namespace SMOSEC.Application.IServices
         /// <param name="Type"></param>
         /// <returns></returns>
         ReturnInfo UpdateUser(coreUser entity, EuserInfo Type);
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        ReturnInfo UpdateUser(coreUser entity);
         ///// <summary>
         ///// 加密密码
         ///// </summary>
