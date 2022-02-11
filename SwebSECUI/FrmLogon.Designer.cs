@@ -60,6 +60,7 @@ namespace SwebSECUI
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.image2,
             this.psdPanel});
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(300, 0);
             // 
@@ -69,8 +70,8 @@ namespace SwebSECUI
             this.image2.Margin = new Swebui.Controls.Margin(0F, 40F, 0F, 0F);
             this.image2.Name = "image2";
             this.image2.ResourceID = "smosec";
-            this.image2.Size = new System.Drawing.Size(0, 80);
-            this.image2.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
+            this.image2.Size = new System.Drawing.Size(100, 100);
+            this.image2.SizeMode = Swebui.Controls.ImageSizeMode.Stretch;
             // 
             // psdPanel
             // 
@@ -81,7 +82,7 @@ namespace SwebSECUI
             this.panel7});
             this.psdPanel.Flex = 1;
             this.psdPanel.Name = "psdPanel";
-            this.psdPanel.Size = new System.Drawing.Size(0, 100);
+            this.psdPanel.Size = new System.Drawing.Size(260, 100);
             // 
             // panel5
             // 
@@ -92,7 +93,7 @@ namespace SwebSECUI
             this.txtUserName});
             this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel5.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel5.Margin = new Swebui.Controls.Margin(20F);
+            this.panel5.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 20F);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(0, 30);
             // 
@@ -124,7 +125,7 @@ namespace SwebSECUI
             this.txtPassWord});
             this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel6.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel6.Margin = new Swebui.Controls.Margin(20F);
+            this.panel6.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 40F);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(0, 30);
             // 
@@ -151,7 +152,6 @@ namespace SwebSECUI
             // 
             // btnLogon
             // 
-            this.btnLogon.Margin = new Swebui.Controls.Margin(20F, 30F, 20F, 0F);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.NumberOfLines = 0;
             this.btnLogon.Size = new System.Drawing.Size(0, 35);
@@ -165,13 +165,14 @@ namespace SwebSECUI
             this.button2});
             this.panel7.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel7.JustifyAlign = Swebui.Controls.LayoutJustifyAlign.SpaceBetween;
-            this.panel7.Margin = new Swebui.Controls.Margin(20F, 20F, 20F, 0F);
+            this.panel7.Margin = new Swebui.Controls.Margin(0F, 20F, 0F, 0F);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(0, 38);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.button1.Name = "button1";
             this.button1.NumberOfLines = 0;
             this.button1.SelectBackgroundColor = System.Drawing.Color.Transparent;
@@ -182,6 +183,7 @@ namespace SwebSECUI
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.button2.Name = "button2";
             this.button2.NumberOfLines = 0;
             this.button2.SelectBackgroundColor = System.Drawing.Color.Transparent;

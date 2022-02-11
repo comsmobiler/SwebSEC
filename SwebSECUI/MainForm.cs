@@ -11,6 +11,7 @@ using SwebSECUI.AssetsManager;
 using SwebSECUI.Department;
 using SwebSECUI.ConsumablesManager;
 using SwebSECUI.UserInfo;
+using SMOSEC.Domain.Entity;
 
 namespace SwebSECUI
 {
@@ -24,8 +25,8 @@ namespace SwebSECUI
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-        
-      
+
+
         private void exitBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("是否退出当前系统？", MessageBoxButtons.YesNo, (object o, MessageBoxHandlerArgs args) =>
@@ -43,23 +44,30 @@ namespace SwebSECUI
                 }
             });
         }
-
-
+        /// <summary>
+        /// 页面初始化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-            //获取登录账号信息
-            //UserDetails userDetails = new UserDetails();
-            //UserDepDto user = userDetails.getUser(Client.Session["USER_ID"].ToString());
-            //useBtn.Text = user.USER_NAME;
-            ////获取menu
-            //GetMenu();
-
+            // 获取登录账号信息
+            coreUser coreUser = AutofacConfig.coreUserService.GetUserByID(Client.Session["UserID"].ToString());
+            useBtn.Text = coreUser.USER_NAME;
             //默认显示主页
             MenuValueChanged(menuView1.Items[0]);
             menuView1.DefaultSelectedItem = menuView1.Items[0];
         }
-
+        public void SetUserBtn(string name)
+        {
+            useBtn.Text = name;
+        }
+        /// <summary>
+        /// menuview 点击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void menuView1_MenuItemClick(object sender, MenuViewItemClickEventArgs e)
         {
             MenuValueChanged(e.Item);
@@ -77,7 +85,7 @@ namespace SwebSECUI
                     AddTabPage(menuItem, frmassets1);
                     break;
                 case "FrmBorrowOrder"://借用
-                     frmBorrowOrder frmborroworder = new frmBorrowOrder();
+                    frmBorrowOrder frmborroworder = new frmBorrowOrder();
                     AddTabPage(menuItem, frmborroworder);
                     break;
                 case "FrmReturnOrder"://归还
@@ -120,11 +128,11 @@ namespace SwebSECUI
                     frmDepartment frmdepartment = new frmDepartment();
                     AddTabPage(menuItem, frmdepartment);
                     break;
-                case "FrmConsumables":
+                case "FrmConsumables"://耗材
                     frmConsumables frmconsumables = new frmConsumables();
                     AddTabPage(menuItem, frmconsumables);
                     break;
-                case "FrmWarehouseReceipt":
+                case "FrmWarehouseReceipt"://入库
                     frmWarehouseReceipt frmwarehouseReceipt = new frmWarehouseReceipt();
                     AddTabPage(menuItem, frmwarehouseReceipt);
                     break;
