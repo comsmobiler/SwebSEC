@@ -45,7 +45,7 @@ namespace SwebSECUI.Layout
             this.imgPortrait.DisplayMember = "USER_IMAGEID";
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "";
-            this.imgPortrait.Size = new System.Drawing.Size(100, 0);
+            this.imgPortrait.Size = new System.Drawing.Size(45, 45);
             this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
             // 
             // lblPortrait
@@ -62,16 +62,20 @@ namespace SwebSECUI.Layout
             this.lblUser.DataMember = "USER_ID";
             this.lblUser.DisplayMember = "USER_NAME";
             this.lblUser.Flex = 1;
+            this.lblUser.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(100, 0);
+            this.lblUser.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // lblDep
             // 
             this.lblDep.DataMember = "USER_DEPARTMENTID";
             this.lblDep.DisplayMember = "DepName";
             this.lblDep.Flex = 1;
+            this.lblDep.Margin = new Swebui.Controls.Margin(20F, 0F, 0F, 0F);
             this.lblDep.Name = "lblDep";
             this.lblDep.Size = new System.Drawing.Size(100, 0);
+            this.lblDep.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // Check
             // 
@@ -88,7 +92,7 @@ namespace SwebSECUI.Layout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 30);
+            this.Size = new System.Drawing.Size(0, 35);
 
         }
         #endregion

@@ -23,8 +23,6 @@ namespace SwebSECUI.AssetsManager
 
         public string BoId;  //借用单编号
 
-
-
         private void frmBoDetail_Load(object sender, EventArgs e)
         {
             Bind();

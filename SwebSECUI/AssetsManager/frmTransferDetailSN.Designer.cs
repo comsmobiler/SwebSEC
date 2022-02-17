@@ -43,6 +43,11 @@ namespace SwebSECUI.AssetsManager
             this.label11 = new Swebui.Controls.Label();
             this.panel7 = new Swebui.Controls.Panel();
             this.ListAssetsSN = new Swebui.Controls.ListView();
+            this.panel5 = new Swebui.Controls.Panel();
+            this.label7 = new Swebui.Controls.Label();
+            this.label8 = new Swebui.Controls.Label();
+            this.label1 = new Swebui.Controls.Label();
+            this.label12 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
@@ -56,7 +61,7 @@ namespace SwebSECUI.AssetsManager
             this.Title1.BackColor = System.Drawing.Color.White;
             this.Title1.Bold = true;
             this.Title1.Flex = 1;
-            this.Title1.FontSize = 15F;
+            this.Title1.FontSize = 18F;
             this.Title1.Margin = new Swebui.Controls.Margin(10F);
             this.Title1.Name = "Title1";
             this.Title1.Size = new System.Drawing.Size(0, 35);
@@ -187,7 +192,6 @@ namespace SwebSECUI.AssetsManager
             // DatePicker
             // 
             this.DatePicker.BackColor = System.Drawing.Color.White;
-            this.DatePicker.Border = new Swebui.Controls.Border(1F);
             this.DatePicker.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.DatePicker.Enable = false;
             this.DatePicker.Flex = 1;
@@ -286,20 +290,68 @@ namespace SwebSECUI.AssetsManager
             this.panel7.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.ListAssetsSN});
             this.panel7.Flex = 1;
-            this.panel7.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 0F);
+            this.panel7.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(0, 100);
             // 
             // ListAssetsSN
             // 
             this.ListAssetsSN.BackColor = System.Drawing.Color.White;
+            this.ListAssetsSN.Border = new Swebui.Controls.Border(1F);
             this.ListAssetsSN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.Flex = 1;
             this.ListAssetsSN.Name = "ListAssetsSN";
             this.ListAssetsSN.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.ListAssetsSN.ShowSplitLine = true;
             this.ListAssetsSN.Size = new System.Drawing.Size(0, 300);
+            this.ListAssetsSN.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAssetsSN.TemplateControlName = "frmOrderCreateSNLayout";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.label7,
+            this.label8,
+            this.label1,
+            this.label12});
+            this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel5.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel5.Name = "panel5";
+            this.panel5.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel5.Size = new System.Drawing.Size(0, 45);
+            // 
+            // label7
+            // 
+            this.label7.Flex = 1;
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 0);
+            this.label7.Text = "图片";
+            this.label7.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.Flex = 1;
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 0);
+            this.label8.Text = "资产名称";
+            this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Flex = 1;
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 0);
+            this.label1.Text = "资产编号";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.Flex = 1;
+            this.label12.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.Text = "SN号";
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmTransferDetailSN
             // 
@@ -311,6 +363,7 @@ namespace SwebSECUI.AssetsManager
             this.panel13,
             this.panel3,
             this.panel4,
+            this.panel5,
             this.panel7});
             this.Load += new System.EventHandler(this.frmTransferDetailSN_Load);
 
@@ -338,8 +391,13 @@ namespace SwebSECUI.AssetsManager
         internal Label lblDealMan;
         internal Label lblNote;
         internal Label label11;
+        internal Button CancelBtn;
         private Panel panel7;
         private ListView ListAssetsSN;
-        internal Button CancelBtn;
+        private Panel panel5;
+        private Label label7;
+        private Label label8;
+        private Label label1;
+        private Label label12;
     }
 }

@@ -69,27 +69,34 @@ namespace SwebSECUI.AssetsManager
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            try
+            if (Status == InventoryStatus.盘点结束 || Status == InventoryStatus.盘点未开始)
             {
-                string barCode = txtCode.Text;
-                string assId = "";
-                //根据sn得到Assid
-                var asset = _autofacConfig.SettingService.GetAssetsBySN(barCode, "");
-                if (asset != null && asset.Rows.Count == 1)
-                {
-                    assId = asset.Rows[0]["ASSID"].ToString();
-                    AddAssToDictionary(assId, barCode);
-
-                }
-                else
-                {
-                    Toast("未找到该SN对应的资产编号.");
-                }
-
+                Toast("盘点未开始或已经结束.");
             }
-            catch (Exception ex)
+            else
             {
-                Toast(ex.Message);
+                try
+                {
+                    string barCode = txtCode.Text;
+                    string assId = "";
+                    //根据sn得到Assid
+                    var asset = _autofacConfig.SettingService.GetAssetsBySN(barCode, "");
+                    if (asset != null && asset.Rows.Count == 1)
+                    {
+                        assId = asset.Rows[0]["ASSID"].ToString();
+                        AddAssToDictionary(assId, barCode);
+
+                    }
+                    else
+                    {
+                        Toast("未找到该SN对应的资产编号.");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Toast(ex.Message);
+                }
             }
         }
         /// <summary>
@@ -140,7 +147,7 @@ namespace SwebSECUI.AssetsManager
                 //添加各表格的列
                 if (allAssTable.Columns.Count == 0)
                 {
-                    //allAssTable.Columns.Add("RESULTNAME");
+                    allAssTable.Columns.Add("RESULTNAME");
                     allAssTable.Columns.Add("ASSID");
                     allAssTable.Columns.Add("Image");
                     allAssTable.Columns.Add("LocationName");
@@ -169,19 +176,12 @@ namespace SwebSECUI.AssetsManager
                     allAssTable.Rows.Add(Row);
                 }
 
-
-                //添加ListView到tabpageview
-                //TabPageControl tabPage1 = new TabPageControl();
-                //tabPage1.Controls.Add(new SwebUserControl1() { Flex = 1 });
-                //tabPage1.Flex = 1;
                 waitListView.TemplateControlName = "frmAIResultLayout";
                 waitListView.ShowSplitLine = true;
                 waitListView.SplitLineColor = Color.FromArgb(230, 230, 230);
                 waitListView.Flex = 1;
                 tabPageView1.Controls.Add(waitListView);
-                //TabPageControl tabPage2 = new TabPageControl();
-                //tabPage2.Controls.Add(new SwebUserControl2() { Flex = 1 });
-                //tabPage2.Flex = 1;
+
                 alreadyListView.TemplateControlName = "frmAIResultLayout";
                 alreadyListView.ShowSplitLine = true;
                 alreadyListView.SplitLineColor = Color.FromArgb(230, 230, 230);
@@ -195,8 +195,7 @@ namespace SwebSECUI.AssetsManager
                 txtLocatin.Text = inventory.LOCATIONNAME;
                 txtDep.Text = string.IsNullOrEmpty(inventory.DEPARTMENTID) ? "全部" : inventory.DEPARTMENTNAME;
                 txtType.Text = string.IsNullOrEmpty(inventory.TYPEID) ? "全部" : inventory.TYPENAME;
-                Status = (InventoryStatus)inventory
-                    .STATUS;
+                Status = (InventoryStatus)inventory.STATUS;
 
                 //获得需要盘点的资产列表
                 assList = _autofacConfig.AssInventoryService.GetPendingInventoryList(IID);
@@ -205,8 +204,7 @@ namespace SwebSECUI.AssetsManager
                 assDictionary = _autofacConfig.AssInventoryService.GetResultDictionary(IID);
 
                 //得到待盘点的资产列表
-                var waiTable1 = _autofacConfig.AssInventoryService.GetPendingInventoryTable(IID, LocationId, typeId,
-                    DepartmentId);
+                var waiTable1 = _autofacConfig.AssInventoryService.GetPendingInventoryTable(IID, LocationId, typeId, DepartmentId);
                 foreach (DataRow row in waiTable1.Rows)
                 {
                     DataRow Row = waiTable.NewRow();
@@ -247,6 +245,7 @@ namespace SwebSECUI.AssetsManager
                 if (Status == InventoryStatus.盘点结束 || Status == InventoryStatus.盘点未开始)
                 {
                     panel5.Visible = false;
+                    panel6.Visible = false;
                 }
 
                 //绑定数据
@@ -257,6 +256,7 @@ namespace SwebSECUI.AssetsManager
                 Toast(ex.Message);
             }
         }
+
         /// <summary>
         /// 把搜索到的资产添加到对应的Dictionary
         /// </summary>
@@ -365,6 +365,56 @@ namespace SwebSECUI.AssetsManager
                 }
             }
 
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            ReturnInfo rInfo = new ReturnInfo();
+            AssInventoryInputDto inputDto = new AssInventoryInputDto
+            {
+                IID = IID,
+                IsEnd = false,
+                AssDictionary = assDictionary
+            };
+            inputDto.IsEnd = false;
+            rInfo = _autofacConfig.AssInventoryService.UpdateInventory(inputDto);
+            Toast(rInfo.IsSuccess ? "上传结果成功." : rInfo.ErrorInfo);
+        }
+
+        private void SuccessBtn_Click(object sender, EventArgs e)
+        {
+            ReturnInfo rInfo = new ReturnInfo();
+            Dictionary<string, int> assDictionary2 = new Dictionary<string, int>();
+            foreach (var key in assDictionary.Keys)
+            {
+
+                if (assDictionary[key] == (int)ResultStatus.待盘点)
+                {
+                    assDictionary2.Add(key, (int)ResultStatus.盘亏);
+                }
+                else
+                {
+                    assDictionary2.Add(key, assDictionary[key]);
+                }
+            }
+            AssInventoryInputDto inputDto2 = new AssInventoryInputDto
+            {
+                IID = IID,
+                IsEnd = false,
+                AssDictionary = assDictionary2
+            };
+            inputDto2.IsEnd = true;
+            rInfo = _autofacConfig.AssInventoryService.UpdateInventory(inputDto2);
+            if (rInfo.IsSuccess)
+            {
+                ShowResult = ShowResult.Yes;
+                Toast("盘点结束成功.");
+                BackBtn_Click(null,null);
+            }
+            else
+            {
+                Toast(rInfo.ErrorInfo);
+            }
         }
     }
 }

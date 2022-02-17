@@ -52,7 +52,7 @@ namespace SwebSECUI.AssetsManager
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.title1});
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(0, 40);
+            this.panel1.Size = new System.Drawing.Size(0, 50);
             // 
             // title1
             // 

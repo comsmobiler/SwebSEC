@@ -9,6 +9,7 @@ using SMOSEC.DTOs.Enum;
 using SwebSECUI.Layout;
 using SMOSEC.CommLib;
 using SMOSEC.DTOs.OutputDTO;
+using Swebui;
 
 namespace SwebSECUI.Department
 {
@@ -39,22 +40,35 @@ namespace SwebSECUI.Department
         /// <param name="e"></param>
         private void btnUp_Click(object sender, EventArgs e)
         {
-            this.Client.FileUpload((obj, args) => {
-                if (args.isError == true)
-                    if (imgPortrait.ResourceID.Trim().Length > 0 & string.IsNullOrEmpty(department.IMAGEID) == false)
+            try
+            {
+                Client.FileUpload((obj, args) =>
+                {
+
+                    if (string.IsNullOrEmpty(args.error))
                     {
-                        args.SaveFile(department.IMAGEID + ".png");
-                        imgPortrait.ResourceID = department.IMAGEID;
+                        string imgName = "";
+                        if (string.IsNullOrEmpty(imgPortrait.ResourceID))
+                        {
+                            string[] name = args.ResourceID.Split('.');
+                            imgName = DateTime.Now.ToString("yyyyMMddHHmmss") + "." + name[1];
+                        }
+                        else
+                        {
+                            string[] name = args.ResourceID.Split('.');
+                            string[] firstName = imgPortrait.ResourceID.Split(',');
+                            imgName = firstName[0] + "." + name[1];
+                        }
+                        args.SaveFile(imgName, SwebResourceManager.DefaultImagePath);
+                        imgPortrait.ResourceID = imgName;
                         imgPortrait.Refresh();
                     }
-                    else
-                    {
-                        args.SaveFile(args.ResourceID + ".png");
-                        department.IMAGEID = args.ResourceID;
-                        imgPortrait.ResourceID = args.ResourceID;
-                        imgPortrait.Refresh();
-                    }
-            });
+                });
+            }
+            catch (Exception ex)
+            {
+                Toast(ex.Message);
+            }
         }
 
         private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
@@ -134,7 +148,7 @@ namespace SwebSECUI.Department
                         imgPortrait.ResourceID = department.IMAGEID;
                         imgPortrait.Refresh();
                     }
-                    treeSelect1.Tag = AutofacConfig.coreUserService.GetUserByID(department.MANAGER).USER_NAME;
+                    treeSelect1.Placeholder = AutofacConfig.coreUserService.GetUserByID(department.MANAGER).USER_NAME;
                     List<DataGridviewbyUser> listUser = new List<DataGridviewbyUser>();
                     List<coreUser> listDepUser = AutofacConfig.coreUserService.GetAll();//获取分配部门人员
                     //部门创建时ListView绑定数据
@@ -299,7 +313,11 @@ namespace SwebSECUI.Department
                                         depUser.USER_IMAGEID = user.USER_IMAGEID;
                                     }
                                     depUser.USER_DEPARTMENTID = user.USER_DEPARTMENTID;
-                                    string DepName = AutofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID).NAME;
+                                    string DepName = "";
+                                    if (AutofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID) != null)
+                                    {
+                                        DepName = AutofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID).NAME;
+                                    }
                                     depUser.DepName = DepName;
                                     depUser.SelectCheck = false;
                                     listUser.Add(depUser);
@@ -333,7 +351,7 @@ namespace SwebSECUI.Department
         /// </summary>
         private void Checkall()
         {
-            switch (checkAll.Checked)
+            switch (checkBox1.Checked)
             {
                 case true:
                     foreach (ListViewRow rows in gridUserData.Rows)
@@ -592,13 +610,13 @@ namespace SwebSECUI.Department
         /// <param name="e"></param>
         private void btnAll_Press(object sender, EventArgs e)
         {
-            if (checkAll.Checked)
+            if (checkBox1.Checked)
             {
-                checkAll.Checked = false;
+                checkBox1.Checked = false;
             }
             else
             {
-                checkAll.Checked = true;
+                checkBox1.Checked = true;
             }
             Checkall();
         }
@@ -627,11 +645,11 @@ namespace SwebSECUI.Department
             //当ListView行项选中条数等于ListView行数时，为全选状态，否则为不选状态。
             if (selectUserQty == gridUserData.Rows.Count)
             {
-                checkAll.Checked = true;
+                checkBox1.Checked = true;
             }
             else
             {
-                checkAll.Checked = false;
+                checkBox1.Checked = false;
             }
         }
     }

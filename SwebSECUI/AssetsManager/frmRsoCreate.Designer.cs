@@ -316,6 +316,7 @@ namespace SwebSECUI.AssetsManager
             // btnSelect
             // 
             this.btnSelect.BackColor = System.Drawing.Color.White;
+            this.btnSelect.Border = new Swebui.Controls.Border(1F);
             this.btnSelect.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.btnSelect.Flex = 2;
             this.btnSelect.ForeColor = System.Drawing.Color.Black;

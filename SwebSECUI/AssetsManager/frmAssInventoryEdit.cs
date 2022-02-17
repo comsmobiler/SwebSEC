@@ -150,24 +150,24 @@ namespace SwebSECUI.AssetsManager
 
                 var assInventory = _autofacConfig.AssInventoryService.GetAssInventoryById(IID);
                 txtName.Text = assInventory.NAME;
-                treeSelect1.Placeholder = assInventory.HANDLEMANNAME + "   > ";
+                treeSelect1.Placeholder = assInventory.HANDLEMANNAME;
                 if (string.IsNullOrEmpty(assInventory.DEPARTMENTID))
                 {
-                    treeSelect4.Placeholder = "全部   > ";
+                    treeSelect4.Placeholder = "全部";
                 }
                 else
                 {
-                    treeSelect4.Placeholder = assInventory.DEPARTMENTNAME + "   > ";
+                    treeSelect4.Placeholder = assInventory.DEPARTMENTNAME;
                 }
                 if (string.IsNullOrEmpty(assInventory.TYPEID))
                 {
-                    treeSelect3.Placeholder = "全部   > ";
+                    treeSelect3.Placeholder = "全部";
                 }
                 else
                 {
-                    treeSelect3.Placeholder = assInventory.TYPENAME + "   > ";
+                    treeSelect3.Placeholder = assInventory.TYPENAME;
                 }
-                treeSelect2.Placeholder = assInventory.LOCATIONNAME + "   > ";
+                treeSelect2.Placeholder = assInventory.LOCATIONNAME;
                 HManId = assInventory.HANDLEMAN;
                 DepId = assInventory.DEPARTMENTID;
                 LocationId = assInventory.LOCATIONID;

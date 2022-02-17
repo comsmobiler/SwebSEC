@@ -24,6 +24,7 @@ namespace SwebSECUI.AssetsManager
             this.panel2 = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
             this.SaveBtn = new Swebui.Controls.Button();
+            this.SuccessBtn = new Swebui.Controls.Button();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
             this.label9 = new Swebui.Controls.Label();
@@ -42,9 +43,15 @@ namespace SwebSECUI.AssetsManager
             this.txtCount = new Swebui.Controls.TextBox();
             this.panel5 = new Swebui.Controls.Panel();
             this.label6 = new Swebui.Controls.Label();
-            this.txtCode = new Swebui.Controls.TextBox();
-            this.btnAdd = new Swebui.Controls.Button();
+            this.label11 = new Swebui.Controls.Label();
+            this.label12 = new Swebui.Controls.Label();
             this.tabPageView1 = new Swebui.Controls.TabPageView();
+            this.panel6 = new Swebui.Controls.Panel();
+            this.panel8 = new Swebui.Controls.Panel();
+            this.txtCode = new Swebui.Controls.TextBox();
+            this.btnSelect = new Swebui.Controls.Button();
+            this.label7 = new Swebui.Controls.Label();
+            this.label8 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
@@ -58,7 +65,7 @@ namespace SwebSECUI.AssetsManager
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Bold = true;
             this.label1.Flex = 1;
-            this.label1.FontSize = 16F;
+            this.label1.FontSize = 18F;
             this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
@@ -69,7 +76,8 @@ namespace SwebSECUI.AssetsManager
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
-            this.SaveBtn});
+            this.SaveBtn,
+            this.SuccessBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
@@ -105,6 +113,23 @@ namespace SwebSECUI.AssetsManager
             this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
             this.SaveBtn.Size = new System.Drawing.Size(80, 35);
             this.SaveBtn.Text = "保存";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // SuccessBtn
+            // 
+            this.SuccessBtn.BackColor = System.Drawing.Color.White;
+            this.SuccessBtn.Border = new Swebui.Controls.Border(1F);
+            this.SuccessBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.SuccessBtn.BorderRadius = 5;
+            this.SuccessBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.SuccessBtn.IconName = "fa fa-floppy-o";
+            this.SuccessBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.SuccessBtn.Name = "SuccessBtn";
+            this.SuccessBtn.NumberOfLines = 0;
+            this.SuccessBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.SuccessBtn.Size = new System.Drawing.Size(80, 35);
+            this.SuccessBtn.Text = "结束";
+            this.SuccessBtn.Click += new System.EventHandler(this.SuccessBtn_Click);
             // 
             // panel12
             // 
@@ -272,8 +297,8 @@ namespace SwebSECUI.AssetsManager
             // 
             this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label6,
-            this.txtCode,
-            this.btnAdd});
+            this.label11,
+            this.label12});
             this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel5.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
             this.panel5.Name = "panel5";
@@ -290,25 +315,23 @@ namespace SwebSECUI.AssetsManager
             this.label6.Text = "请输入编号";
             this.label6.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // txtCode
+            // label11
             // 
-            this.txtCode.Border = new Swebui.Controls.Border(1F);
-            this.txtCode.Flex = 1;
-            this.txtCode.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(100, 0);
-            this.txtCode.TouchEnter += new System.EventHandler(this.txtCode_TouchEnter);
-            this.txtCode.SubmitEditing += new System.EventHandler(this.txtCode_SubmitEditing);
+            this.label11.Flex = 1;
+            this.label11.ForeColor = System.Drawing.Color.Silver;
+            this.label11.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 0);
+            this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // btnAdd
+            // label12
             // 
-            this.btnAdd.Flex = 1;
-            this.btnAdd.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.NumberOfLines = 0;
-            this.btnAdd.Size = new System.Drawing.Size(100, 0);
-            this.btnAdd.Text = "添加";
-            this.btnAdd.Click += new System.EventHandler(this.btnSelect_Click);
+            this.label12.Flex = 1;
+            this.label12.ForeColor = System.Drawing.Color.Silver;
+            this.label12.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // tabPageView1
             // 
@@ -318,6 +341,71 @@ namespace SwebSECUI.AssetsManager
             this.tabPageView1.PageIndex = 0;
             this.tabPageView1.PageIndicator = Swebui.Controls.TabPageIndicator.Title;
             this.tabPageView1.Size = new System.Drawing.Size(0, 30);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.panel8,
+            this.label7,
+            this.label8});
+            this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel6.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(0, 35);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.txtCode,
+            this.btnSelect});
+            this.panel8.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel8.Flex = 1;
+            this.panel8.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(300, 0);
+            // 
+            // txtCode
+            // 
+            this.txtCode.Border = new Swebui.Controls.Border(1F);
+            this.txtCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.txtCode.Flex = 8;
+            this.txtCode.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(100, 0);
+            this.txtCode.TouchEnter += new System.EventHandler(this.txtCode_TouchEnter);
+            this.txtCode.SubmitEditing += new System.EventHandler(this.txtCode_SubmitEditing);
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.BackColor = System.Drawing.Color.White;
+            this.btnSelect.Border = new Swebui.Controls.Border(1F);
+            this.btnSelect.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.btnSelect.Flex = 2;
+            this.btnSelect.ForeColor = System.Drawing.Color.Black;
+            this.btnSelect.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.NumberOfLines = 0;
+            this.btnSelect.Size = new System.Drawing.Size(100, 0);
+            this.btnSelect.Text = "添加盘点单";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // label7
+            // 
+            this.label7.Flex = 1;
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 0);
+            this.label7.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.Flex = 1;
+            this.label8.ForeColor = System.Drawing.Color.Silver;
+            this.label8.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 0);
+            this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmAssInventoryResult
             // 
@@ -330,6 +418,7 @@ namespace SwebSECUI.AssetsManager
             this.panel3,
             this.panel4,
             this.panel5,
+            this.panel6,
             this.tabPageView1});
             this.Load += new System.EventHandler(this.frmAssInventoryResult_Load);
 
@@ -359,8 +448,15 @@ namespace SwebSECUI.AssetsManager
         internal TextBox txtCount;
         private Panel panel5;
         private Label label6;
-        private TextBox txtCode;
-        private Button btnAdd;
         private TabPageView tabPageView1;
+        private Panel panel6;
+        private Label label11;
+        private Label label12;
+        private Panel panel8;
+        private TextBox txtCode;
+        private Button btnSelect;
+        private Label label7;
+        private Label label8;
+        internal Button SuccessBtn;
     }
 }

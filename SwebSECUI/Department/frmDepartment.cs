@@ -44,7 +44,7 @@ namespace SwebSECUI.Department
                 if (args.SelectedRows.Count > 0)
                 {
                     Dictionary<string, object> selectrow = args.SelectedRows[0];
-                    string roid = selectrow["NAME"].ToString();
+                    string roid = selectrow["DEPARTMENTID"].ToString();
                     frmDepartmentDetail frm = new frmDepartmentDetail();
                     frm.D_ID = roid;
                     frm.Flex = 1;
@@ -69,151 +69,20 @@ namespace SwebSECUI.Department
         /// </summary>
         public void Bind()
         {
-            try
-            {
                 //获取所有部门数据
                 List<DepartmentDto> listDep = AutofacConfig.DepartmentService.GetAllDepartment();
-                switch (Mode)
-                {
-                    case DepartmentMode.列表:
-                        //gridDepData.Rows.Clear();//清空部门列表数据
-                        DModeBtn.Text = DepartmentMode.层级 + "展示";
-                        break;
-                    case DepartmentMode.层级:
-                        treeDepData.Nodes.Clear();//清空部门层级数据
-                        DModeBtn.Text = DepartmentMode.列表 + "展示";
-                        break;
-                }
-
-                if (listDep.Count > 0)
-                {
-                    DModeBtn.Visible = true;
-
-                    
-                    foreach (DepartmentDto dep in listDep)
-                    {
-                        if (string.IsNullOrEmpty(dep.IMAGEID) == true)
-                        {
-                            dep.IMAGEID = "bumenicon";
-                        }
-
-                    }
-                    switch (Mode)
-                    {
-                        case DepartmentMode.列表:
-                            gridDepData.Visible = true;
-                            treeDepData.Visible = false;
-                            gridDepData.DataSource = listDep;
-                            gridDepData.DataBind();
-                            break;
-                        case DepartmentMode.层级:
-                            gridDepData.Visible = false;
-                            treeDepData.Visible = true;
-                            foreach (DepartmentDto dep in listDep)
-                            {
-                                TreeViewNode node = new TreeViewNode(dep.DEPARTMENTID, /*null, dep.IMAGEID, (int)TreeMode.dep + "," +*/ dep.NAME);
-                                //node.TextColor = System.Drawing.Color.FromArgb(45, 45, 45);
-                                List<coreUser> listDepUser = AutofacConfig.coreUserService.GetUserByDepID(dep.DEPARTMENTID);
-                                if (listDepUser.Count > 0)
-                                {
-                                    foreach (coreUser user in listDepUser)
-                                    {
-                                        string Name = "";
-                                        if (dep.MANAGER.Equals(user.USER_ID))
-                                        {
-                                            Name = user.USER_NAME + "  负责人";
-                                        }
-                                        else
-                                        {
-                                            Name = user.USER_NAME;
-                                        }
-                                        string portrait = "";
-                                        if (string.IsNullOrEmpty(user.USER_IMAGEID) == true)
-                                        {
-                                            switch (user.USER_SEX)
-                                            {
-                                                case (int)Sex.男:
-                                                    portrait = "male";
-                                                    break;
-                                                case (int)Sex.女:
-                                                    portrait = "female";
-                                                    break;
-                                            }
-                                        }
-                                        else
-                                        {
-                                            portrait = user.USER_IMAGEID;
-                                        }
-                                        TreeViewNode node1 = new TreeViewNode(user.USER_ID, /*null, portrait, (int)TreeMode.user + "," + */user.USER_NAME);
-                                        //node1.TextColor = System.Drawing.Color.FromArgb(145, 145, 145);
-                                        node.Nodes.Add(node1);
-                                    }
-
-                                }
-                                treeDepData.Nodes.Add(node);
-                            }
-                            break;
-                    }
-
-                }
-                else
-                {
-                    // btnDMode.Visible = false;
-                    
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+                gridDepData.DataSource = listDep;
+                gridDepData.DataBind();
         }
-        /// <summary>
-        /// treeDepData点击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeDepData_Press(object sender, TreeViewOnPressEventArgs e)
+
+        private void UserInfoBtn_Click(object sender, EventArgs e)
         {
-            string ID = e.ToString();
-            switch (Convert.ToInt32(ID.Split(',')[0]))
-            {
-                case (int)TreeMode.dep:
-                    frmDepartmentDetail frm = new frmDepartmentDetail();
-                    frm.D_ID = ID.Split(',')[1];
+                    frmDepPerMessage frm = new frmDepPerMessage();
                     frm.Flex = 1;
                     this.Parent.Controls.Add(frm);
                     this.Parent.Controls.RemoveAt(0);
-                    Mode = DepartmentMode.层级;
-                    Bind();
-                    break;
-                case (int)TreeMode.user:
-                    frmDepPerMessage frmMes = new frmDepPerMessage();
-                    frmMes.UserID = ID.Split(',')[1];
-                    frmMes.Flex = 1;
-                    this.Parent.Controls.Add(frmMes);
-                    this.Parent.Controls.RemoveAt(0);
-                    break;
-            }
-        }
-        /// <summary>
-        /// 部门显示模式
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DModeBtn_Click(object sender, EventArgs e)
-        {
-            switch (Mode)
-            {
-                case DepartmentMode.列表:
-                    Mode = DepartmentMode.层级;
-                    break;
-                case DepartmentMode.层级:
-                    Mode = DepartmentMode.列表;
-                    break;
-            }
-            Bind();
+                
         }
     }
+
 }

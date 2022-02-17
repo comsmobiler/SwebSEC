@@ -37,7 +37,6 @@ namespace SwebSECUI.Layout
                 if (String.IsNullOrEmpty(txtID.Text)) throw new Exception("区域编号不能为空");
                 if (String.IsNullOrEmpty(txtName.Text)) throw new Exception("区域名称不能为空");
                 if (treeSelect1.Tag == null) throw new Exception("区域负责人不能为空");
-
                 AssLocation ass = autofacConfig.assLocationService.GetByManager(treeSelect1.Tag.ToString());
                 //String[] data = 
                 //if (ass != null) throw new Exception(data[0] + "已经是区域管理员,请选择其他用户！");
@@ -57,8 +56,8 @@ namespace SwebSECUI.Layout
                     }
                     else
                     {
-                        this.Close();
                         Form.Toast("区域创建成功");
+                        this.Close();
                     }
                 }
                 else      //更新区域
@@ -70,17 +69,16 @@ namespace SwebSECUI.Layout
                     }
                     else
                     {
-                        this.Close();
                         Form.Toast("修改区域信息成功");
+                        this.Close();
                     }
                 }
                 this.ShowResult = ShowResult.Yes;
-               //刷新显示列表
-               //((frmLocationRows)Owner).Bind();
+                //刷新显示列表
+                ((frmLocationRows)Owner).Bind();
             }
             catch (Exception ex)
             {
-              
                 this.Form.Toast(ex.Message);
             }
         }
@@ -108,7 +106,7 @@ namespace SwebSECUI.Layout
                 txtID.ReadOnly = true;                //区域编号不允许修改
                 this.txtID.Text = ID;                 //区域编号
                 this.txtName.Text = location.NAME;          //区域名称
-                //this.btnManager.Text = core.USER_NAME + "   > ";     //区域管理者名称
+                this.treeSelect1.Placeholder = core.USER_NAME;     //区域管理者名称
                 this.treeSelect1.Tag = location.MANAGER;    //区域管理者编号
                 OldManger = location.MANAGER;        //区域的原管理员
             }

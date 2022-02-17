@@ -99,7 +99,7 @@ namespace SwebSECUI.Layout
             this.label9,
             this.label10});
             this.panel12.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel12.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel12.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.panel12.Name = "panel12";
             this.panel12.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
             this.panel12.Size = new System.Drawing.Size(0, 30);
@@ -111,7 +111,7 @@ namespace SwebSECUI.Layout
             this.label5.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 0);
-            this.label5.Text = "父类编码";
+            this.label5.Text = "区域编码";
             this.label5.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // label9
@@ -121,7 +121,7 @@ namespace SwebSECUI.Layout
             this.label9.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 0);
-            this.label9.Text = "父类名称";
+            this.label9.Text = "区域名称";
             this.label9.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // label10
@@ -131,7 +131,7 @@ namespace SwebSECUI.Layout
             this.label10.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 0);
-            this.label10.Text = "父年限(月)";
+            this.label10.Text = "区域负责人";
             this.label10.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel13
@@ -141,7 +141,7 @@ namespace SwebSECUI.Layout
             this.txtName,
             this.treeSelect1});
             this.panel13.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel13.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel13.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.panel13.Name = "panel13";
             this.panel13.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
             this.panel13.Size = new System.Drawing.Size(0, 35);
@@ -150,7 +150,6 @@ namespace SwebSECUI.Layout
             // 
             this.txtID.Border = new Swebui.Controls.Border(1F);
             this.txtID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
-            this.txtID.BorderRadius = 4;
             this.txtID.Flex = 1;
             this.txtID.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtID.Name = "txtID";
@@ -161,7 +160,6 @@ namespace SwebSECUI.Layout
             // 
             this.txtName.Border = new Swebui.Controls.Border(1F);
             this.txtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
-            this.txtName.BorderRadius = 4;
             this.txtName.Flex = 1;
             this.txtName.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtName.Name = "txtName";
@@ -176,7 +174,6 @@ namespace SwebSECUI.Layout
             this.treeSelect1.Flex = 1;
             this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect1.Name = "treeSelect1";
-            this.treeSelect1.Placeholder = "选择（必填）   > ";
             this.treeSelect1.Size = new System.Drawing.Size(100, 0);
             this.treeSelect1.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect1_Press);
             // 

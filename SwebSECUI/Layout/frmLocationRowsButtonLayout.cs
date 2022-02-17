@@ -84,7 +84,7 @@ namespace SwebSECUI.Layout
                                         if (r.IsSuccess == true)
                                         {
                                             this.Form.Toast("分类禁用成功!");
-                                            ((frmAssetsTypeRows)Parent).Bind();
+                                            //((frmAssetsTypeRows)Parent).Bind();
                                         }
                                         else
                                         {
@@ -111,7 +111,7 @@ namespace SwebSECUI.Layout
                                     if (r.IsSuccess == true)
                                     {
                                         this.Form.Toast("分类启用成功!");
-                                        ((frmAssetsTypeRows)Parent).Bind();
+                                        //((frmAssetsTypeRows)Parent).Bind();
                                     }
                                     else
                                     {

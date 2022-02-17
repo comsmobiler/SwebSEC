@@ -38,7 +38,7 @@ namespace SwebSECUI.MasterData
             this.MenuTitle.BackColor = System.Drawing.Color.White;
             this.MenuTitle.Bold = true;
             this.MenuTitle.Flex = 1;
-            this.MenuTitle.FontSize = 16F;
+            this.MenuTitle.FontSize = 18F;
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);

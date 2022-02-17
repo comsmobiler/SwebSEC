@@ -51,7 +51,7 @@ namespace SwebSECUI.Department
             this.MenuTitle.BackColor = System.Drawing.Color.White;
             this.MenuTitle.Bold = true;
             this.MenuTitle.Flex = 1;
-            this.MenuTitle.FontSize = 16F;
+            this.MenuTitle.FontSize = 18F;
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);
@@ -64,7 +64,7 @@ namespace SwebSECUI.Department
             this.BackBtn,
             this.SaveBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
             // 
@@ -73,7 +73,6 @@ namespace SwebSECUI.Department
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
             this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
@@ -89,7 +88,6 @@ namespace SwebSECUI.Department
             this.SaveBtn.BackColor = System.Drawing.Color.White;
             this.SaveBtn.Border = new Swebui.Controls.Border(1F);
             this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.SaveBtn.BorderRadius = 5;
             this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
             this.SaveBtn.IconName = "fa fa-floppy-o";
             this.SaveBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
@@ -152,14 +150,16 @@ namespace SwebSECUI.Department
             this.panel13.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel13.Name = "panel13";
             this.panel13.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
-            this.panel13.Size = new System.Drawing.Size(0, 35);
+            this.panel13.Size = new System.Drawing.Size(0, 45);
             // 
             // txtDep_Name
             // 
+            this.txtDep_Name.Border = new Swebui.Controls.Border(1F);
+            this.txtDep_Name.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.txtDep_Name.Flex = 1;
             this.txtDep_Name.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtDep_Name.Name = "txtDep_Name";
-            this.txtDep_Name.Size = new System.Drawing.Size(100, 0);
+            this.txtDep_Name.Size = new System.Drawing.Size(0, 35);
             this.txtDep_Name.WaterMarkText = "（必填）";
             // 
             // panel3
@@ -171,36 +171,40 @@ namespace SwebSECUI.Department
             this.panel3.Flex = 1;
             this.panel3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 0);
+            this.panel3.Size = new System.Drawing.Size(0, 55);
             // 
             // imgPortrait
             // 
-            this.imgPortrait.BorderRadius = 10;
-            this.imgPortrait.Flex = 8;
+            this.imgPortrait.Border = new Swebui.Controls.Border(1F);
+            this.imgPortrait.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "";
-            this.imgPortrait.Size = new System.Drawing.Size(0, 45);
-            this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Stretch;
+            this.imgPortrait.Size = new System.Drawing.Size(45, 45);
+            this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
+            this.imgPortrait.Zooming = true;
             // 
             // btnUp
             // 
             this.btnUp.BackColor = System.Drawing.Color.White;
-            this.btnUp.Flex = 2;
+            this.btnUp.Border = new Swebui.Controls.Border(1F);
+            this.btnUp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
             this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
+            this.btnUp.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.btnUp.Name = "btnUp";
             this.btnUp.NumberOfLines = 0;
-            this.btnUp.Size = new System.Drawing.Size(0, 35);
-            this.btnUp.Text = ">";
+            this.btnUp.Size = new System.Drawing.Size(100, 30);
+            this.btnUp.Text = "上传";
             this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // treeSelect1
             // 
+            this.treeSelect1.Border = new Swebui.Controls.Border(1F);
+            this.treeSelect1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect1.DefaultValue = new string[0];
             this.treeSelect1.Flex = 1;
             this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect1.Name = "treeSelect1";
-            this.treeSelect1.Placeholder = "选择（必填）   > ";
-            this.treeSelect1.Size = new System.Drawing.Size(100, 0);
+            this.treeSelect1.Size = new System.Drawing.Size(100, 35);
             this.treeSelect1.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect1_Press);
             // 
             // panel4
@@ -218,6 +222,8 @@ namespace SwebSECUI.Department
             // btnAssignUser
             // 
             this.btnAssignUser.BackColor = System.Drawing.Color.White;
+            this.btnAssignUser.Border = new Swebui.Controls.Border(1F);
+            this.btnAssignUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.btnAssignUser.Flex = 1;
             this.btnAssignUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(146)))), ((int)(((byte)(223)))));
             this.btnAssignUser.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
@@ -263,7 +269,6 @@ namespace SwebSECUI.Department
         private Label MenuTitle;
         private Panel panel2;
         internal Button BackBtn;
-        internal Button SaveBtn;
         private Panel panel12;
         private Label label5;
         private Label label9;
@@ -278,5 +283,6 @@ namespace SwebSECUI.Department
         private Button btnAssignUser;
         private Label label1;
         private Label label2;
+        internal Button SaveBtn;
     }
 }

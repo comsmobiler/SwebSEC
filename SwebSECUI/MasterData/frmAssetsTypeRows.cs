@@ -26,32 +26,11 @@ namespace SwebSECUI.MasterData
         }
         #region "definition"
         AutofacConfig autofacConfig = new AutofacConfig();//调用配置类
+        private string SelectID;
         public Int32 MaxLevel = 3;         //最深层级
         public Int32 NowLevel = 1;     //当前层级
-        public String ID;              //选择资产分类编号
-        public String LocName;    //区域名称
-        public bool Enable = false;    //是否启用
+        public String ID;
         #endregion
-        /// <summary>
-        /// 新建资产分类
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAssetsTypeCreateLayout frm = new frmAssetsTypeCreateLayout();
-            frm.isCreate = true;
-            frm.plFID.Visible = false;
-            frm.plFName.Visible = false;
-            frm.plFDate.Visible = false;
-            this.ShowDialog(frm);
-            this.ShowDialog(frm, (obj, args) => {
-                if (frm.ShowResult == ShowResult.Yes)
-                {
-                    Bind();
-                }
-            });
-        }
         /// <summary>
         /// 页面初始化
         /// </summary>
@@ -59,33 +38,26 @@ namespace SwebSECUI.MasterData
         /// <param name="e"></param>
         private void frmAssetsTypeRows_Load(object sender, EventArgs e)
         {
-            Bind();
-            if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmLocationRows")
+            try
             {
-                EditBtn.Text = "编辑此区域";
-                DeleteBtn.Text = "删除此区域";
+                Bind();
+                treeView1.DefaultValue = new string[] { treeView1.Nodes[0].TreeID };
+                SelectID = treeView1.Nodes[0].TreeID;
+                GetContent(treeView1.Nodes[0].TreeID);
             }
-            else if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmAssetsTypeRows")
+            catch (Exception ex)
             {
-                EditBtn.Text = "编辑此分类";
-                if (Enable)
-                {
-                    DeleteBtn.Text = "禁用此分类";
-                }
-                else
-                {
-                    DeleteBtn.Text = "启用此分类";
-                }
+                Toast(ex.Message);
             }
         }
         /// <summary>
-        /// 数据绑定
+        /// 绑定treeview
         /// </summary>
-        public void Bind()
+        private void Bind()
         {
             try
             {
-                treeAssetsType.Nodes.Clear();       //数据清除
+                treeView1.Nodes.Clear();       //数据清除
                 List<AssetsType> Data = autofacConfig.assTypeService.GetAll();
                 if (Data.Count > 0)
                 {
@@ -93,7 +65,7 @@ namespace SwebSECUI.MasterData
                     {
                         if (Row.TLEVEL == 1)
                         {
-                            TreeViewNode Node = new TreeViewNode(Row.TYPEID,Row.NAME);
+                            TreeViewNode Node = new TreeViewNode(Row.TYPEID, Row.NAME);
                             TreeViewNode SonNode = getData(2, Data, Row.TYPEID);
                             if (SonNode.Nodes.Count > 0)
                             {
@@ -104,9 +76,9 @@ namespace SwebSECUI.MasterData
                             }
                             if (Row.ISENABLE == (int)IsEnable.禁用)
                             {
-                                //Node.Text = System.Drawing.Color.Red;
+                                
                             }
-                            treeAssetsType.Nodes.Add(Node);
+                            treeView1.Nodes.Add(Node);
                         }
                     }
                 }
@@ -143,7 +115,7 @@ namespace SwebSECUI.MasterData
                         }
                         if (Row.ISENABLE == (int)IsEnable.禁用)
                         {
-                            //Node.Text.C = System.Drawing.Color.Red;
+                          
                         }
                         TreeData.Nodes.Add(Node);
                     }
@@ -158,7 +130,7 @@ namespace SwebSECUI.MasterData
                         TreeViewNode Node = new TreeViewNode(Row.TYPEID, Row.NAME);
                         if (Row.ISENABLE == (int)IsEnable.禁用)
                         {
-                            //Node.TextColor = System.Drawing.Color.Red;
+                            
                         }
                         TreeData.Nodes.Add(Node);
                     }
@@ -167,188 +139,182 @@ namespace SwebSECUI.MasterData
             return TreeData;
         }
         /// <summary>
-        /// 添加下级资产分类
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView1_Press(object sender, TreeViewOnPressEventArgs e)
+        {
+            GetContent(e.TreeID);
+            SelectID = e.TreeID;
+        }
+        private void GetContent(string typeid)
+        {
+            AssetsType assetsType = autofacConfig.assTypeService.GetByID(typeid);
+            if (assetsType.TLEVEL == 1)
+            {
+                Fpanel.Visible = true;
+                SPanel.Visible = false;
+                txtID.Text = assetsType.TYPEID;
+                txtName.Text = assetsType.NAME;
+                txtDate.Text = assetsType.EXPIRYDATE.ToString();
+                switchIsEnable.Checked = assetsType.ISENABLE == 1 ? true : false;
+                editBtn.Text = "编辑父类";
+                addTypeBtn.Visible = true;
+            }
+            else
+            {
+                if (assetsType.TLEVEL >= 3)
+                    addTypeBtn.Visible = false;
+                else
+                    addTypeBtn.Visible = true;
+                editBtn.Text = "编辑子类";
+                Fpanel.Visible = false;
+                SPanel.Visible = true;
+                txtID1.Text = assetsType.TYPEID;
+                txtName1.Text = assetsType.NAME;
+                txtDate1.Text = assetsType.EXPIRYDATE.ToString();
+                switchIsEnable1.Checked = assetsType.ISENABLE == 1 ? true : false;
+                AssetsType fType = autofacConfig.assTypeService.GetByID(assetsType.PARENTTYPEID);
+                txtFID.Text = fType.TYPEID;
+                txtFName.Text = fType.NAME;
+                txtFDate.Text = fType.EXPIRYDATE.ToString();
+            }
+        }
+        /// <summary>
+        /// 编辑按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            AssetsTypeCreateDialog dialog = new AssetsTypeCreateDialog();
+            dialog.isCreateSon = false;
+            dialog.isEdit = true;
+            if (editBtn.Text == "编辑父类")
+                dialog.ID = txtID.Text;
+            else
+                dialog.ID = txtID1.Text;
+            this.ShowDialog(dialog, (obj, args) =>
+            {
+                if (dialog.ShowResult == ShowResult.Yes)
+                {
+                    //Bind();
+                    GetContent(dialog.ID);
+                    treeView1.DefaultValue = new string[] { dialog.ID };
+                }
+            });
+        }
+        /// <summary>
+        /// 新增父类
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            try
+            AssetsTypeCreateDialog dialog = new AssetsTypeCreateDialog();
+            dialog.isCreateSon = false;
+            dialog.isCreate = true;
+            this.ShowDialog(dialog, (obj, args) =>
             {
-                if (String.IsNullOrEmpty(ID)) throw new Exception("请先选择父类资产类别");
-                if (autofacConfig.assTypeService.GetByID(ID).TLEVEL == 3) throw new Exception("当前所选类别为最低级，无法创建下级!");
-                frmAssetsTypeCreateLayout frm = new frmAssetsTypeCreateLayout();
-                frm.isCreateSon = true;
-                frm.ID = ID;
-                ShowDialog(frm);
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
+                if (dialog.ShowResult == ShowResult.Yes)
+                {
+                    Bind();
+                    GetContent(treeView1.Nodes[0].TreeID);
+                    treeView1.DefaultValue = new string[] { treeView1.Nodes[0].TreeID };
+                }
+            });
         }
         /// <summary>
-        /// 进行编辑
+        /// 新增子类
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void EditBtn_Click(object sender, EventArgs e)
+        private void addTypeBtn_Click(object sender, EventArgs e)
         {
-            try
+            AssetsTypeCreateDialog dialog = new AssetsTypeCreateDialog();
+            dialog.isCreateSon = true;
+            dialog.isCreate = true;
+            dialog.ID = SelectID;
+            this.ShowDialog(dialog, (obj, args) =>
             {
-                if (String.IsNullOrEmpty(ID)) throw new Exception("请先选择要操作的资产类别");
-                AssetsType assetsType = autofacConfig.assTypeService.GetByID(ID);
-                if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmLocationRows")
-                {
-                    frmLocationCreateLayout frm = new frmLocationCreateLayout();
-                    frm.ID = ID;  //区域编码
-                    frm.isEdit = true;
-                    this.Close();
-                    this.Form.ShowDialog(frm);
-                }
-                else if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmAssetsTypeRows")
-                {
-                    frmAssetsTypeCreateLayout frm = new frmAssetsTypeCreateLayout();
-                    frm.ID = ID;      //类别编码
-                    frm.isEdit = true;     //编辑状态
-                    this.Close();
-                    this.Form.ShowDialog(frm);
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
-            
-        }
-        /// <summary>
-        /// 选择资产
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void treeAssetsType_Press(object sender, TreeViewOnPressEventArgs e)
-        {
-            ID = e.TreeID;        //所选资产分类编号
-            try
-            {
-                if (treeAssetsType.Tag != null)
-                {
 
-                   lblName.Text = treeAssetsType.Tag.ToString(); //所选资产分类名称
+                if (dialog.ShowResult == ShowResult.Yes)
+                {
+                    Bind();
+                    GetContent(dialog.ID);
+                    treeView1.DefaultValue = new string[] { dialog.ID };
+                }
+            });
+        }
+        /// <summary>
+        /// 启用/禁用父级分类
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void switchIsEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (switchIsEnable.Checked)
+                {
+                    ReturnInfo rInfo = autofacConfig.assTypeService.ChangeEnable(txtID.Text, IsEnable.启用);
+                    if (rInfo.IsSuccess)
+                    {
+                        Toast("启用分类成功");
+                    }
+                    else
+                        throw new Exception(rInfo.ErrorInfo);
+                }
+                else
+                {
+                    ReturnInfo rInfo = autofacConfig.assTypeService.ChangeEnable(txtID.Text, IsEnable.禁用);
+                    if (rInfo.IsSuccess)
+                    {
+                        Toast("禁用分类成功");
+                    }
+                    else
+                        throw new Exception(rInfo.ErrorInfo);
                 }
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
-            
         }
         /// <summary>
-        /// 删除此区域
+        /// 启用/禁用子级分类
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DeleteBtn_Click(object sender, EventArgs e)
+        private void switchIsEnable1_CheckedChanged(object sender, EventArgs e)
         {
-            this.Close();
             try
             {
-                if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmLocationRows")
+                if (switchIsEnable1.Checked)
                 {
-                    MessageBox.Show("你确定要删除该区域吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
+                    ReturnInfo rInfo = autofacConfig.assTypeService.ChangeEnable(txtID1.Text, IsEnable.启用);
+                    if (rInfo.IsSuccess)
                     {
-                        try
-                        {
-                            if (args.Result == ShowResult.OK)     //删除该区域
-                            {
-                                ReturnInfo r = autofacConfig.assLocationService.DeleteAssLocation(ID);
-                                if (r.IsSuccess == true)
-                                {
-                                    this.Form.Toast("删除成功");
-                                    ((frmLocationRows)Owner).Bind();      //刷新数据
-                                }
-                                else
-                                {
-                                    throw new Exception(r.ErrorInfo);
-                                }
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Form.Toast(ex.Message);
-                        }
-                    });
+                        Toast("启用分类成功");
+                    }
+                    else
+                        throw new Exception(rInfo.ErrorInfo);
                 }
-                else if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmAssetsTypeRows")
+                else
                 {
-                    if (Enable)        //禁用该分类
+                    ReturnInfo rInfo = autofacConfig.assTypeService.ChangeEnable(txtID1.Text, IsEnable.禁用);
+                    if (rInfo.IsSuccess)
                     {
-                        MessageBox.Show("你确定要禁用该分类吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
-                        {
-                            try
-                            {
-                                if (args.Result == ShowResult.OK)
-                                {
-                                    if (autofacConfig.assTypeService.HasAssets(ID))
-                                    {
-                                        throw new Exception("当前资产分类有相关的资产数据，不允许禁用!");
-                                    }
-                                    else if (autofacConfig.assTypeService.IsParent(ID))
-                                    {
-                                        throw new Exception("当前资产分类有子分类，不允许禁用!");
-                                    }
-                                    else
-                                    {
-                                        ReturnInfo r = autofacConfig.assTypeService.ChangeEnable(ID, SMOSEC.DTOs.Enum.IsEnable.禁用);
-                                        if (r.IsSuccess == true)
-                                        {
-                                            this.Form.Toast("分类禁用成功!");
-                                            ((frmAssetsTypeRows)Parent).Bind();
-                                        }
-                                        else
-                                        {
-                                            throw new Exception(r.ErrorInfo);
-                                        }
-                                    }
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                Form.Toast(ex.Message);
-                            }
-                        });
+                        Toast("禁用分类成功");
                     }
-                    else        //启用该分类
-                    {
-                        MessageBox.Show("你确定要启用该分类吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
-                        {
-                            try
-                            {
-                                if (args.Result == ShowResult.OK)
-                                {
-                                    ReturnInfo r = autofacConfig.assTypeService.ChangeEnable(ID, SMOSEC.DTOs.Enum.IsEnable.启用);
-                                    if (r.IsSuccess == true)
-                                    {
-                                        this.Form.Toast("分类启用成功!");
-                                        ((frmAssetsTypeRows)Parent).Bind();
-                                    }
-                                    else
-                                    {
-                                        throw new Exception(r.ErrorInfo);
-                                    }
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                Form.Toast(ex.Message);
-                            }
-                        });
-                    }
+                    else
+                        throw new Exception(rInfo.ErrorInfo);
                 }
             }
             catch (Exception ex)
             {
-                Form.Toast(ex.Message);
+                Toast(ex.Message);
             }
         }
     }

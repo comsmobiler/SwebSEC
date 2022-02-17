@@ -33,6 +33,7 @@ namespace SwebSECUI.AssetsManager
             this.EditBtn = new Swebui.Controls.Button();
             this.DelBtn = new Swebui.Controls.Button();
             this.StartBtn = new Swebui.Controls.Button();
+            this.RefreshBtn = new Swebui.Controls.Button();
             this.panel2 = new Swebui.Controls.Panel();
             this.gridView1 = new Swebui.Controls.GridView();
             // 
@@ -48,7 +49,7 @@ namespace SwebSECUI.AssetsManager
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Bold = true;
             this.label1.Flex = 1;
-            this.label1.FontSize = 16F;
+            this.label1.FontSize = 18F;
             this.label1.Margin = new Swebui.Controls.Margin(10F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 35);
@@ -61,7 +62,8 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd,
             this.EditBtn,
             this.DelBtn,
-            this.StartBtn});
+            this.StartBtn,
+            this.RefreshBtn});
             this.plButton.Direction = Swebui.Controls.LayoutDirection.Row;
             this.plButton.Name = "plButton";
             this.plButton.Size = new System.Drawing.Size(0, 50);
@@ -130,6 +132,22 @@ namespace SwebSECUI.AssetsManager
             this.StartBtn.Text = "开始盘点";
             this.StartBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.BackColor = System.Drawing.Color.White;
+            this.RefreshBtn.Border = new Swebui.Controls.Border(1F);
+            this.RefreshBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.RefreshBtn.BorderRadius = 5;
+            this.RefreshBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.RefreshBtn.IconName = "fa fa-refresh";
+            this.RefreshBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.NumberOfLines = 0;
+            this.RefreshBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.RefreshBtn.Size = new System.Drawing.Size(80, 35);
+            this.RefreshBtn.Text = "刷新";
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
@@ -140,6 +158,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // gridView1
             // 
+            this.gridView1.AllowPaging = true;
             gridViewColumn1.DisplayMember = "IID";
             gridViewColumn1.HeaderText = "盘点单单号";
             gridViewColumn2.DisplayMember = "NAME";
@@ -167,6 +186,7 @@ namespace SwebSECUI.AssetsManager
             this.gridView1.Flex = 1;
             this.gridView1.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;
             this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 
@@ -191,5 +211,6 @@ namespace SwebSECUI.AssetsManager
         internal Button DelBtn;
         internal Button StartBtn;
         private GridView gridView1;
+        internal Button RefreshBtn;
     }
 }

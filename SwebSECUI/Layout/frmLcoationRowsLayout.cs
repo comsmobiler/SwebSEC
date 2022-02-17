@@ -61,6 +61,7 @@ namespace SwebSECUI.Layout
                                 throw new Exception(r.ErrorInfo);
                             }
                         }
+                        this.ShowResult = ShowResult.Yes;
                     }
                     catch (Exception ex)
                     {
@@ -80,7 +81,7 @@ namespace SwebSECUI.Layout
                             if (r.IsSuccess == true)
                             {
                                 this.Form.Toast("区域禁用成功");
-                                /*((frmLocationRows)Owner).Bind(); */     //刷新数据
+                                ((frmLocationRows)Owner).Bind();      //刷新数据
 
                             }
                             else
@@ -105,20 +106,10 @@ namespace SwebSECUI.Layout
         /// <param name="e"></param>
         private void plEdit_Press(object sender, EventArgs e)
         {
-            if (this.Form.ToString() == "SwebSECUI.MasterData.frmLocationRows")
-            {
                 frmLocationCreateLayout frm = new frmLocationCreateLayout();
                 frm.ID = ID;  //区域编码
                 frm.isEdit = true;
                 this.Form.ShowDialog(frm);
-            }
-            else if (this.Form.ToString() == "SwebSECUI.MasterData.frmAssetsTypeRows")
-            {
-                frmAssetsTypeCreateLayout frm = new frmAssetsTypeCreateLayout();
-                frm.ID = ID;      //类别编码
-                frm.isEdit = true;     //编辑状态
-                this.Form.ShowDialog(frm);
-            }
         }
         /// <summary>
         /// 对当前行项区域进行删除
@@ -130,8 +121,6 @@ namespace SwebSECUI.Layout
             this.Close();
             try
             {
-                if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmLocationRows")
-                {
                     MessageBox.Show("你确定要删除该区域吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
                     {
                         try
@@ -155,9 +144,7 @@ namespace SwebSECUI.Layout
                             Form.Toast(ex.Message);
                         }
                     });
-                }
-                else if (this.Form.ToString() == "SMOSEC.UI.MasterData.frmAssetsTypeRows")
-                {
+            
                     if (Enable)        //禁用该分类
                     {
                         MessageBox.Show("你确定要禁用该分类吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
@@ -180,7 +167,7 @@ namespace SwebSECUI.Layout
                                         if (r.IsSuccess == true)
                                         {
                                             this.Form.Toast("分类禁用成功!");
-                                            ((frmAssetsTypeRows)Parent).Bind();
+                                            //((frmAssetsTypeRows)Parent).Bind();
                                         }
                                         else
                                         {
@@ -194,9 +181,8 @@ namespace SwebSECUI.Layout
                                 Form.Toast(ex.Message);
                             }
                         });
-                    }
-                    else        //启用该分类
-                    {
+                    
+                   
                         MessageBox.Show("你确定要启用该分类吗?", "系统提醒", MessageBoxButtons.OKCancel, (object sender1, MessageBoxHandlerArgs args) =>
                         {
                             try
@@ -207,7 +193,7 @@ namespace SwebSECUI.Layout
                                     if (r.IsSuccess == true)
                                     {
                                         this.Form.Toast("分类启用成功!");
-                                        ((frmAssetsTypeRows)Parent).Bind();
+                                        //((frmAssetsTypeRows)Parent).Bind();
                                     }
                                     else
                                     {
@@ -220,7 +206,7 @@ namespace SwebSECUI.Layout
                                 Form.Toast(ex.Message);
                             }
                         });
-                    }
+                    
                 }
             }
             catch (Exception ex)
