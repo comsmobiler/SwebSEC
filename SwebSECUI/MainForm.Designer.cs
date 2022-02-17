@@ -81,7 +81,7 @@ namespace SwebSECUI
             // 
             this.exitBtn.BackColor = System.Drawing.Color.Transparent;
             this.exitBtn.Bold = true;
-            this.exitBtn.ForeColor = System.Drawing.Color.DarkGray;
+            this.exitBtn.ForeColor = System.Drawing.Color.DimGray;
             this.exitBtn.IconName = "fa fa-sign-out";
             this.exitBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.exitBtn.Name = "exitBtn";
@@ -97,7 +97,7 @@ namespace SwebSECUI
             // 
             this.useBtn.BackColor = System.Drawing.Color.Transparent;
             this.useBtn.Bold = true;
-            this.useBtn.ForeColor = System.Drawing.Color.Silver;
+            this.useBtn.ForeColor = System.Drawing.Color.DimGray;
             this.useBtn.IconName = "fa fa-user";
             this.useBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.useBtn.Name = "useBtn";

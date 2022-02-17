@@ -19,10 +19,10 @@ namespace SwebSECUI.ConsumablesManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn13 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn14 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn15 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn16 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
             this.panel2 = new Swebui.Controls.Panel();
@@ -53,6 +53,7 @@ namespace SwebSECUI.ConsumablesManager
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 26);
             this.label1.Text = "耗材管理列表";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Bottom;
             // 
             // panel2
             // 
@@ -150,19 +151,19 @@ namespace SwebSECUI.ConsumablesManager
             // gridView1
             // 
             this.gridView1.AllowPaging = true;
-            gridViewColumn13.DisplayMember = "CID";
-            gridViewColumn13.HeaderText = "耗材编号";
-            gridViewColumn14.DisplayMember = "NAME";
-            gridViewColumn14.HeaderText = "耗材名称";
-            gridViewColumn15.DisplayMember = "SAFEFLOOR";
-            gridViewColumn15.HeaderText = "安全库存下限";
-            gridViewColumn16.DisplayMember = "SAFECEILING";
-            gridViewColumn16.HeaderText = "安全库存上限";
+            gridViewColumn1.DisplayMember = "CID";
+            gridViewColumn1.HeaderText = "耗材编号";
+            gridViewColumn2.DisplayMember = "NAME";
+            gridViewColumn2.HeaderText = "耗材名称";
+            gridViewColumn3.DisplayMember = "SAFEFLOOR";
+            gridViewColumn3.HeaderText = "安全库存下限";
+            gridViewColumn4.DisplayMember = "SAFECEILING";
+            gridViewColumn4.HeaderText = "安全库存上限";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn13,
-            gridViewColumn14,
-            gridViewColumn15,
-            gridViewColumn16});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3,
+            gridViewColumn4});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 10F);

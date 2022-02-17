@@ -54,6 +54,7 @@ namespace SwebSECUI.ConsumablesManager
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 26);
             this.label1.Text = "耗材盘点";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Bottom;
             // 
             // panel2
             // 
