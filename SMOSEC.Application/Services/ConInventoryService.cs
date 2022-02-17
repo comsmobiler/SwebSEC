@@ -137,8 +137,6 @@ namespace SMOSEC.Application.Services
             var list = from conInventory in area
                        join user in _SMOSECDbContext.coreUsers on conInventory.HANDLEMAN equals user.USER_ID
                        orderby conInventory.CREATEDATE descending
-
-
                        select new ConInventoryListOutputDto()
                        {
                            IID = conInventory.IID,

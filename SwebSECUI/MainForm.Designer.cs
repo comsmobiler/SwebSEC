@@ -122,6 +122,7 @@ namespace SwebSECUI
             // menuView1
             // 
             this.menuView1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.menuView1.Color = System.Drawing.Color.White;
             this.menuView1.DefaultIcon = "tasks";
             menuItem1.Icon = "home";
             menuItem1.Id = "Home";

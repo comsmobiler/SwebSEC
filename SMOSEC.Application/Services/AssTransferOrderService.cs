@@ -176,22 +176,43 @@ namespace SMOSEC.Application.Services
                     else
                     {
                         List<AssTransferOrderRow> Rows = _AssTransferOrderRowRepository.GetUnTransferTOID(aro.TOID).AsNoTracking().ToList();
-                        if (Rows.Count == entity.Rows.Count)      //判断调拨单是完成还是取消
+                        int doneCount = 0;
+                        int cancelCount = 0;
+                        foreach (AssTransferOrderRow Row in entity.Rows)     //只要调拨行项中有一个确认，则调拨单属于完成
                         {
-                            Boolean isOver = false;
-                            foreach (AssTransferOrderRow Row in entity.Rows)     //只要调拨行项中有一个确认，则调拨单属于完成
+                            if (Row.STATUS == 1)
                             {
-                                if (Row.STATUS == 1)
-                                {
-                                    isOver = true;
-                                    aro.STATUS = 1;
-                                }
+                                doneCount++;
                             }
-                            if (isOver == false)        //否之，调拨单为取消
+                            else if (Row.STATUS == 2)
                             {
-                                aro.STATUS = 2;
+                                cancelCount++;
                             }
                         }
+                        if (Rows.Count == doneCount)
+                        {
+                            aro.STATUS = 1;
+                        }
+                        else if (Rows.Count == cancelCount)
+                        {
+                            aro.STATUS = 2;
+                        }
+                        //if (Rows.Count == entity.Rows.Count)      //判断调拨单是完成还是取消
+                        //{
+                        //    Boolean isOver = false;
+                        //    foreach (AssTransferOrderRow Row in entity.Rows)     //只要调拨行项中有一个确认，则调拨单属于完成
+                        //    {
+                        //        if (Row.STATUS == 1)
+                        //        {
+                        //            isOver = true;
+                        //            aro.STATUS = 1;
+                        //        }
+                        //    }
+                        //    if (isOver == false)        //否之，调拨单为取消
+                        //    {
+                        //        aro.STATUS = 2;
+                        //    }
+                    //}
                         //更新报修单行项
                         aro.MODIFYDATE = entity.MODIFYDATE;
                         aro.MODIFYUSER = entity.MODIFYUSER;
