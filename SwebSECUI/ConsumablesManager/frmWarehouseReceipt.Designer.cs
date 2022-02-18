@@ -19,10 +19,10 @@ namespace SwebSECUI.ConsumablesManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn11 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn12 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
             this.panel2 = new Swebui.Controls.Panel();
@@ -116,19 +116,20 @@ namespace SwebSECUI.ConsumablesManager
             // gridView1
             // 
             this.gridView1.AllowFiltering = true;
-            gridViewColumn9.DisplayMember = "WRID";
-            gridViewColumn9.HeaderText = "入库单编号";
-            gridViewColumn10.DisplayMember = "HANDLEMANNAME";
-            gridViewColumn10.HeaderText = "处理人";
-            gridViewColumn11.DisplayMember = "BUSINESSDATE";
-            gridViewColumn11.HeaderText = "业务日期";
-            gridViewColumn12.DisplayMember = "LOCATIONNAME";
-            gridViewColumn12.HeaderText = "来源";
+            this.gridView1.AllowPaging = true;
+            gridViewColumn1.DisplayMember = "WRID";
+            gridViewColumn1.HeaderText = "入库单编号";
+            gridViewColumn2.DisplayMember = "HANDLEMANNAME";
+            gridViewColumn2.HeaderText = "处理人";
+            gridViewColumn3.DisplayMember = "BUSINESSDATE";
+            gridViewColumn3.HeaderText = "业务日期";
+            gridViewColumn4.DisplayMember = "LOCATIONNAME";
+            gridViewColumn4.HeaderText = "来源";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn9,
-            gridViewColumn10,
-            gridViewColumn11,
-            gridViewColumn12});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3,
+            gridViewColumn4});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 10F);

@@ -268,6 +268,18 @@
     <Compile Include="ConsumablesManager\frmConInventory.Designer.cs">
       <DependentUpon>frmConInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsumablesManager\frmConInventoryCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConInventoryCreate.Designer.cs">
+      <DependentUpon>frmConInventoryCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConInventoryResult.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmConInventoryResult.Designer.cs">
+      <DependentUpon>frmConInventoryResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsumablesManager\frmConQuant.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -298,6 +310,18 @@
     <Compile Include="ConsumablesManager\frmConsumablesDetailEdit.Designer.cs">
       <DependentUpon>frmConsumablesDetailEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsumablesManager\frmTransferDeal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmTransferDeal.Designer.cs">
+      <DependentUpon>frmTransferDeal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmTransferDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmTransferDetail.Designer.cs">
+      <DependentUpon>frmTransferDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsumablesManager\frmOutboundOrder.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -315,6 +339,12 @@
     </Compile>
     <Compile Include="ConsumablesManager\frmOutOrderDetail.Designer.cs">
       <DependentUpon>frmOutOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmTransferCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConsumablesManager\frmTransferCreate.Designer.cs">
+      <DependentUpon>frmTransferCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsumablesManager\frmTransferRows.cs">
       <SubType>Component</SubType>
@@ -390,6 +420,18 @@
     <Compile Include="Layout\BorrowOrderLayout.Designer.cs">
       <DependentUpon>BorrowOrderLayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layout\CIResultLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\CIResultLayout.Designer.cs">
+      <DependentUpon>CIResultLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\CIResultTotalLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\CIResultTotalLayout.Designer.cs">
+      <DependentUpon>CIResultTotalLayout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout\CollarOrderLayout.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -413,6 +455,24 @@
     </Compile>
     <Compile Include="Layout\ConDetialLayout.Designer.cs">
       <DependentUpon>ConDetialLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConTDLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConTDLayout.Designer.cs">
+      <DependentUpon>ConTDLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConTransDetailLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConTransDetailLayout.Designer.cs">
+      <DependentUpon>ConTransDetailLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ConTransferConsChooseDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Layout\ConTransferConsChooseDialog.Designer.cs">
+      <DependentUpon>ConTransferConsChooseDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\frmAIResultLayout.cs">
       <SubType>Component</SubType>
@@ -754,6 +814,15 @@
     <EmbeddedResource Include="AssetsManager\frmTransferRowsSN.resx">
       <DependentUpon>frmTransferRowsSN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConInventory.resx">
+      <DependentUpon>frmConInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConInventoryCreate.resx">
+      <DependentUpon>frmConInventoryCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmConInventoryResult.resx">
+      <DependentUpon>frmConInventoryResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsumablesManager\frmConQuant.resx">
       <DependentUpon>frmConQuant.cs</DependentUpon>
     </EmbeddedResource>
@@ -769,6 +838,12 @@
     <EmbeddedResource Include="ConsumablesManager\frmConsumablesDetailEdit.resx">
       <DependentUpon>frmConsumablesDetailEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmTransferDeal.resx">
+      <DependentUpon>frmTransferDeal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmTransferDetail.resx">
+      <DependentUpon>frmTransferDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsumablesManager\frmOutboundOrder.resx">
       <DependentUpon>frmOutboundOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -777,6 +852,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsumablesManager\frmOutOrderDetail.resx">
       <DependentUpon>frmOutOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmTransferCreate.resx">
+      <DependentUpon>frmTransferCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsumablesManager\frmTransferRows.resx">
+      <DependentUpon>frmTransferRows.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsumablesManager\frmWarehouseReceipt.resx">
       <DependentUpon>frmWarehouseReceipt.cs</DependentUpon>
@@ -811,6 +892,12 @@
     <EmbeddedResource Include="Layout\BorrowOrderLayout.resx">
       <DependentUpon>BorrowOrderLayout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\CIResultLayout.resx">
+      <DependentUpon>CIResultLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\CIResultTotalLayout.resx">
+      <DependentUpon>CIResultTotalLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layout\CollarOrderLayout.resx">
       <DependentUpon>CollarOrderLayout.cs</DependentUpon>
     </EmbeddedResource>
@@ -822,6 +909,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\ConDetialLayout.resx">
       <DependentUpon>ConDetialLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConTDLayout.resx">
+      <DependentUpon>ConTDLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConTransDetailLayout.resx">
+      <DependentUpon>ConTransDetailLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ConTransferConsChooseDialog.resx">
+      <DependentUpon>ConTransferConsChooseDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout\frmAIResultLayout.resx">
       <DependentUpon>frmAIResultLayout.cs</DependentUpon>
