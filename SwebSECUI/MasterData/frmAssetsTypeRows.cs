@@ -238,12 +238,11 @@ namespace SwebSECUI.MasterData
             dialog.ID = SelectID;
             this.ShowDialog(dialog, (obj, args) =>
             {
-
                 if (dialog.ShowResult == ShowResult.Yes)
                 {
-                    Bind();
                     GetContent(dialog.ID);
                     treeView1.DefaultValue = new string[] { dialog.ID };
+                    Bind();
                 }
             });
         }
@@ -265,6 +264,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
+                    this.ShowResult = ShowResult.Yes;
                 }
                 else
                 {
@@ -275,6 +275,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
+                    this.ShowResult = ShowResult.Yes;
                 }
             }
             catch (Exception ex)
@@ -300,6 +301,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
+                    this.ShowResult = ShowResult.Yes;
                 }
                 else
                 {
@@ -310,6 +312,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
+                    this.ShowResult = ShowResult.Yes;
                 }
             }
             catch (Exception ex)

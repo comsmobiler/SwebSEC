@@ -53,7 +53,6 @@ namespace SwebSECUI.Layout
             // 
             this.Image.DataMember = "IMAGE";
             this.Image.DisplayMember = "IMAGE";
-            this.Image.Flex = 1;
             this.Image.Name = "Image";
             this.Image.ResourceID = "";
             this.Image.Size = new System.Drawing.Size(45, 45);

@@ -49,6 +49,7 @@ namespace SwebSECUI.AssetsManager
             this.label4 = new Swebui.Controls.Label();
             this.label7 = new Swebui.Controls.Label();
             this.label8 = new Swebui.Controls.Label();
+            this.label6 = new Swebui.Controls.Label();
             // 
             // panel1
             // 
@@ -333,7 +334,8 @@ namespace SwebSECUI.AssetsManager
             this.label2,
             this.label4,
             this.label7,
-            this.label8});
+            this.label8,
+            this.label6});
             this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel4.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
             this.panel4.Name = "panel4";
@@ -342,9 +344,8 @@ namespace SwebSECUI.AssetsManager
             // 
             // label2
             // 
-            this.label2.Flex = 1;
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 0);
+            this.label2.Size = new System.Drawing.Size(30, 30);
             this.label2.Text = "图片";
             this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
@@ -360,7 +361,6 @@ namespace SwebSECUI.AssetsManager
             // label7
             // 
             this.label7.Flex = 1;
-            this.label7.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 0);
             this.label7.Text = "资产条码";
@@ -369,11 +369,18 @@ namespace SwebSECUI.AssetsManager
             // label8
             // 
             this.label8.Flex = 1;
-            this.label8.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Center;
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 0);
             this.label8.Text = "资产名称";
             this.label8.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.Flex = 1;
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 0);
+            this.label6.Text = "持有人";
+            this.label6.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmRsoCreate
             // 
@@ -422,5 +429,6 @@ namespace SwebSECUI.AssetsManager
         private Label label4;
         private Label label7;
         private Label label8;
+        private Label label6;
     }
 }

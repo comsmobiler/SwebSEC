@@ -1,9 +1,9 @@
 ﻿using Swebui.Controls;
 using System;
 
-namespace SwebSECUI.Department
+namespace SwebSECUI.MasterData
 {
-    partial class frmDepartmentDetail : Swebui.Controls.SwebUserControl
+    partial class frmLocationRowsEditStatu : Swebui.Controls.SwebUserControl
     {
         #region "SwebUserControl generated code "
 
@@ -24,18 +24,20 @@ namespace SwebSECUI.Department
             this.panel2 = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
             this.SaveBtn = new Swebui.Controls.Button();
-            this.DeleteBtn = new Swebui.Controls.Button();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
             this.label9 = new Swebui.Controls.Label();
             this.label10 = new Swebui.Controls.Label();
             this.panel13 = new Swebui.Controls.Panel();
-            this.lblName = new Swebui.Controls.TextBox();
+            this.txtID = new Swebui.Controls.TextBox();
+            this.txtName = new Swebui.Controls.TextBox();
+            this.textBox1 = new Swebui.Controls.TextBox();
             this.panel3 = new Swebui.Controls.Panel();
-            this.imgPortrait = new Swebui.Controls.Image();
-            this.btnUp = new Swebui.Controls.Button();
-            this.lblLeader = new Swebui.Controls.Label();
-            this.gridUserData = new Swebui.Controls.ListView();
+            this.label1 = new Swebui.Controls.Label();
+            this.label2 = new Swebui.Controls.Label();
+            this.label3 = new Swebui.Controls.Label();
+            this.panel4 = new Swebui.Controls.Panel();
+            this.switchIsEnable = new Swebui.Controls.Switch();
             // 
             // panel1
             // 
@@ -53,15 +55,14 @@ namespace SwebSECUI.Department
             this.MenuTitle.Margin = new Swebui.Controls.Margin(10F);
             this.MenuTitle.Name = "MenuTitle";
             this.MenuTitle.Size = new System.Drawing.Size(0, 35);
-            this.MenuTitle.Text = "部门详细信息";
+            this.MenuTitle.Text = "区域状态修改";
             this.MenuTitle.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel2
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
-            this.SaveBtn,
-            this.DeleteBtn});
+            this.SaveBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
@@ -74,7 +75,6 @@ namespace SwebSECUI.Department
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
             this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.BackBtn.IconName = "fa fa-angle-left";
             this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
@@ -90,29 +90,13 @@ namespace SwebSECUI.Department
             this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
             this.SaveBtn.BorderRadius = 5;
             this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.SaveBtn.IconName = "fa fa-floppy-o";
             this.SaveBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.NumberOfLines = 0;
             this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
             this.SaveBtn.Size = new System.Drawing.Size(80, 35);
-            this.SaveBtn.Text = "编辑";
+            this.SaveBtn.Text = "确定";
             this.SaveBtn.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.BackColor = System.Drawing.Color.White;
-            this.DeleteBtn.Border = new Swebui.Controls.Border(1F);
-            this.DeleteBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.DeleteBtn.BorderRadius = 5;
-            this.DeleteBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.DeleteBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.NumberOfLines = 0;
-            this.DeleteBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.DeleteBtn.Size = new System.Drawing.Size(92, 35);
-            this.DeleteBtn.Text = "删除";
-            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // panel12
             // 
@@ -121,7 +105,7 @@ namespace SwebSECUI.Department
             this.label9,
             this.label10});
             this.panel12.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel12.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel12.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.panel12.Name = "panel12";
             this.panel12.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
             this.panel12.Size = new System.Drawing.Size(0, 30);
@@ -133,7 +117,7 @@ namespace SwebSECUI.Department
             this.label5.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 0);
-            this.label5.Text = "部门名称";
+            this.label5.Text = "区域编码";
             this.label5.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // label9
@@ -143,7 +127,7 @@ namespace SwebSECUI.Department
             this.label9.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 0);
-            this.label9.Text = "部门头像";
+            this.label9.Text = "区域名称";
             this.label9.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // label10
@@ -153,94 +137,121 @@ namespace SwebSECUI.Department
             this.label10.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 0);
-            this.label10.Text = "责任人";
+            this.label10.Text = "区域负责人";
             this.label10.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // panel13
             // 
             this.panel13.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.lblName,
-            this.panel3,
-            this.lblLeader});
+            this.txtID,
+            this.txtName,
+            this.textBox1});
             this.panel13.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel13.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
+            this.panel13.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.panel13.Name = "panel13";
             this.panel13.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
-            this.panel13.Size = new System.Drawing.Size(0, 45);
+            this.panel13.Size = new System.Drawing.Size(0, 35);
             // 
-            // lblName
+            // txtID
             // 
-            this.lblName.Flex = 1;
-            this.lblName.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.lblName.Name = "lblName";
-            this.lblName.ReadOnly = true;
-            this.lblName.Size = new System.Drawing.Size(100, 35);
-            this.lblName.WaterMarkText = "（必填）";
+            this.txtID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.txtID.Flex = 1;
+            this.txtID.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(100, 0);
+            this.txtID.WaterMarkText = "区域编码";
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.txtName.Flex = 1;
+            this.txtName.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(100, 0);
+            this.txtName.WaterMarkText = "区域名称";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.textBox1.Flex = 1;
+            this.textBox1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 0);
+            this.textBox1.WaterMarkText = "区域名称";
             // 
             // panel3
             // 
             this.panel3.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.imgPortrait,
-            this.btnUp});
+            this.label1,
+            this.label2,
+            this.label3});
             this.panel3.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel3.Flex = 1;
-            this.panel3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.panel3.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(300, 0);
+            this.panel3.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel3.Size = new System.Drawing.Size(0, 30);
             // 
-            // imgPortrait
+            // label1
             // 
-            this.imgPortrait.Border = new Swebui.Controls.Border(1F);
-            this.imgPortrait.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
-            this.imgPortrait.Name = "imgPortrait";
-            this.imgPortrait.ResourceID = "";
-            this.imgPortrait.Size = new System.Drawing.Size(45, 45);
-            this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
-            this.imgPortrait.Zooming = true;
+            this.label1.Flex = 1;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 0);
+            this.label1.Text = "是否启用区域";
+            this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // btnUp
+            // label2
             // 
-            this.btnUp.BackColor = System.Drawing.Color.White;
-            this.btnUp.Border = new Swebui.Controls.Border(1F);
-            this.btnUp.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(140)))), ((int)(((byte)(255)))));
-            this.btnUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(99)))), ((int)(((byte)(99)))));
-            this.btnUp.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.NumberOfLines = 0;
-            this.btnUp.Size = new System.Drawing.Size(100, 30);
-            this.btnUp.Text = "上传";
-            this.btnUp.Visible = false;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
+            this.label2.Flex = 1;
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 0);
+            this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // lblLeader
+            // label3
             // 
-            this.lblLeader.Flex = 1;
-            this.lblLeader.ForeColor = System.Drawing.Color.Silver;
-            this.lblLeader.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.lblLeader.Name = "lblLeader";
-            this.lblLeader.Size = new System.Drawing.Size(100, 35);
-            this.lblLeader.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            this.label3.Flex = 1;
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 0);
+            this.label3.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
-            // gridUserData
+            // panel4
             // 
-            this.gridUserData.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.gridUserData.Flex = 1;
-            this.gridUserData.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
-            this.gridUserData.Name = "gridUserData";
-            this.gridUserData.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
-            this.gridUserData.Size = new System.Drawing.Size(0, 300);
-            this.gridUserData.TemplateControlName = "frmUserLayout";
+            this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.switchIsEnable});
+            this.panel4.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel4.Margin = new Swebui.Controls.Margin(10F, 0F, 0F, 0F);
+            this.panel4.Name = "panel4";
+            this.panel4.Overflow = Swebui.Controls.LayoutOverflow.Hidden;
+            this.panel4.Size = new System.Drawing.Size(0, 30);
             // 
-            // frmDepartmentDetail
+            // switchIsEnable
             // 
-            this.BackColor = System.Drawing.Color.White;
+            this.switchIsEnable.BackColor = System.Drawing.Color.Transparent;
+            this.switchIsEnable.BorderColor = System.Drawing.Color.Black;
+            this.switchIsEnable.BorderRadius = 0;
+            this.switchIsEnable.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
+            this.switchIsEnable.Name = "switchIsEnable";
+            this.switchIsEnable.Size = new System.Drawing.Size(100, 35);
+            this.switchIsEnable.CheckedChanged += new System.EventHandler(this.switchIsEnable_CheckedChanged);
+            // 
+            // frmLocationRowsEditStatu
+            // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1,
             this.panel2,
             this.panel12,
             this.panel13,
-            this.gridUserData});
-            this.Load += new System.EventHandler(this.frmDepartmentDetail_Load);
+            this.panel3,
+            this.panel4});
+            this.Load += new System.EventHandler(this.frmLocationRowsEditStatu_Load);
 
         }
         #endregion
@@ -250,17 +261,19 @@ namespace SwebSECUI.Department
         private Panel panel2;
         internal Button BackBtn;
         internal Button SaveBtn;
-        internal Button DeleteBtn;
         private Panel panel12;
-        private Label label5;
-        private Label label9;
-        private Label label10;
+        internal Label label5;
+        internal Label label9;
+        internal Label label10;
         private Panel panel13;
-        internal TextBox lblName;
+        internal TextBox txtID;
+        internal TextBox txtName;
         private Panel panel3;
-        internal Label lblLeader;
-        private Image imgPortrait;
-        internal Button btnUp;
-        private ListView gridUserData;
+        internal Label label1;
+        internal Label label2;
+        internal Label label3;
+        internal TextBox textBox1;
+        private Panel panel4;
+        private Switch switchIsEnable;
     }
 }

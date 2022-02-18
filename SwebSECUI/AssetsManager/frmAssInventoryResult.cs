@@ -32,11 +32,8 @@ namespace SwebSECUI.AssetsManager
         private DataTable alreadyTable = new DataTable(); //已盘点的资产
         private Dictionary<string, int> assDictionary = new Dictionary<string, int>();  //资产
         private List<string> assList;  //资产的初始列表
- 
-
         private ListView waitListView = new ListView();
         private ListView alreadyListView = new ListView();
-
         public string LocationId;
         public string typeId;
         public string DepartmentId;
@@ -85,13 +82,11 @@ namespace SwebSECUI.AssetsManager
                     {
                         assId = asset.Rows[0]["ASSID"].ToString();
                         AddAssToDictionary(assId, barCode);
-
                     }
                     else
                     {
                         Toast("未找到该SN对应的资产编号.");
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -176,18 +171,21 @@ namespace SwebSECUI.AssetsManager
                     allAssTable.Rows.Add(Row);
                 }
 
+                //添加ListView到tabpageview
                 waitListView.TemplateControlName = "frmAIResultLayout";
                 waitListView.ShowSplitLine = true;
                 waitListView.SplitLineColor = Color.FromArgb(230, 230, 230);
                 waitListView.Flex = 1;
+                waitListView.Size = new Size(0,0);
                 tabPageView1.Controls.Add(waitListView);
 
                 alreadyListView.TemplateControlName = "frmAIResultLayout";
                 alreadyListView.ShowSplitLine = true;
                 alreadyListView.SplitLineColor = Color.FromArgb(230, 230, 230);
                 alreadyListView.Flex = 1;
+                alreadyListView.Size = new Size(0,0);
                 tabPageView1.Controls.Add(alreadyListView);
-
+                
                 var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(IID);
                 txtName.Text = inventory.NAME;
                 txtHandleMan.Text = inventory.HANDLEMANNAME;
@@ -269,16 +267,18 @@ namespace SwebSECUI.AssetsManager
                 {
                     //如果状态是待盘点，则变成已盘点
                     DataRow row = waiTable.Rows.Find(assid);
+                    
                     if (row != null)
                     {
                         DataRow newRow = getNewRow(row, ResultStatus.存在);
                         assDictionary[assid] = (int)ResultStatus.存在;
                         alreadyTable.Rows.Add(newRow);
-
+                        
                         var newdt = alreadyTable.Clone();
                         newdt.ImportRow(newRow);
+                       
                         alreadyListView.NewRow(newdt, "");
-                        waitListView.Rows.RemoveAt(waiTable.Rows.IndexOf(row));
+                        waiTable.Rows.RemoveAt(waiTable.Rows.IndexOf(row));
                         waiTable.Rows.Remove(row);
                     }
                 }
@@ -300,7 +300,7 @@ namespace SwebSECUI.AssetsManager
 
                             var newdt = alreadyTable.Clone();
                             newdt.ImportRow(newRow);
-                            ((frmAIResultLayout)alreadyListView.NewRow(newdt, "")[0].Control).label3.ForeColor = Color.FromArgb(43, 140, 255);
+                            ((frmAIResultLayout)alreadyListView.NewRow(newdt, "")[0].Control).label5.ForeColor = Color.FromArgb(43, 140, 255);
                         }
                     }
                 }
@@ -341,10 +341,11 @@ namespace SwebSECUI.AssetsManager
                     waitListView.Rows.Clear();
                     waitListView.DataSource = waiTable;
                     waitListView.DataBind();
-
+                    
                     alreadyListView.Rows.Clear();
                     alreadyListView.DataSource = alreadyTable;
                     alreadyListView.DataBind();
+                    
                     string[] titleStrings = new string[2];
                     titleStrings[0] = "待盘点(" + waiTable.Rows.Count.ToString() + ")";
                     titleStrings[1] = "已盘点(" + alreadyTable.Rows.Count.ToString() + ")";
@@ -352,11 +353,12 @@ namespace SwebSECUI.AssetsManager
 
                     foreach (var row in alreadyListView.Rows)
                     {
+                      
                         frmAIResultLayout layout = (frmAIResultLayout)row.Control;
-                        if (layout.label3.Text == "盘亏")
-                            layout.label3.ForeColor = Color.Red;
-                        if (layout.label3.Text == "盘盈")
-                            layout.label3.ForeColor = Color.FromArgb(43, 140, 255);
+                        if (layout.label5.Text == "盘亏")
+                            layout.label5.ForeColor = Color.Red;
+                        if (layout.label5.Text == "盘盈")
+                            layout.label5.ForeColor = Color.FromArgb(43, 140, 255);
                     }
                 }
                 catch (Exception ex)
@@ -380,7 +382,7 @@ namespace SwebSECUI.AssetsManager
             rInfo = _autofacConfig.AssInventoryService.UpdateInventory(inputDto);
             Toast(rInfo.IsSuccess ? "上传结果成功." : rInfo.ErrorInfo);
         }
-
+        
         private void SuccessBtn_Click(object sender, EventArgs e)
         {
             ReturnInfo rInfo = new ReturnInfo();
@@ -407,9 +409,10 @@ namespace SwebSECUI.AssetsManager
             rInfo = _autofacConfig.AssInventoryService.UpdateInventory(inputDto2);
             if (rInfo.IsSuccess)
             {
-                ShowResult = ShowResult.Yes;
                 Toast("盘点结束成功.");
+                ShowResult = ShowResult.Yes;
                 BackBtn_Click(null,null);
+
             }
             else
             {

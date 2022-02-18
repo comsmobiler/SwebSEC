@@ -88,7 +88,6 @@ namespace SwebSECUI.Department
 
         }
 
-
         private void BackBtn_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Add(new frmDepartment() { Flex = 1 });
@@ -97,8 +96,22 @@ namespace SwebSECUI.Department
 
         private void treeView1_Press(object sender, TreeViewOnPressEventArgs e)
         {
-            SelectID = e.TreeID;
+            //SelectID = e.TreeID;
+            //string ID = e.TreeID;
+            //switch (Convert.ToInt32(ID.Split()[0]))
+            //{
+            //    case (int)TreeMode.dep:
+            //        frmDepartmentDetail frm = new frmDepartmentDetail();
+            //        frm.D_ID = ID.Split()[1];
+            //        frm.Flex = 1;
+            //        this.Parent.Controls.Add(frm);
+            //        this.Parent.Controls.RemoveAt(0);
+            //        break;
+            //    case (int)TreeMode.user:
+            //break;
+            //}
             GetContent(e.TreeID);
+            panel4.Visible = true;
         }
         private void GetContent(string UserID)
         {
@@ -146,5 +159,9 @@ namespace SwebSECUI.Department
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

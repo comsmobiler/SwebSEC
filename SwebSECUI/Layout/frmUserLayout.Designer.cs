@@ -28,10 +28,8 @@ namespace SwebSECUI.Layout
             this.panel1.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.imgPortrait,
             this.lblUser});
-            this.panel1.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel1.Flex = 1;
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(0, 100);
+            this.panel1.Size = new System.Drawing.Size(40, 80);
             this.panel1.Touchable = true;
             this.panel1.Press += new System.EventHandler(this.panel1_Press);
             // 
@@ -41,7 +39,7 @@ namespace SwebSECUI.Layout
             this.imgPortrait.DisplayMember = "USER_IMAGEID";
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "";
-            this.imgPortrait.Size = new System.Drawing.Size(45, 45);
+            this.imgPortrait.Size = new System.Drawing.Size(40, 40);
             this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
             this.imgPortrait.Zooming = true;
             // 
@@ -51,14 +49,14 @@ namespace SwebSECUI.Layout
             this.lblUser.DisplayMember = "USER_NAME";
             this.lblUser.Flex = 1;
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(100, 0);
+            this.lblUser.Size = new System.Drawing.Size(40, 40);
             this.lblUser.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // frmUserLayout
             // 
             this.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.panel1});
-            this.Size = new System.Drawing.Size(0, 40);
+            this.Size = new System.Drawing.Size(40, 80);
 
         }
         #endregion

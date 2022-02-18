@@ -226,7 +226,8 @@ namespace SwebSECUI.MasterData
 
         private void treeSelect2_Press(object sender, TreeSelectPressEventArgs args)
         {
-            treeSelect2.Tag = args.TreeID;
+
+            DepId = args.TreeID;
         }
 
         private void treeAssetsType_Press(object sender, TreeSelectPressEventArgs args)

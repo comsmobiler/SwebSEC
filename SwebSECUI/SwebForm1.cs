@@ -1,4 +1,5 @@
-﻿using Swebui.Controls;
+﻿using SwebSECUI.Layout;
+using Swebui.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,84 +14,17 @@ namespace SwebSECUI
             InitializeComponent();
         }
 
-        private void txtCode_TouchEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TouchEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_SubmitEditing(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_Press(object sender, TreeSelectPressEventArgs args)
-        {
-
-        }
-
         private void SwebForm1_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
-        {
-
-        }
-
-        private void plRow_Press(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Check_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEdit_Press(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plDelete_Press(object sender, EventArgs e)
-        {
-
-        }
-
-        private void plEnable_Press(object sender, EventArgs e)
-        {
-
+            tabPageView1.Titles = new string[] { "待盘点", "已盘点" };
+            TabPageControl tabPage1 = new TabPageControl();
+            tabPage1.Controls.Add(new SwebUserControl1() { Flex = 1 });
+            tabPage1.Flex = 1;
+            TabPageControl tabPage2 = new TabPageControl();
+            tabPage2.Controls.Add(new SwebUserControl2() { Flex = 1 });
+            tabPage2.Flex = 1;
+            tabPageView1.Controls.Add(tabPage1);
+            tabPageView1.Controls.Add(tabPage2);
         }
     }
 }

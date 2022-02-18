@@ -336,11 +336,14 @@ namespace SwebSECUI.AssetsManager
             // tabPageView1
             // 
             this.tabPageView1.Flex = 1;
-            this.tabPageView1.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.tabPageView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.tabPageView1.Name = "tabPageView1";
             this.tabPageView1.PageIndex = 0;
-            this.tabPageView1.PageIndicator = Swebui.Controls.TabPageIndicator.Title;
+            this.tabPageView1.PageIndicator = Swebui.Controls.TabPageIndicator.Title2;
             this.tabPageView1.Size = new System.Drawing.Size(0, 30);
+            this.tabPageView1.Titles = new string[] {
+        "待盘点",
+        "已盘点"};
             // 
             // panel6
             // 
@@ -368,7 +371,7 @@ namespace SwebSECUI.AssetsManager
             // 
             this.txtCode.Border = new Swebui.Controls.Border(1F);
             this.txtCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.txtCode.Flex = 8;
+            this.txtCode.Flex = 7;
             this.txtCode.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 0);
@@ -380,13 +383,13 @@ namespace SwebSECUI.AssetsManager
             this.btnSelect.BackColor = System.Drawing.Color.White;
             this.btnSelect.Border = new Swebui.Controls.Border(1F);
             this.btnSelect.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.btnSelect.Flex = 2;
+            this.btnSelect.Flex = 3;
             this.btnSelect.ForeColor = System.Drawing.Color.Black;
             this.btnSelect.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.NumberOfLines = 0;
             this.btnSelect.Size = new System.Drawing.Size(100, 0);
-            this.btnSelect.Text = "添加盘点单";
+            this.btnSelect.Text = "添加到已盘点";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // label7
@@ -446,10 +449,8 @@ namespace SwebSECUI.AssetsManager
         internal TextBox txtDep;
         internal TextBox txtType;
         internal TextBox txtCount;
-        private Panel panel5;
         private Label label6;
         private TabPageView tabPageView1;
-        private Panel panel6;
         private Label label11;
         private Label label12;
         private Panel panel8;
@@ -458,5 +459,7 @@ namespace SwebSECUI.AssetsManager
         private Label label7;
         private Label label8;
         internal Button SuccessBtn;
+        internal Panel panel5;
+        internal Panel panel6;
     }
 }

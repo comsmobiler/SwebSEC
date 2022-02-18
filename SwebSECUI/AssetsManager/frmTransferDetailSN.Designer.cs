@@ -23,8 +23,7 @@ namespace SwebSECUI.AssetsManager
             this.Title1 = new Swebui.Controls.Label();
             this.panel2 = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
-            this.SaveBtn = new Swebui.Controls.Button();
-            this.CancelBtn = new Swebui.Controls.Button();
+            this.panel6 = new Swebui.Controls.Panel();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
             this.label9 = new Swebui.Controls.Label();
@@ -48,6 +47,8 @@ namespace SwebSECUI.AssetsManager
             this.label8 = new Swebui.Controls.Label();
             this.label1 = new Swebui.Controls.Label();
             this.label12 = new Swebui.Controls.Label();
+            this.SaveBtn = new Swebui.Controls.Button();
+            this.CancelBtn = new Swebui.Controls.Button();
             // 
             // panel1
             // 
@@ -72,8 +73,7 @@ namespace SwebSECUI.AssetsManager
             // 
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
-            this.SaveBtn,
-            this.CancelBtn});
+            this.panel6});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
@@ -95,37 +95,14 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
-            // SaveBtn
+            // panel6
             // 
-            this.SaveBtn.BackColor = System.Drawing.Color.White;
-            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
-            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.SaveBtn.BorderRadius = 5;
-            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.SaveBtn.IconName = "fa fa-floppy-o";
-            this.SaveBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.NumberOfLines = 0;
-            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.SaveBtn.Size = new System.Drawing.Size(80, 35);
-            this.SaveBtn.Text = "提交";
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.White;
-            this.CancelBtn.Border = new Swebui.Controls.Border(1F);
-            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.CancelBtn.BorderRadius = 5;
-            this.CancelBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.CancelBtn.IconName = "fa fa-floppy-o";
-            this.CancelBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.NumberOfLines = 0;
-            this.CancelBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.CancelBtn.Size = new System.Drawing.Size(91, 35);
-            this.CancelBtn.Text = "取消";
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            this.panel6.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.SaveBtn,
+            this.CancelBtn});
+            this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(300, 0);
             // 
             // panel12
             // 
@@ -353,6 +330,38 @@ namespace SwebSECUI.AssetsManager
             this.label12.Text = "SN号";
             this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.White;
+            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
+            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.SaveBtn.BorderRadius = 5;
+            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.SaveBtn.IconName = "fa fa-floppy-o";
+            this.SaveBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.NumberOfLines = 0;
+            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.SaveBtn.Size = new System.Drawing.Size(80, 35);
+            this.SaveBtn.Text = "提交";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.White;
+            this.CancelBtn.Border = new Swebui.Controls.Border(1F);
+            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.CancelBtn.BorderRadius = 5;
+            this.CancelBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.CancelBtn.IconName = "fa fa-floppy-o";
+            this.CancelBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.NumberOfLines = 0;
+            this.CancelBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.CancelBtn.Size = new System.Drawing.Size(91, 35);
+            this.CancelBtn.Text = "取消";
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
             // frmTransferDetailSN
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -374,7 +383,6 @@ namespace SwebSECUI.AssetsManager
         private Label Title1;
         private Panel panel2;
         internal Button BackBtn;
-        internal Button SaveBtn;
         private Panel panel12;
         private Label label5;
         private Label label9;
@@ -391,7 +399,6 @@ namespace SwebSECUI.AssetsManager
         internal Label lblDealMan;
         internal Label lblNote;
         internal Label label11;
-        internal Button CancelBtn;
         private Panel panel7;
         private ListView ListAssetsSN;
         private Panel panel5;
@@ -399,5 +406,8 @@ namespace SwebSECUI.AssetsManager
         private Label label8;
         private Label label1;
         private Label label12;
+        private Panel panel6;
+        internal Button SaveBtn;
+        internal Button CancelBtn;
     }
 }

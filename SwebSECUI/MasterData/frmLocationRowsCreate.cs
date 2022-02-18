@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using SMOSEC.Domain.Entity;
 using SMOSEC.CommLib;
-using SwebSECUI.MasterData;
 
-namespace SwebSECUI.Layout
+
+namespace SwebSECUI.MasterData
 {
     ////ToolboxItem用于控制是否添加自定义控件到工具箱，true添加，false不添加
     //[System.ComponentModel.ToolboxItem(true)]
-    partial class frmLocationCreateLayout : Swebui.Controls.SwebUserControl
+    partial class frmLocationRowsCreate : Swebui.Controls.SwebUserControl
     {
-        public frmLocationCreateLayout() : base()
+        public frmLocationRowsCreate() : base()
         {
             //This call is required by theSwebUserControl.
             InitializeComponent();
@@ -58,47 +58,25 @@ namespace SwebSECUI.Layout
                     else
                     {
                         Form.Toast("区域创建成功");
-                        this.Close();
+                        BackBtn_Click(null,null);
                     }
                 }
-                else      //更新区域
-                {
-                    ReturnInfo r = autofacConfig.assLocationService.UpdateAssLocation(AssLoc, OldManger);
-                    if (r.IsSuccess == false)
-                    {
-                        throw new Exception(r.ErrorInfo);
-                    }
-                    else
-                    {
-                        Form.Toast("修改区域信息成功");
-                        this.Close();
-                    }
-                }
-                this.ShowResult = ShowResult.Yes;
-                //刷新显示列表
-                ((frmLocationRows)Parent).Bind();
             }
             catch (Exception ex)
             {
                 this.Form.Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 取消操作
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
         {
-            this.ShowResult = ShowResult.No;
-            this.Close();
+            treeSelect1.Tag = args.TreeID;
         }
         /// <summary>
         /// 页面初始化
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmLocationCreateLayout_Load(object sender, EventArgs e)
+        private void frmLocationRowsCreate_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(ID) == false)    //区域信息编辑
             {
@@ -120,9 +98,10 @@ namespace SwebSECUI.Layout
             }
         }
 
-        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
+        private void BackBtn_Click(object sender, EventArgs e)
         {
-            treeSelect1.Tag = args.TreeID;
+            this.Parent.Controls.Add(new frmLocationRows() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
         }
     }
 }

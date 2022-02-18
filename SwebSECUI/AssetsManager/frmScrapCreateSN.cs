@@ -40,7 +40,7 @@ namespace SwebSECUI.AssetsManager
                 if (treeSelect1.Tag == null)
                     throw new Exception("处理人不能为空");
                 else
-                    ScrapData.SCRAPMAN = treeSelect1.Tag.ToString();     //处理人
+                ScrapData.SCRAPMAN = treeSelect1.Tag.ToString();     //处理人
                 ScrapData.SCRAPDATE = DatePicker.Value;                  //业务日期
                 ScrapData.NOTE = txtNote.Text;                           //备注
                 ScrapData.STATUS = 0;                                    //维修单状态

@@ -57,7 +57,8 @@ namespace SwebSECUI.AssetsManager
                 coreUser User = autofacConfig.coreUserService.GetUserByID(SOData.SCRAPMAN);
                 lblDealMan.Text = User.USER_NAME;
                 DatePicker.Value = SOData.SCRAPDATE;
-                
+                txtNote.Text = SOData.NOTE;
+
                 if (String.IsNullOrEmpty(SOData.NOTE)) txtNote.Text = SOData.NOTE;
 
                 DataTable tableAssets = new DataTable();      //未开启SN的资产列表

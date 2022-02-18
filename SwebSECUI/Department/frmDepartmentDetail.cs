@@ -174,8 +174,8 @@ namespace SwebSECUI.Department
                         if (result.IsSuccess == true)
                         {
                             ShowResult = ShowResult.Yes;
-                            Close();
                             Toast("部门已删除！", ToastLength.SHORT);
+                            BackBtn_Click(null, null);
                         }
                         else
                         {

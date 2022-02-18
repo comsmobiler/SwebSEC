@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using SMOSEC.Domain.Entity;
 using SMOSEC.CommLib;
-using SwebSECUI.MasterData;
+using SMOSEC.DTOs.Enum;
 
-namespace SwebSECUI.Layout
+namespace SwebSECUI.MasterData
 {
     ////ToolboxItem用于控制是否添加自定义控件到工具箱，true添加，false不添加
     //[System.ComponentModel.ToolboxItem(true)]
-    partial class frmLocationCreateLayout : Swebui.Controls.SwebUserControl
+    partial class frmLocationRowsEdit : Swebui.Controls.SwebUserControl
     {
-        public frmLocationCreateLayout() : base()
+        public frmLocationRowsEdit() : base()
         {
             //This call is required by theSwebUserControl.
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace SwebSECUI.Layout
         public Boolean isCreate = false;       //页面是否为创建状态
         public Boolean isEdit = false;      //页面是否为编辑状态
         private String OldManger;          //区域原管理员
+        public bool Enable = false;    //是否启用
         #endregion
         /// <summary>
         /// 提交操作
@@ -48,20 +49,7 @@ namespace SwebSECUI.Layout
                     NAME = txtName.Text,
                     MANAGER = treeSelect1.Tag.ToString(),
                 };
-                if (isCreate == true)     //新建区域
-                {
-                    ReturnInfo r = autofacConfig.assLocationService.AddAssLocation(AssLoc);
-                    if (r.IsSuccess == false)
-                    {
-                        throw new Exception(r.ErrorInfo);
-                    }
-                    else
-                    {
-                        Form.Toast("区域创建成功");
-                        this.Close();
-                    }
-                }
-                else      //更新区域
+                if (isCreate == false)     //修改区域
                 {
                     ReturnInfo r = autofacConfig.assLocationService.UpdateAssLocation(AssLoc, OldManger);
                     if (r.IsSuccess == false)
@@ -83,22 +71,23 @@ namespace SwebSECUI.Layout
                 this.Form.Toast(ex.Message);
             }
         }
-        /// <summary>
-        /// 取消操作
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CancelBtn_Click(object sender, EventArgs e)
+
+        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
         {
-            this.ShowResult = ShowResult.No;
-            this.Close();
+            treeSelect1.Tag = args.TreeID;
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Add(new frmLocationRows() { Flex = 1 });
+            this.Parent.Controls.RemoveAt(0);
         }
         /// <summary>
         /// 页面初始化
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmLocationCreateLayout_Load(object sender, EventArgs e)
+        private void frmLocationRowsEdit_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(ID) == false)    //区域信息编辑
             {
@@ -110,6 +99,7 @@ namespace SwebSECUI.Layout
                 this.treeSelect1.Placeholder = core.USER_NAME;     //区域管理者名称
                 this.treeSelect1.Tag = location.MANAGER;    //区域管理者编号
                 OldManger = location.MANAGER;        //区域的原管理员
+                switchIsEnable.Checked = location.ISENABLE == 1 ? true : false;
             }
             ///添加区域负责人
             List<coreUser> users = autofacConfig.coreUserService.GetAll();
@@ -120,9 +110,37 @@ namespace SwebSECUI.Layout
             }
         }
 
-        private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
-        {
-            treeSelect1.Tag = args.TreeID;
-        }
+        //private void switchIsEnable_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (switchIsEnable.Checked)
+        //        {
+        //            ReturnInfo rInfo = autofacConfig.assLocationService.ChangeEnable(txtID.Text, IsEnable.启用);
+        //            if (rInfo.IsSuccess)
+        //            {
+        //                Toast("启用区域成功");
+        //            }
+        //            else
+        //            throw new Exception(rInfo.ErrorInfo);
+        //            this.ShowResult = ShowResult.Yes;
+        //        }
+        //        else
+        //        {
+        //            ReturnInfo rInfo = autofacConfig.assLocationService.ChangeEnable(txtID.Text, IsEnable.禁用);
+        //            if (rInfo.IsSuccess)
+        //            {
+        //                Toast("禁用区域成功");
+        //            }
+        //            else
+        //                throw new Exception(rInfo.ErrorInfo);
+        //            this.ShowResult = ShowResult.Yes;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Toast(ex.Message);
+        //    }
+        //}
     }
 }

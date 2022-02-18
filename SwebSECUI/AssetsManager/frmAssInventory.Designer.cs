@@ -30,6 +30,7 @@ namespace SwebSECUI.AssetsManager
             this.label1 = new Swebui.Controls.Label();
             this.plButton = new Swebui.Controls.Panel();
             this.btnAdd = new Swebui.Controls.Button();
+            this.WatchBtn = new Swebui.Controls.Button();
             this.EditBtn = new Swebui.Controls.Button();
             this.DelBtn = new Swebui.Controls.Button();
             this.StartBtn = new Swebui.Controls.Button();
@@ -60,6 +61,7 @@ namespace SwebSECUI.AssetsManager
             // 
             this.plButton.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
+            this.WatchBtn,
             this.EditBtn,
             this.DelBtn,
             this.StartBtn,
@@ -83,6 +85,22 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd.Size = new System.Drawing.Size(80, 35);
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // WatchBtn
+            // 
+            this.WatchBtn.BackColor = System.Drawing.Color.White;
+            this.WatchBtn.Border = new Swebui.Controls.Border(1F);
+            this.WatchBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.WatchBtn.BorderRadius = 5;
+            this.WatchBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.WatchBtn.IconName = "fa fa-pencil-square-o";
+            this.WatchBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.WatchBtn.Name = "WatchBtn";
+            this.WatchBtn.NumberOfLines = 0;
+            this.WatchBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.WatchBtn.Size = new System.Drawing.Size(80, 35);
+            this.WatchBtn.Text = " 查看";
+            this.WatchBtn.Click += new System.EventHandler(this.WatchBtn_Click);
             // 
             // EditBtn
             // 
@@ -212,5 +230,6 @@ namespace SwebSECUI.AssetsManager
         internal Button StartBtn;
         private GridView gridView1;
         internal Button RefreshBtn;
+        internal Button WatchBtn;
     }
 }

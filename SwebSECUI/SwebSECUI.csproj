@@ -618,11 +618,29 @@
     <Compile Include="MasterData\frmLocationRows.Designer.cs">
       <DependentUpon>frmLocationRows.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterData\frmLocationRowsCreate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterData\frmLocationRowsCreate.Designer.cs">
+      <DependentUpon>frmLocationRowsCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterData\frmLocationRowsEditStatu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterData\frmLocationRowsEditStatu.Designer.cs">
+      <DependentUpon>frmLocationRowsEditStatu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterData\frmPrShow.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MasterData\frmPrShow.Designer.cs">
       <DependentUpon>frmPrShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterData\frmLocationRowsEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterData\frmLocationRowsEdit.Designer.cs">
+      <DependentUpon>frmLocationRowsEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="SwebGlobal.cs" />
     <Compile Include="Program.cs" />
@@ -880,6 +898,9 @@
     <EmbeddedResource Include="Layout\SwebUserControl1.resx">
       <DependentUpon>SwebUserControl1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Layout\SwebUserControl2.resx">
+      <DependentUpon>SwebUserControl2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -900,6 +921,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterData\frmLocationRows.resx">
       <DependentUpon>frmLocationRows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterData\frmLocationRowsCreate.resx">
+      <DependentUpon>frmLocationRowsCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterData\frmLocationRowsEdit.resx">
+      <DependentUpon>frmLocationRowsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterData\frmLocationRowsEditStatu.resx">
+      <DependentUpon>frmLocationRowsEditStatu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterData\frmPrShow.resx">
       <DependentUpon>frmPrShow.cs</DependentUpon>

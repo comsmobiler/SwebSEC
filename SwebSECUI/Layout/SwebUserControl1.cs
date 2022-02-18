@@ -8,6 +8,7 @@ using SMOSEC.DTOs.Enum;
 using SMOSEC.DTOs.InputDTO;
 using SwebSECUI.Layout;
 using System.Data;
+using System.Drawing;
 
 namespace SwebSECUI.Layout
 {
@@ -28,7 +29,6 @@ namespace SwebSECUI.Layout
         private DataTable alreadyTable = new DataTable(); //已盘点的资产
         private Dictionary<string, int> assDictionary = new Dictionary<string, int>();  //资产
         private List<string> assList;  //资产的初始列表
-        //private List<string> RFIDlist;    //RFID的扫描数据集合
 
         private ListView waitListView = new ListView();
         private ListView alreadyListView = new ListView();
@@ -41,6 +41,57 @@ namespace SwebSECUI.Layout
         #endregion
         private void SwebUserControl1_Load(object sender, EventArgs e)
         {
+            //添加各表格的列
+            if (waiTable.Columns.Count == 0)
+            {
+                waiTable.Columns.Add("RESULTNAME");
+                waiTable.Columns.Add("ASSID");
+                waiTable.Columns.Add("Image");
+                waiTable.Columns.Add("LocationName");
+                waiTable.Columns.Add("Name");
+                waiTable.Columns.Add("Price");
+                waiTable.Columns.Add("SN");
+                waiTable.Columns.Add("TypeName");
+                waiTable.Columns.Add("Specification");
+            }
+            DataColumn[] keys = new DataColumn[1];
+            keys[0] = waiTable.Columns["ASSID"];
+            waiTable.PrimaryKey = keys;
+
+            //添加各表格的列
+            if (allAssTable.Columns.Count == 0)
+            {
+                allAssTable.Columns.Add("RESULTNAME");
+                allAssTable.Columns.Add("ASSID");
+                allAssTable.Columns.Add("Image");
+                allAssTable.Columns.Add("LocationName");
+                allAssTable.Columns.Add("Name");
+                allAssTable.Columns.Add("Price");
+                allAssTable.Columns.Add("SN");
+                allAssTable.Columns.Add("TypeName");
+                allAssTable.Columns.Add("Specification");
+            }
+            DataColumn[] keys3 = new DataColumn[1];
+            keys[0] = allAssTable.Columns["SN"];
+            allAssTable.PrimaryKey = keys;
+
+            UserId = Client.Session["UserID"].ToString();
+
+            var allAssTable1 = _autofacConfig.SettingService.GetAllAss("");
+            foreach (DataRow row in allAssTable1.Rows)
+            {
+                DataRow Row = allAssTable.NewRow();
+                Row["ASSID"] = row["ASSID"].ToString();
+                Row["Image"] = row["Image"].ToString();
+                Row["LocationName"] = row["LocationName"].ToString();
+                Row["Name"] = row["Name"].ToString();
+                Row["Price"] = row["Price"].ToString();
+                Row["SN"] = row["SN"].ToString();
+                Row["TypeName"] = row["TypeName"].ToString();
+                Row["Specification"] = row["Specification"].ToString();
+                allAssTable.Rows.Add(Row);
+            }
+
             //获得需要盘点的资产列表
             assList = _autofacConfig.AssInventoryService.GetPendingInventoryList(IID);
 
@@ -48,9 +99,21 @@ namespace SwebSECUI.Layout
             assDictionary = _autofacConfig.AssInventoryService.GetResultDictionary(IID);
 
             //得到待盘点的资产列表
-            DataTable waiTable1 = _autofacConfig.AssInventoryService.GetPendingInventoryTable(IID, LocationId, typeId, DepartmentId);
-            if (waiTable1 != null)
+            var waiTable1 = _autofacConfig.AssInventoryService.GetPendingInventoryTable(IID, LocationId, typeId, DepartmentId);
+            foreach (DataRow row in waiTable1.Rows)
             {
+                DataRow Row = waiTable.NewRow();
+                Row["ASSID"] = row["ASSID"].ToString();
+                Row["RESULTNAME"] = row["RESULTNAME"].ToString();
+                Row["Image"] = row["Image"].ToString();
+                Row["LocationName"] = row["LocationName"].ToString();
+                Row["Name"] = row["Name"].ToString();
+                Row["Price"] = row["Price"].ToString();
+                Row["SN"] = row["SN"].ToString();
+                Row["TypeName"] = row["TypeName"].ToString();
+                Row["Specification"] = row["Specification"].ToString();
+                waiTable.Rows.Add(Row);
+                listView1.Rows.Clear();
                 listView1.DataSource = waiTable;
                 listView1.DataBind();
             }

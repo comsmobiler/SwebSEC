@@ -92,8 +92,8 @@ namespace SwebSECUI.MasterData
 
                 //    }
                 //}
-                    gridAssRows.Reload(table);
-            
+                gridAssRows.Reload(table);
+
             }
             catch (Exception ex)
             {
@@ -122,7 +122,7 @@ namespace SwebSECUI.MasterData
 
                     if (string.IsNullOrEmpty(row["DEPARTMENTID"].ToString()) == false)
                     {
-                        DepartmentDto dto = _autofacConfig.DepartmentService.GetDepartmentByDepID(row["DEPARTMENTID"].ToString()); 
+                        DepartmentDto dto = _autofacConfig.DepartmentService.GetDepartmentByDepID(row["DEPARTMENTID"].ToString());
                         if (dto != null)
                             row["DEPARTMENTNAME"] = dto.NAME;
 
@@ -205,7 +205,7 @@ namespace SwebSECUI.MasterData
             {
                 string barCode = txtNote.Text;
                 SearchData();
-             
+
                 //gridAssRows.Reload(table);
             }
             catch (Exception ex)
@@ -221,8 +221,8 @@ namespace SwebSECUI.MasterData
         }
 
         private void CopyBtn_Click(object sender, EventArgs e)
-        
-        
+
+
         {
             gridAssRows.GetSelectedRows((obj, args) =>
             {
@@ -302,9 +302,10 @@ namespace SwebSECUI.MasterData
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            try
+
+            gridAssRows.GetSelectedRows((obj, args) =>
             {
-                gridAssRows.GetSelectedRows((obj, args) =>
+                try
                 {
                     if (args.SelectedRows.Count > 0)
                     {
@@ -316,34 +317,35 @@ namespace SwebSECUI.MasterData
                             throw new Exception("资产处于非空闲状态中，无法删除!");
                         }
                         MessageBox.Show("是否确定删除该资产？", "系统提示", MessageBoxButtons.YesNo, (object sender1, MessageBoxHandlerArgs args1) =>
-                        {
-
-                            if (args1.Result == ShowResult.Yes)
                             {
-                                ReturnInfo RInfo = _autofacConfig.SettingService.DeleteAssets(id, Client.Session["UserID"].ToString());
-                                if (RInfo.IsSuccess)
-                                {
-                                    Toast("删除成功!");
-                                    RefreshBtn_Click(null, null);
-                                }
-                                else
-                                {
-                                    throw new Exception(RInfo.ErrorInfo);
-                                }
+
+                        if (args1.Result == ShowResult.Yes)
+                        {
+                            ReturnInfo RInfo = _autofacConfig.SettingService.DeleteAssets(id, Client.Session["UserID"].ToString());
+                            if (RInfo.IsSuccess)
+                            {
+                                Toast("删除成功!");
+                                RefreshBtn_Click(null, null);
                             }
-                        });
+                            else
+                            {
+                                throw new Exception(RInfo.ErrorInfo);
+                            }
+                        }
+                    });
 
                     }
                     else
                     {
                         Toast("未选择行！");
                     }
-                });
-            }
-            catch (Exception ex)
-            {
-                Toast(ex.Message);
-            }
+                }
+                catch (Exception ex)
+                {
+                    Toast(ex.Message);
+                }
+            });
+
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
@@ -353,7 +355,7 @@ namespace SwebSECUI.MasterData
             List<DepartmentDto> deps = _autofacConfig.DepartmentService.GetAllDepartment();
             foreach (DepartmentDto Row in deps)
             {
-                if (deps.Count > 0) 
+                if (deps.Count > 0)
                 {
                     treeSelect1.Nodes.Add(new TreeSelectNode(Row.DEPARTMENTID, Row.NAME));
                 }
@@ -365,11 +367,11 @@ namespace SwebSECUI.MasterData
             List<AssetsType> types = _autofacConfig.assTypeService.GetAllFirstLevel();
             foreach (AssetsType Row in types)
             {
-                if (types.Count > 0) 
+                if (types.Count > 0)
                 {
                     treeSelect3.Nodes.Add(new TreeSelectNode(Row.TYPEID, Row.NAME));
                 }
-                
+
             }
             DataTable table = _autofacConfig.SettingService.GetAllAss(LocatinId);
             table.Columns.Add("DEPARTMENTNAME");
@@ -410,7 +412,7 @@ namespace SwebSECUI.MasterData
 
                 }
             }
-                gridAssRows.Reload(table);
+            gridAssRows.Reload(table);
         }
 
         private void treeSelect1_Press(object sender, TreeSelectPressEventArgs args)
@@ -439,7 +441,7 @@ namespace SwebSECUI.MasterData
                 {
                     Dictionary<string, object> selectrow = args.SelectedRows[0];
                     string id = selectrow["ASSID"].ToString();
-                    frmPrShow frm = new frmPrShow {  Flex = 1 };
+                    frmPrShow frm = new frmPrShow { Flex = 1 };
                     frm.AssId = id;
                     this.Parent.Controls.Add(frm);
                     this.Parent.Controls.RemoveAt(0);
@@ -452,5 +454,5 @@ namespace SwebSECUI.MasterData
             });
         }
     }
-    
+
 }

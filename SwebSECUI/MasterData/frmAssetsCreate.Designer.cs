@@ -600,7 +600,7 @@ namespace SwebSECUI.MasterData
             this.txtSpe.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.txtSpe.Name = "txtSpe";
             this.txtSpe.Size = new System.Drawing.Size(100, 35);
-            this.txtSpe.Text = "(选填)";
+            this.txtSpe.WaterMarkText = "(选填)";
             // 
             // frmAssetsCreate
             // 

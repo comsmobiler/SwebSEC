@@ -56,7 +56,7 @@ namespace SwebSECUI.Layout
                 Data.IMAGE = imgAss.BindDisplayValue.ToString();
                 Data.ASSID = lblName.BindDataValue.ToString();
                 Data.SN = lblSN.BindDataValue.ToString();
-                if (((frmTransferDealSN)Parent).Type == PROCESSMODE.调拨确认)
+                if (((frmTransferDealSN)this.Owner.Parent.Parent).Type == PROCESSMODE.调拨确认)
                 {
                     Data.TRANSFEREDQTY = 1;
                     Data.STATUS = 1;

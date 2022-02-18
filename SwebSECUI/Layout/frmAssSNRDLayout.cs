@@ -26,6 +26,7 @@ namespace SwebSECUI.Layout
         private void Check_CheckedChanged(object sender, EventArgs e)
         {
             frmRepairDealSN frm = new frmRepairDealSN();
+
             frm.upCheckState();
         }
         /// <summary>

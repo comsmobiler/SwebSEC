@@ -82,9 +82,9 @@ namespace SwebSECUI.AssetsManager
                     ListAssetsSN.DataSource = tableAssets;
                     ListAssetsSN.DataBind();
                 }
-                if (Client.Session["Role"].ToString() == "SMOSECUser") panel2.Visible = false;
+                if (Client.Session["Role"].ToString() == "SMOSECUser") panel6.Visible = false;
                 //如果维修单已完成，则隐藏维修单处理按钮
-                if (TOData.STATUS == 1 || TOData.STATUS == 2) panel2.Visible = false;
+                if (TOData.STATUS == 1 || TOData.STATUS == 2) panel6.Visible = false;
             }
             catch (Exception ex)
             {
@@ -100,10 +100,11 @@ namespace SwebSECUI.AssetsManager
         {
             frmTransferDealSN frm = new frmTransferDealSN();
             frm.TOID = TOID;
-            frm.Flex = 1;
+            frm.Flex = 1;  
+            frm.Type = PROCESSMODE.调拨确认;
             this.Parent.Controls.Add(frm);
             this.Parent.Controls.RemoveAt(0);
-            frm.Type = PROCESSMODE.调拨确认;
+         
             Bind();   //刷新数据显示
         }
         /// <summary>

@@ -77,11 +77,13 @@ namespace SwebSECUI.Department
 
         private void UserInfoBtn_Click(object sender, EventArgs e)
         {
-                    frmDepPerMessage frm = new frmDepPerMessage();
-                    frm.Flex = 1;
-                    this.Parent.Controls.Add(frm);
-                    this.Parent.Controls.RemoveAt(0);
-                
+           frmDepPerMessage frm = new frmDepPerMessage();
+           frm.Flex = 1;
+           this.Parent.Controls.Add(frm);
+           this.Parent.Controls.RemoveAt(0);
+           Mode = DepartmentMode.层级;
+           Bind();
+
         }
     }
 

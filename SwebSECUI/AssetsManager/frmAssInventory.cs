@@ -128,6 +128,7 @@ namespace SwebSECUI.AssetsManager
                                     throw new Exception(rInfo.ErrorInfo);
                                 }
                             }
+
                         }
                         catch (Exception ex)
                         {
@@ -175,7 +176,6 @@ namespace SwebSECUI.AssetsManager
                 {
                     Toast("未选择行！");
                 }
-
             });
         }
 
@@ -195,6 +195,33 @@ namespace SwebSECUI.AssetsManager
                 gridView1.DataBind();
             }
             gridView1.Reload(assInventoryList);
+        }
+
+        private void WatchBtn_Click(object sender, EventArgs e)
+        {
+            gridView1.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string id = selectrow["IID"].ToString();
+                    var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(id);
+                    frmAssInventoryResult result = new frmAssInventoryResult { IID = id, LocationId = inventory.LOCATIONID, DepartmentId = inventory.DEPARTMENTID, typeId = inventory.TYPEID };
+                    frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
+                    frm.IID = id;
+                    frm.SaveBtn.Visible = false;
+                    frm.SuccessBtn.Visible = false;
+                    frm.panel5.Visible = false;
+                    frm.panel6.Visible = false;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                    Bind();
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
+            });
         }
     } 
 }
