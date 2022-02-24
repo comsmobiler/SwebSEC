@@ -46,17 +46,17 @@ namespace SwebSECUI.MasterData
                 List<AssLocation> locs = autofacConfig.assLocationService.GetAll();
                 table.Columns.Add("LOCATIONID");
                 table.Columns.Add("NAME");
-                table.Columns.Add("MANAGER");
+                //table.Columns.Add("MANAGER");
                 table.Columns.Add("ISENABLE");
                 foreach (AssLocation Row in locs)
                 {
                     if (Row.ISENABLE == 1)      //启用
                     {
-                        table.Rows.Add(Row.LOCATIONID, Row.NAME, Row.MANAGER, "启用");
+                        table.Rows.Add(Row.LOCATIONID, Row.NAME, "启用");
                     }
                     else
                     {
-                        table.Rows.Add(Row.LOCATIONID, Row.NAME, Row.MANAGER, "禁用");
+                        table.Rows.Add(Row.LOCATIONID, Row.NAME, "禁用");
                     }
                     gridView1.DataSource = table;
                     gridView1.DataBind();

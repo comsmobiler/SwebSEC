@@ -273,7 +273,6 @@ namespace SwebSECUI.AssetsManager
             this.txtDep.Name = "txtDep";
             this.txtDep.ReadOnly = true;
             this.txtDep.Size = new System.Drawing.Size(100, 0);
-            this.txtDep.WaterMarkText = "（选填）";
             // 
             // txtType
             // 

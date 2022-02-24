@@ -73,6 +73,7 @@ namespace SwebSECUI.Department
                 List<DepartmentDto> listDep = AutofacConfig.DepartmentService.GetAllDepartment();
                 gridDepData.DataSource = listDep;
                 gridDepData.DataBind();
+
         }
 
         private void UserInfoBtn_Click(object sender, EventArgs e)
@@ -83,7 +84,6 @@ namespace SwebSECUI.Department
            this.Parent.Controls.RemoveAt(0);
            Mode = DepartmentMode.层级;
            Bind();
-
         }
     }
 

@@ -19,10 +19,9 @@ namespace SwebSECUI.MasterData
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn11 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn12 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.MenuTitle = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
@@ -30,9 +29,9 @@ namespace SwebSECUI.MasterData
             this.EditBtn = new Swebui.Controls.Button();
             this.DelBtn = new Swebui.Controls.Button();
             this.RefreshBtn = new Swebui.Controls.Button();
+            this.StatuBtn = new Swebui.Controls.Button();
             this.panel2 = new Swebui.Controls.Panel();
             this.gridView1 = new Swebui.Controls.GridView();
-            this.StatuBtn = new Swebui.Controls.Button();
             // 
             // panel1
             // 
@@ -129,37 +128,6 @@ namespace SwebSECUI.MasterData
             this.RefreshBtn.Text = "刷新";
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.gridView1});
-            this.panel2.Flex = 1;
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 100);
-            // 
-            // gridView1
-            // 
-            this.gridView1.AllowPaging = true;
-            gridViewColumn9.DisplayMember = "LOCATIONID";
-            gridViewColumn9.HeaderText = "区域编码";
-            gridViewColumn10.DisplayMember = "NAME";
-            gridViewColumn10.HeaderText = "区域名称";
-            gridViewColumn11.DisplayMember = "MANAGER";
-            gridViewColumn11.HeaderText = "区域负责人";
-            gridViewColumn12.DisplayMember = "ISENABLE";
-            gridViewColumn12.HeaderText = "区域状态";
-            this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn9,
-            gridViewColumn10,
-            gridViewColumn11,
-            gridViewColumn12});
-            this.gridView1.DataSource = null;
-            this.gridView1.Flex = 1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.RowHeight = 0;
-            this.gridView1.RowWidth = 0;
-            this.gridView1.Size = new System.Drawing.Size(0, 30);
-            // 
             // StatuBtn
             // 
             this.StatuBtn.BackColor = System.Drawing.Color.White;
@@ -175,6 +143,34 @@ namespace SwebSECUI.MasterData
             this.StatuBtn.Size = new System.Drawing.Size(120, 35);
             this.StatuBtn.Text = "修改区域状态";
             this.StatuBtn.Click += new System.EventHandler(this.StatuBtn_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
+            this.gridView1});
+            this.panel2.Flex = 1;
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(0, 100);
+            // 
+            // gridView1
+            // 
+            this.gridView1.AllowPaging = true;
+            gridViewColumn1.DisplayMember = "LOCATIONID";
+            gridViewColumn1.HeaderText = "区域编码";
+            gridViewColumn2.DisplayMember = "NAME";
+            gridViewColumn2.HeaderText = "区域名称";
+            gridViewColumn3.DisplayMember = "ISENABLE";
+            gridViewColumn3.HeaderText = "区域状态";
+            this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3});
+            this.gridView1.DataSource = null;
+            this.gridView1.Flex = 1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 0;
+            this.gridView1.RowWidth = 0;
+            this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 
             // frmLocationRows
             // 

@@ -278,7 +278,7 @@ namespace SwebSECUI.AssetsManager
                         newdt.ImportRow(newRow);
                        
                         alreadyListView.NewRow(newdt, "");
-                        waiTable.Rows.RemoveAt(waiTable.Rows.IndexOf(row));
+                        waitListView.Rows.RemoveAt(waiTable.Rows.IndexOf(row));
                         waiTable.Rows.Remove(row);
                     }
                 }
@@ -380,7 +380,7 @@ namespace SwebSECUI.AssetsManager
             };
             inputDto.IsEnd = false;
             rInfo = _autofacConfig.AssInventoryService.UpdateInventory(inputDto);
-            Toast(rInfo.IsSuccess ? "上传结果成功." : rInfo.ErrorInfo);
+            Toast(rInfo.IsSuccess ? "保存结果成功." : rInfo.ErrorInfo);
         }
         
         private void SuccessBtn_Click(object sender, EventArgs e)

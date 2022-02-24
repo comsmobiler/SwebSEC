@@ -22,12 +22,12 @@ namespace SwebSECUI.Department
         AutofacConfig AutofacConfig = new AutofacConfig();     //调用配置类
         public String UserID;        //用户名
         private string SelectID;
+        public String DepartmentID;
         #endregion
 
         private void frmDepPerMessage_Load(object sender, EventArgs e)
         {
             Bind();
-            
         }
         /// <summary>
         /// 初始化数据
@@ -75,11 +75,9 @@ namespace SwebSECUI.Department
                                         TreeViewNode node1 = new TreeViewNode(user.USER_ID,Name);
                                         node.Nodes.Add(node1);
                                     }
-
                                 }
                                 treeView1.Nodes.Add(node);          
                  }
-
              }
                  catch (Exception ex)
                 {
@@ -92,76 +90,68 @@ namespace SwebSECUI.Department
         {
             this.Parent.Controls.Add(new frmDepartment() { Flex = 1 });
             this.Parent.Controls.RemoveAt(0);
+            
         }
 
         private void treeView1_Press(object sender, TreeViewOnPressEventArgs e)
         {
-            //SelectID = e.TreeID;
-            //string ID = e.TreeID;
-            //switch (Convert.ToInt32(ID.Split()[0]))
-            //{
-            //    case (int)TreeMode.dep:
-            //        frmDepartmentDetail frm = new frmDepartmentDetail();
-            //        frm.D_ID = ID.Split()[1];
-            //        frm.Flex = 1;
-            //        this.Parent.Controls.Add(frm);
-            //        this.Parent.Controls.RemoveAt(0);
-            //        break;
-            //    case (int)TreeMode.user:
-            //break;
-            //}
-            GetContent(e.TreeID);
-            panel4.Visible = true;
+                GetContent(e.TreeID);
+                panel4.Visible = true;
         }
         private void GetContent(string UserID)
         {
             try
             {
                 coreUser UserData = AutofacConfig.coreUserService.GetUserByID(UserID);
-                if (UserData.USER_SEX != null)
                 {
-                    if (Convert.ToInt32(UserData.USER_SEX) == 0)
-                        lblSex.Text = "男";
+                    if (UserData != null)
+                    {
+                        if (UserData.USER_SEX != null)
+                        {
+                            if (Convert.ToInt32(UserData.USER_SEX) == 0)
+                                lblSex.Text = "男";
+                            else
+                                lblSex.Text = "女";
+                        }
+                        if (UserData.USER_IMAGEID == null)
+                        {
+                            if (Convert.ToInt32(UserData.USER_SEX) == 0)
+                                imgUser.ResourceID = "male";
+                            else
+                                imgUser.ResourceID = "female";
+                        }
+                        else
+                        {
+                            imgUser.ResourceID = UserData.USER_IMAGEID;
+                        }
+                        AssLocation assLocation = AutofacConfig.assLocationService.GetByID(UserData.USER_LOCATIONID);
+                        lblLocation.Text = assLocation.NAME;
+                        if (UserData.USER_ADDRESS != null) lblAddress.Text = UserData.USER_ADDRESS;
+                        if (UserData.USER_EMAIL != null) lblEmail.Text = UserData.USER_EMAIL;
+                        lblID.Text = UserID;
+                        if (UserData.USER_NAME != null)
+                        {
+                            lblName.Text = UserData.USER_NAME;
+                        }
+                        else
+                        {
+                            lblName.Text = UserID;
+                        }
+                        if (UserData.USER_PHONE != null) lblPhone.Text = UserData.USER_PHONE;
+                        if (UserData.USER_EMAIL != null) lblEmail.Text = UserData.USER_EMAIL;
+                        if (UserData.USER_BIRTHDAY != null) dpkBirthday.Value = (DateTime)UserData.USER_BIRTHDAY;
+                    }
                     else
-                        lblSex.Text = "女";
+                    {
+                        UserID = "13123456789";
+                        panel4.Visible = false;
+                    }
                 }
-                if (UserData.USER_IMAGEID == null)
-                {
-                    if (Convert.ToInt32(UserData.USER_SEX) == 0)
-                        imgUser.ResourceID = "male";
-                    else
-                        imgUser.ResourceID = "female";
-                }
-                else
-                {
-                    imgUser.ResourceID = UserData.USER_IMAGEID;
-                }
-                AssLocation assLocation = AutofacConfig.assLocationService.GetByID(UserData.USER_LOCATIONID);
-                lblLocation.Text = assLocation.NAME;
-                if (UserData.USER_ADDRESS != null) lblAddress.Text = UserData.USER_ADDRESS;
-                if (UserData.USER_EMAIL != null) lblEmail.Text = UserData.USER_EMAIL;
-                lblID.Text = UserID;
-                if (UserData.USER_NAME != null)
-                {
-                    lblName.Text = UserData.USER_NAME;
-                }
-                else
-                {
-                    lblName.Text = UserID;
-                }
-                if (UserData.USER_PHONE != null) lblPhone.Text = UserData.USER_PHONE;
-                if (UserData.USER_EMAIL != null) lblEmail.Text = UserData.USER_EMAIL;
-                if (UserData.USER_BIRTHDAY != null) dpkBirthday.Value = (DateTime)UserData.USER_BIRTHDAY;
             }
             catch (Exception ex)
             {
                 Toast(ex.Message);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
