@@ -75,9 +75,9 @@ namespace SMOSEC.Infrastructure.Migrations
                 new Assets { ASSID = "AS2018041106", BUYDATE = DateTime.Now, CURRENTUSER = "", EXPIRYDATE = DateTime.Now.AddYears(2), IMAGE = "2014", LOCATIONID = "01", CREATEDATE = DateTime.Now, CREATEUSER = "12345678912", MODIFYDATE = DateTime.Now, MODIFYUSER = "12345678912", TYPEID = "01", STATUS = 0, NAME = "联想E994", UNIT = "台", PRICE = 5500, SN = "2006"}
                 );
             context.AssTemplates.AddOrUpdate(
-                new AssTemplate { TEMPLATEID = "AT20180401", IMAGE = "2014", MANAGER = "12345678912", NAME = "电脑", NOTE = "备注", PRICE = 5000, SPECIFICATION = "50*40", UNIT = "台" },
-                new AssTemplate { TEMPLATEID = "AT20180402", IMAGE = "2015", MANAGER = "12345678913", NAME = "显示器", NOTE = "备注", PRICE = 2000, SPECIFICATION = "50*40", UNIT = "台" },
-                new AssTemplate { TEMPLATEID = "AT20180403", IMAGE = "2016", MANAGER = "12345678914", NAME = "手机", NOTE = "备注", PRICE = 4000, SPECIFICATION = "50*40", UNIT = "台" }
+                new AssTemplate { TEMPLATEID = "AT20180401", IMAGE = "2014.jpg", MANAGER = "12345678912", NAME = "电脑", NOTE = "备注", PRICE = 5000, SPECIFICATION = "50*40", UNIT = "台" },
+                new AssTemplate { TEMPLATEID = "AT20180402", IMAGE = "2015.jpg", MANAGER = "12345678913", NAME = "显示器", NOTE = "备注", PRICE = 2000, SPECIFICATION = "50*40", UNIT = "台" },
+                new AssTemplate { TEMPLATEID = "AT20180403", IMAGE = "2016.jpg", MANAGER = "12345678914", NAME = "手机", NOTE = "备注", PRICE = 4000, SPECIFICATION = "50*40", UNIT = "台" }
                 );
             context.AssProcessRecords.AddOrUpdate(
                 new AssProcessRecord { ASSID = "AS2018041101", CREATEDATE = DateTime.Now, CREATEUSER = "12345678912", HANDLEDATE = DateTime.Now, HANDLEMAN = "12345678912", MODIFYDATE = DateTime.Now, MODIFYUSER = "12345678912", PRID = 1, PROCESSCONTENT = "入库", PROCESSMODE = 8, QUANTITY = 1 },
@@ -93,9 +93,9 @@ namespace SMOSEC.Infrastructure.Migrations
 
                 );
             context.Consumableses.AddOrUpdate(
-                new Consumables {CID = "C201804001",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2018",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "纸巾",NOTE = "",SAFECEILING = 200,SAFEFLOOR = 20,SPECIFICATION = "20*20",SPQ = 12,UNIT = "卷"},
-                new Consumables {CID = "C201804002",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2019",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "记事本",NOTE = "",SAFECEILING = 100,SAFEFLOOR = 10,SPECIFICATION = "60*20",SPQ = 12,UNIT = "本"},
-                new Consumables {CID = "C201804003",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2017",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "电池",NOTE = "",SAFECEILING = 50,SAFEFLOOR = 20,SPECIFICATION = "20*20",SPQ = 12,UNIT = "节"}
+                new Consumables {CID = "C201804001",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2018.jpg",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "纸巾",NOTE = "",SAFECEILING = 200,SAFEFLOOR = 20,SPECIFICATION = "20*20",SPQ = 12,UNIT = "卷"},
+                new Consumables {CID = "C201804002",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2019.jpg",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "记事本",NOTE = "",SAFECEILING = 100,SAFEFLOOR = 10,SPECIFICATION = "60*20",SPQ = 12,UNIT = "本"},
+                new Consumables {CID = "C201804003",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",IMAGE = "2017.jpg",MODIFYDATE = DateTime.Now,MODIFYUSER = "12345678912",NAME = "电池",NOTE = "",SAFECEILING = 50,SAFEFLOOR = 20,SPECIFICATION = "20*20",SPQ = 12,UNIT = "节"}
                 );
             context.ConQuants.AddOrUpdate(
                 new ConQuant{CID = "C201804001",CREATEDATE = DateTime.Now,CREATEUSER = "12345678912",LOCATIONID = "01",MODIFYUSER = "12345678912",MODIFYDATE = DateTime.Now,QID = 1,QUANTITY = 30},
