@@ -105,36 +105,35 @@ namespace SwebSECUI.MasterData
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            Client.FileUpload((obj, args) =>
+            {
             try
             {
-
-                Client.FileUpload((obj, args) =>
-                {
-
-                    if (string.IsNullOrEmpty(args.error))
+                    if (string.IsNullOrEmpty(ImgPicture.ResourceID) == false)
                     {
-                        string imgName = "";
-                        if (string.IsNullOrEmpty(ImgPicture.ResourceID))
-                        {
-                            string[] name = args.ResourceID.Split('.');
-                            imgName = UserId + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + name[1];
-                        }
-                        else
-                        {
-                            string[] name = args.ResourceID.Split('.');
-                            string[] firstName = ImgPicture.ResourceID.Split(',');
-                            imgName = firstName[0] + "." + name[1];
-                        }
-                        args.SaveFile(imgName, SwebResourceManager.DefaultImagePath);
-                        ImgPicture.ResourceID = imgName;
-                        ImgPicture.Refresh();
+                        string[] suffixs = args.ResourceID.Split('.');
+                        string[] names = ImgPicture.ResourceID.Split('.');
+                        string name = names[0] + "." + suffixs[1];
+                        args.SaveFile(name, Swebui.SwebResourceManager.DefaultImagePath);
+                        ImgPicture.ResourceID = name;
+                        Toast("上传成功！");
                     }
-                });
-            }
+                    else
+                    {
+                        string[] suffixs = args.ResourceID.Split('.');
+                        string name = Client.Session["UserId"].ToString() + DateTime.Now.ToString("yyyyMMddHHmmss") + "." + suffixs[1];
+                        args.SaveFile(name, Swebui.SwebResourceManager.DefaultImagePath);
+                        ImgPicture.ResourceID = name;
+                        Toast("上传成功！");
+                    }
+
+                }
             catch (Exception ex)
             {
                 Toast(ex.Message);
+
             }
+            });
         }
         /// <summary>
         /// 选择区域后

@@ -50,6 +50,7 @@ namespace SwebSECUI.MasterData
             this.DeleteBtn = new Swebui.Controls.Button();
             this.RefreshBtn = new Swebui.Controls.Button();
             this.LogBtn = new Swebui.Controls.Button();
+            this.PrintBtn = new Swebui.Controls.Button();
             // 
             // tpSearch
             // 
@@ -184,7 +185,7 @@ namespace SwebSECUI.MasterData
             // 
             this.gridAssRows.AllowPaging = true;
             gridViewColumn1.DisplayMember = "ASSID";
-            gridViewColumn1.HeaderText = "ID";
+            gridViewColumn1.HeaderText = "资产编号";
             gridViewColumn2.DisplayMember = "Name";
             gridViewColumn2.HeaderText = "名称";
             gridViewColumn3.DisplayMember = "Price";
@@ -203,6 +204,7 @@ namespace SwebSECUI.MasterData
             this.gridAssRows.Flex = 1;
             this.gridAssRows.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.gridAssRows.Name = "gridAssRows";
+            this.gridAssRows.RowHeight = 0;
             this.gridAssRows.RowWidth = 0;
             this.gridAssRows.Size = new System.Drawing.Size(0, 30);
             // 
@@ -234,7 +236,8 @@ namespace SwebSECUI.MasterData
             this.CopyBtn,
             this.DeleteBtn,
             this.RefreshBtn,
-            this.LogBtn});
+            this.LogBtn,
+            this.PrintBtn});
             this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(0, 40);
@@ -333,6 +336,21 @@ namespace SwebSECUI.MasterData
             this.LogBtn.Text = "处理记录";
             this.LogBtn.Click += new System.EventHandler(this.LogBtn_Click);
             // 
+            // PrintBtn
+            // 
+            this.PrintBtn.BackColor = System.Drawing.Color.White;
+            this.PrintBtn.Border = new Swebui.Controls.Border(1F);
+            this.PrintBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.PrintBtn.BorderRadius = 5;
+            this.PrintBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.PrintBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.PrintBtn.Name = "PrintBtn";
+            this.PrintBtn.NumberOfLines = 0;
+            this.PrintBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.PrintBtn.Size = new System.Drawing.Size(80, 30);
+            this.PrintBtn.Text = "打印";
+            this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
+            // 
             // frmAssets
             // 
             this.BackColor = System.Drawing.Color.White;
@@ -364,5 +382,6 @@ namespace SwebSECUI.MasterData
         internal Button btnSearch;
         internal Button RefreshBtn;
         internal Button LogBtn;
+        internal Button PrintBtn;
     }
 }

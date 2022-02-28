@@ -13,6 +13,7 @@ using SMOSEC.Domain.IRepository;
 using SMOSEC.Infrastructure;
 using SMOSEC.Application;
 using SMOSEC.Repository.Assets;
+using Swebui;
 
 namespace SwebSECUI.MasterData
 {
@@ -451,6 +452,52 @@ namespace SwebSECUI.MasterData
                     Toast("未选择行！");
                 }
 
+            });
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            gridAssRows.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    string ASSID = args.SelectedRows[0]["ASSID"].ToString();
+                    try
+                    {
+                        Dictionary<string, string> Datas = new Dictionary<string, string>();
+                        AssetsOutputDto outputDto = _autofacConfig.SettingService.GetAssetsByID(ASSID);
+                        Datas.Add("资产编号",outputDto.AssId );
+                        Datas.Add("名称", outputDto.Name);
+                        Datas.Add("SN",outputDto.SN);
+                        Datas.Add("金额",outputDto.Price.ToString());
+                        Datas.Add("类别",outputDto.TypeName.ToString());
+                        Datas.Add("规格型号", outputDto.Specification);
+                        Datas.Add("区域", outputDto.Place);
+                        Datas.Add("地点", outputDto.LocationName);
+                        Datas.Add("部门", outputDto.DepartmentName);
+                        Datas.Add("单位", outputDto.Unit);
+                        Datas.Add("购入时间", outputDto.BuyDate.ToString());
+                        Datas.Add("过期时间", outputDto.ExpiryDate.ToString());
+                        Datas.Add("供应商", outputDto.Vendor);
+                        Datas.Add("管理者", outputDto.ManagerName);
+                        Datas.Add("备注", outputDto.Note);
+                        Datas.Add("一维码", outputDto.AssId);
+                        Datas.Add("二维码", outputDto.AssId);
+                        Datas.Add("图片", SwebResourceManager.DefaultImagePath + "\\" + outputDto.Image);
+                        PdfHelper.CreatePdf(SwebResourceManager.DefaultDocumentPath + "\\" + Client.SessionID + "Contest.pdf", Datas);
+                        string url = Swebui.SwebResourceManager.GetResourceURL(Client.SessionID, Client.SessionID + "Contest.pdf", SwebResourceManager.DefaultDocumentPath);
+                        Client.Print(url, "pdf");
+                    }
+                    catch (Exception ex)
+                    {
+                        Toast(ex.Message);
+
+                    }
+                }
+                else
+                {
+                    Toast("未选择行！");
+                }
             });
         }
     }

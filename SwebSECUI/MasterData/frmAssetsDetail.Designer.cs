@@ -26,7 +26,6 @@ namespace SwebSECUI.MasterData
             this.BackBtn = new Swebui.Controls.Button();
             this.EditBtn = new Swebui.Controls.Button();
             this.UserChangeBtn = new Swebui.Controls.Button();
-            this.PrintBtn = new Swebui.Controls.Button();
             this.panel3 = new Swebui.Controls.Panel();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
@@ -103,8 +102,7 @@ namespace SwebSECUI.MasterData
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
             this.EditBtn,
-            this.UserChangeBtn,
-            this.PrintBtn});
+            this.UserChangeBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
@@ -156,20 +154,6 @@ namespace SwebSECUI.MasterData
             this.UserChangeBtn.Size = new System.Drawing.Size(120, 30);
             this.UserChangeBtn.Text = "使用者变更";
             this.UserChangeBtn.Click += new System.EventHandler(this.UserChangeBtn_Click);
-            // 
-            // PrintBtn
-            // 
-            this.PrintBtn.BackColor = System.Drawing.Color.White;
-            this.PrintBtn.Border = new Swebui.Controls.Border(1F);
-            this.PrintBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.PrintBtn.BorderRadius = 5;
-            this.PrintBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.PrintBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.PrintBtn.Name = "PrintBtn";
-            this.PrintBtn.NumberOfLines = 0;
-            this.PrintBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.PrintBtn.Size = new System.Drawing.Size(80, 30);
-            this.PrintBtn.Text = "打印";
             // 
             // panel3
             // 
@@ -683,6 +667,5 @@ namespace SwebSECUI.MasterData
         private TextBox txtSPE1;
         internal TextBox txtAssId1;
         internal Button UserChangeBtn;
-        internal Button PrintBtn;
     }
 }
