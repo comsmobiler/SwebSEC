@@ -151,33 +151,45 @@ namespace SwebSECUI.AssetsManager
         {
             gridView1.GetSelectedRows((obj, args) =>
             {
-                if (args.SelectedRows.Count > 0)
+                try
                 {
-                    Dictionary<string, object> selectrow = args.SelectedRows[0];
-                    string id = selectrow["IID"].ToString();
-                    AddAIResultInputDto inputDto = new AddAIResultInputDto {IID = id};
-                    var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(id);
-                    ReturnInfo returnInfo = _autofacConfig.AssInventoryService.AddAssInventoryResult(inputDto);
-                    if (returnInfo.IsSuccess)
+                    if (args.SelectedRows.Count > 0)
                     {
-                        frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
-                        frm.IID = id;
-                        this.Parent.Controls.Add(frm);
-                        this.Parent.Controls.RemoveAt(0);
-                        frmAssInventoryResult result = new frmAssInventoryResult { IID = id, LocationId = inventory.LOCATIONID, DepartmentId = inventory.DEPARTMENTID, typeId = inventory.TYPEID };
-                        Bind();
+                        Dictionary<string, object> selectrow = args.SelectedRows[0];
+                        string id = selectrow["IID"].ToString();
+                        AddAIResultInputDto inputDto = new AddAIResultInputDto { IID = id };
+                        var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(id);
+                        if (inventory.STATUS == 0)
+                        {
+                            throw new Exception("资产已盘点结束，无法盘点!");
+                        }
+                        ReturnInfo returnInfo = _autofacConfig.AssInventoryService.AddAssInventoryResult(inputDto);
+                        if (returnInfo.IsSuccess)
+                        {
+                            frmAssInventoryResult frm = new frmAssInventoryResult() { Flex = 1 };
+                            frm.IID = id;
+                            this.Parent.Controls.Add(frm);
+                            this.Parent.Controls.RemoveAt(0);
+                            frmAssInventoryResult result = new frmAssInventoryResult { IID = id, LocationId = inventory.LOCATIONID, DepartmentId = inventory.DEPARTMENTID, typeId = inventory.TYPEID };
+                            Bind();
+                        }
+                        else
+                        {
+                            Toast(returnInfo.ErrorInfo);
+                        }
                     }
                     else
                     {
-                        Toast(returnInfo.ErrorInfo);
+                        Toast("未选择行！");
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Toast("未选择行！");
+                    Toast(ex.Message);
                 }
             });
         }
+        
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
