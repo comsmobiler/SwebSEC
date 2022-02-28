@@ -22,6 +22,8 @@ namespace SwebSECUI
         {
             try
             {
+                if (File.Exists(filePath))
+                    File.Delete(filePath);
                 using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write))
                 {
 
@@ -190,22 +192,6 @@ namespace SwebSECUI
             catch (Exception ex)
             {
                 throw (ex);
-            }
-        }
-        private static bool JudgeFileExist(string url)
-        {
-            try
-            {
-                //创建根据网络地址的请求对象
-                System.Net.HttpWebRequest httpWebRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.CreateDefault(new Uri(url));
-                httpWebRequest.Method = "HEAD";
-                httpWebRequest.Timeout = 1000;
-                //返回响应状态是否是成功比较的布尔值
-                return (((System.Net.HttpWebResponse)httpWebRequest.GetResponse()).StatusCode == System.Net.HttpStatusCode.OK);
-            }
-            catch
-            {
-                return false;
             }
         }
     }
