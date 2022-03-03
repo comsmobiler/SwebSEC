@@ -56,22 +56,22 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd,
             this.ViewBtn});
             this.plButton.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.plButton.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.plButton.Name = "plButton";
-            this.plButton.Size = new System.Drawing.Size(0, 50);
+            this.plButton.Size = new System.Drawing.Size(0, 45);
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.Border = new Swebui.Controls.Border(1F);
             this.btnAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.btnAdd.BorderRadius = 5;
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
             this.btnAdd.IconName = "fa fa-plus";
-            this.btnAdd.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.btnAdd.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NumberOfLines = 0;
             this.btnAdd.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.btnAdd.Size = new System.Drawing.Size(80, 35);
+            this.btnAdd.Size = new System.Drawing.Size(0, 26);
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -80,14 +80,13 @@ namespace SwebSECUI.AssetsManager
             this.ViewBtn.BackColor = System.Drawing.Color.White;
             this.ViewBtn.Border = new Swebui.Controls.Border(1F);
             this.ViewBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.ViewBtn.BorderRadius = 5;
             this.ViewBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.ViewBtn.IconName = "fa fa-plus";
-            this.ViewBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.ViewBtn.IconName = "fa fa-bookmark";
+            this.ViewBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.ViewBtn.Name = "ViewBtn";
             this.ViewBtn.NumberOfLines = 0;
             this.ViewBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.ViewBtn.Size = new System.Drawing.Size(80, 35);
+            this.ViewBtn.Size = new System.Drawing.Size(0, 26);
             this.ViewBtn.Text = "查看";
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 

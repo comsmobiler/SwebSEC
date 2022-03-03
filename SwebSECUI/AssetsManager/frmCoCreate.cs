@@ -116,6 +116,9 @@ namespace SwebSECUI.AssetsManager
                             CoManId = UserId;
                             var user = _autofacConfig.coreUserService.GetUserByID(UserId);
                             treeSelect1.Tag = user.USER_NAME;
+                            var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
+                            DepId = user.USER_DEPARTMENTID;
+                            txtDep.Text = department.NAME;
                         }
                         break;
                 }
@@ -286,14 +289,11 @@ namespace SwebSECUI.AssetsManager
             CoManId = args.TreeID;
             try
             {
-                if (treeSelect1.Tag != null)
-                {
-                    //CoManId = treeSelect1.Tag.ToString();
-                    var user = _autofacConfig.coreUserService.GetUserByID(CoManId);
-                    var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
-                    DepId = user.USER_DEPARTMENTID;
-                    /*if (department != null)*/ txtDep.Text = department.NAME;
-                }
+
+                var user = _autofacConfig.coreUserService.GetUserByID(CoManId);
+                var department = _autofacConfig.DepartmentService.GetDepartmentByDepID(user.USER_DEPARTMENTID);
+                DepId = user.USER_DEPARTMENTID;
+                if (department != null) txtDep.Text = department.NAME;
             }
             catch (Exception ex)
             {

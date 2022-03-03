@@ -57,6 +57,7 @@ namespace SwebSECUI.MasterData
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -66,14 +67,13 @@ namespace SwebSECUI.MasterData
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 30);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -115,6 +115,7 @@ namespace SwebSECUI.MasterData
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;
             this.gridView1.Size = new System.Drawing.Size(0, 30);
             // 

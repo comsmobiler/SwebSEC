@@ -62,7 +62,7 @@ namespace SwebSECUI.AssetsManager
                 if (r.IsSuccess)
                 {
                     ShowResult = ShowResult.Yes;
-                    Form.Close();
+                    BackBtn_Click(null,null);
                     if (Type == PROCESSMODE.调拨确认)
                     {
                         Toast("确认调拨成功!");

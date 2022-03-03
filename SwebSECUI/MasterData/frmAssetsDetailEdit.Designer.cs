@@ -103,6 +103,7 @@ namespace SwebSECUI.MasterData
             this.BackBtn,
             this.btnConfirm});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -112,14 +113,13 @@ namespace SwebSECUI.MasterData
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 35);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -128,14 +128,13 @@ namespace SwebSECUI.MasterData
             this.btnConfirm.BackColor = System.Drawing.Color.White;
             this.btnConfirm.Border = new Swebui.Controls.Border(1F);
             this.btnConfirm.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.btnConfirm.BorderRadius = 5;
             this.btnConfirm.ForeColor = System.Drawing.Color.DimGray;
             this.btnConfirm.IconName = "fa fa-floppy-o";
-            this.btnConfirm.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.btnConfirm.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.NumberOfLines = 0;
             this.btnConfirm.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.btnConfirm.Size = new System.Drawing.Size(80, 35);
+            this.btnConfirm.Size = new System.Drawing.Size(0, 26);
             this.btnConfirm.Text = "保存";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -339,6 +338,7 @@ namespace SwebSECUI.MasterData
             this.treeAssetsType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeAssetsType.DefaultValue = new string[0];
             this.treeAssetsType.Flex = 1;
+            this.treeAssetsType.ListBackgroundColor = System.Drawing.Color.White;
             this.treeAssetsType.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeAssetsType.Name = "treeAssetsType";
             this.treeAssetsType.Size = new System.Drawing.Size(100, 0);
@@ -350,6 +350,7 @@ namespace SwebSECUI.MasterData
             this.treeSelect1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect1.DefaultValue = new string[0];
             this.treeSelect1.Flex = 1;
+            this.treeSelect1.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect1.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect1.Name = "treeSelect1";
             this.treeSelect1.Size = new System.Drawing.Size(100, 0);
@@ -426,6 +427,7 @@ namespace SwebSECUI.MasterData
             this.treeSelect2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.treeSelect2.DefaultValue = new string[0];
             this.treeSelect2.Flex = 1;
+            this.treeSelect2.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect2.Name = "treeSelect2";
             this.treeSelect2.Size = new System.Drawing.Size(100, 0);

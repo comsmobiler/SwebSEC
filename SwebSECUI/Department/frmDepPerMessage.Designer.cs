@@ -58,9 +58,9 @@ namespace SwebSECUI.Department
             this.lblPhone = new Swebui.Controls.Label();
             this.panel13 = new Swebui.Controls.Panel();
             this.label15 = new Swebui.Controls.Label();
+            this.label12 = new Swebui.Controls.Label();
             this.panel16 = new Swebui.Controls.Panel();
             this.lblEmail = new Swebui.Controls.Label();
-            this.label12 = new Swebui.Controls.Label();
             this.label13 = new Swebui.Controls.Label();
             // 
             // panel1
@@ -87,6 +87,7 @@ namespace SwebSECUI.Department
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -98,11 +99,11 @@ namespace SwebSECUI.Department
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 35);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -433,6 +434,14 @@ namespace SwebSECUI.Department
             this.label15.Text = "邮箱";
             this.label15.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
+            // label12
+            // 
+            this.label12.Flex = 1;
+            this.label12.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 0);
+            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
+            // 
             // panel16
             // 
             this.panel16.Controls.AddRange(new Swebui.Controls.SwebControl[] {
@@ -449,14 +458,6 @@ namespace SwebSECUI.Department
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(100, 0);
             this.lblEmail.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.Flex = 1;
-            this.label12.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 0);
-            this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
             // 
             // label13
             // 

@@ -24,6 +24,8 @@ namespace SwebSECUI.AssetsManager
             this.panel2 = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
             this.panel6 = new Swebui.Controls.Panel();
+            this.SaveBtn = new Swebui.Controls.Button();
+            this.CancelBtn = new Swebui.Controls.Button();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
             this.label9 = new Swebui.Controls.Label();
@@ -47,8 +49,6 @@ namespace SwebSECUI.AssetsManager
             this.label8 = new Swebui.Controls.Label();
             this.label1 = new Swebui.Controls.Label();
             this.label12 = new Swebui.Controls.Label();
-            this.SaveBtn = new Swebui.Controls.Button();
-            this.CancelBtn = new Swebui.Controls.Button();
             // 
             // panel1
             // 
@@ -75,6 +75,7 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn,
             this.panel6});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -84,14 +85,13 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 35);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -101,8 +101,39 @@ namespace SwebSECUI.AssetsManager
             this.SaveBtn,
             this.CancelBtn});
             this.panel6.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel6.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(300, 0);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.White;
+            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
+            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.SaveBtn.IconName = "fa fa-floppy-o";
+            this.SaveBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.NumberOfLines = 0;
+            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.SaveBtn.Size = new System.Drawing.Size(0, 26);
+            this.SaveBtn.Text = "提交";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.White;
+            this.CancelBtn.Border = new Swebui.Controls.Border(1F);
+            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.CancelBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.CancelBtn.IconName = "fa fa-bookmark";
+            this.CancelBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.NumberOfLines = 0;
+            this.CancelBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.CancelBtn.Size = new System.Drawing.Size(0, 26);
+            this.CancelBtn.Text = "取消";
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // panel12
             // 
@@ -286,6 +317,8 @@ namespace SwebSECUI.AssetsManager
             // 
             // panel5
             // 
+            this.panel5.Border = new Swebui.Controls.Border(1F);
+            this.panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label7,
             this.label8,
@@ -329,38 +362,6 @@ namespace SwebSECUI.AssetsManager
             this.label12.Size = new System.Drawing.Size(100, 0);
             this.label12.Text = "SN号";
             this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.White;
-            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
-            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.SaveBtn.BorderRadius = 5;
-            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.SaveBtn.IconName = "fa fa-floppy-o";
-            this.SaveBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.NumberOfLines = 0;
-            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.SaveBtn.Size = new System.Drawing.Size(80, 35);
-            this.SaveBtn.Text = "提交";
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.White;
-            this.CancelBtn.Border = new Swebui.Controls.Border(1F);
-            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.CancelBtn.BorderRadius = 5;
-            this.CancelBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.CancelBtn.IconName = "fa fa-floppy-o";
-            this.CancelBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.NumberOfLines = 0;
-            this.CancelBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.CancelBtn.Size = new System.Drawing.Size(91, 35);
-            this.CancelBtn.Text = "取消";
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // frmTransferDetailSN
             // 

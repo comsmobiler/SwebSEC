@@ -19,10 +19,10 @@ namespace SwebSECUI.AssetsManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
             this.plButton = new Swebui.Controls.Panel();
@@ -56,6 +56,7 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd,
             this.ViewBtn});
             this.plButton.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.plButton.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.plButton.Name = "plButton";
             this.plButton.Size = new System.Drawing.Size(0, 50);
             // 
@@ -64,14 +65,13 @@ namespace SwebSECUI.AssetsManager
             this.btnAdd.BackColor = System.Drawing.Color.White;
             this.btnAdd.Border = new Swebui.Controls.Border(1F);
             this.btnAdd.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.btnAdd.BorderRadius = 5;
             this.btnAdd.ForeColor = System.Drawing.Color.DimGray;
             this.btnAdd.IconName = "fa fa-plus";
-            this.btnAdd.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.btnAdd.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NumberOfLines = 0;
             this.btnAdd.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.btnAdd.Size = new System.Drawing.Size(80, 35);
+            this.btnAdd.Size = new System.Drawing.Size(0, 26);
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -80,14 +80,13 @@ namespace SwebSECUI.AssetsManager
             this.ViewBtn.BackColor = System.Drawing.Color.White;
             this.ViewBtn.Border = new Swebui.Controls.Border(1F);
             this.ViewBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.ViewBtn.BorderRadius = 5;
             this.ViewBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.ViewBtn.IconName = "fa fa-plus";
-            this.ViewBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.ViewBtn.IconName = "fa fa-bookmark";
+            this.ViewBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.ViewBtn.Name = "ViewBtn";
             this.ViewBtn.NumberOfLines = 0;
             this.ViewBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.ViewBtn.Size = new System.Drawing.Size(80, 35);
+            this.ViewBtn.Size = new System.Drawing.Size(0, 26);
             this.ViewBtn.Text = "查看";
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 
@@ -102,19 +101,19 @@ namespace SwebSECUI.AssetsManager
             // gridView1
             // 
             this.gridView1.AllowPaging = true;
-            gridViewColumn1.DisplayMember = "Rsoid";
-            gridViewColumn1.HeaderText = "单号";
-            gridViewColumn2.DisplayMember = "Restoredate";
-            gridViewColumn2.HeaderText = "日期";
-            gridViewColumn3.DisplayMember = "HandleMan";
-            gridViewColumn3.HeaderText = "处理人";
-            gridViewColumn4.DisplayMember = "LocationName";
-            gridViewColumn4.HeaderText = "区域";
+            gridViewColumn5.DisplayMember = "Rsoid";
+            gridViewColumn5.HeaderText = "单号";
+            gridViewColumn6.DisplayMember = "Restoredate";
+            gridViewColumn6.HeaderText = "日期";
+            gridViewColumn7.DisplayMember = "HandleMan";
+            gridViewColumn7.HeaderText = "处理人";
+            gridViewColumn8.DisplayMember = "LocationName";
+            gridViewColumn8.HeaderText = "区域";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn1,
-            gridViewColumn2,
-            gridViewColumn3,
-            gridViewColumn4});
+            gridViewColumn5,
+            gridViewColumn6,
+            gridViewColumn7,
+            gridViewColumn8});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
             this.gridView1.Name = "gridView1";

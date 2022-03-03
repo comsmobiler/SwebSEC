@@ -93,13 +93,13 @@ namespace SwebSECUI.MasterData
             this.Parent.Controls.Add(frm);
             this.Parent.Controls.RemoveAt(0);
             frm.isCreate = true;
-            this.ShowDialog(frm, (o, a) =>
-            {
-                if (frm.ShowResult == ShowResult.Yes)
-                {
-                    Bind();
-                }
-            });
+            //this.ShowDialog(frm, (o, a) =>
+            //{
+            //    if (frm.ShowResult == ShowResult.Yes)
+            //    {
+            //        Bind();
+            //    }
+            //});
         }
 
         private void EditBtn_Click(object sender, EventArgs e)

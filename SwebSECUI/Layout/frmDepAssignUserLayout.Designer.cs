@@ -45,7 +45,7 @@ namespace SwebSECUI.Layout
             this.imgPortrait.DisplayMember = "USER_IMAGEID";
             this.imgPortrait.Name = "imgPortrait";
             this.imgPortrait.ResourceID = "";
-            this.imgPortrait.Size = new System.Drawing.Size(45, 45);
+            this.imgPortrait.Size = new System.Drawing.Size(35, 35);
             this.imgPortrait.SizeMode = Swebui.Controls.ImageSizeMode.Zoom;
             // 
             // lblPortrait

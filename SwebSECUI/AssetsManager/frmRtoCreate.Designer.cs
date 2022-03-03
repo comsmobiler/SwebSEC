@@ -75,6 +75,7 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn,
             this.btnConfirm});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -84,14 +85,13 @@ namespace SwebSECUI.AssetsManager
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 35);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -100,14 +100,13 @@ namespace SwebSECUI.AssetsManager
             this.btnConfirm.BackColor = System.Drawing.Color.White;
             this.btnConfirm.Border = new Swebui.Controls.Border(1F);
             this.btnConfirm.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.btnConfirm.BorderRadius = 5;
             this.btnConfirm.ForeColor = System.Drawing.Color.DimGray;
             this.btnConfirm.IconName = "fa fa-floppy-o";
-            this.btnConfirm.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.btnConfirm.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.NumberOfLines = 0;
             this.btnConfirm.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.btnConfirm.Size = new System.Drawing.Size(80, 35);
+            this.btnConfirm.Size = new System.Drawing.Size(0, 26);
             this.btnConfirm.Text = "确定";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -313,7 +312,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // panel4
             // 
-            this.panel4.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel4.Border = new Swebui.Controls.Border(1F);
             this.panel4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.panel4.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.label2,
@@ -376,6 +375,7 @@ namespace SwebSECUI.AssetsManager
             this.ListAss.PageSizeTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(145)))), ((int)(((byte)(145)))));
             this.ListAss.ShowSplitLine = true;
             this.ListAss.Size = new System.Drawing.Size(0, 300);
+            this.ListAss.SplitLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.ListAss.TemplateControlName = "OperCreateAssExLayout";
             // 
             // frmRtoCreate

@@ -104,6 +104,7 @@ namespace SwebSECUI.MasterData
             this.EditBtn,
             this.UserChangeBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 45);
@@ -113,14 +114,13 @@ namespace SwebSECUI.MasterData
             this.BackBtn.BackColor = System.Drawing.Color.White;
             this.BackBtn.Border = new Swebui.Controls.Border(1F);
             this.BackBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.BackBtn.BorderRadius = 5;
             this.BackBtn.ForeColor = System.Drawing.Color.DimGray;
             this.BackBtn.IconName = "fa fa-angle-left";
-            this.BackBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.BackBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.NumberOfLines = 0;
             this.BackBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.BackBtn.Size = new System.Drawing.Size(80, 30);
+            this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
@@ -129,14 +129,13 @@ namespace SwebSECUI.MasterData
             this.EditBtn.BackColor = System.Drawing.Color.White;
             this.EditBtn.Border = new Swebui.Controls.Border(1F);
             this.EditBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.EditBtn.BorderRadius = 5;
             this.EditBtn.ForeColor = System.Drawing.Color.DimGray;
             this.EditBtn.IconName = "fa fa-pencil-square-o";
-            this.EditBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.EditBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.NumberOfLines = 0;
             this.EditBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.EditBtn.Size = new System.Drawing.Size(120, 30);
+            this.EditBtn.Size = new System.Drawing.Size(0, 26);
             this.EditBtn.Text = "修改资产";
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
@@ -145,13 +144,13 @@ namespace SwebSECUI.MasterData
             this.UserChangeBtn.BackColor = System.Drawing.Color.White;
             this.UserChangeBtn.Border = new Swebui.Controls.Border(1F);
             this.UserChangeBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.UserChangeBtn.BorderRadius = 5;
             this.UserChangeBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.UserChangeBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.UserChangeBtn.IconName = "fa fa-bookmark";
+            this.UserChangeBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.UserChangeBtn.Name = "UserChangeBtn";
             this.UserChangeBtn.NumberOfLines = 0;
             this.UserChangeBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.UserChangeBtn.Size = new System.Drawing.Size(120, 30);
+            this.UserChangeBtn.Size = new System.Drawing.Size(0, 26);
             this.UserChangeBtn.Text = "使用者变更";
             this.UserChangeBtn.Click += new System.EventHandler(this.UserChangeBtn_Click);
             // 

@@ -96,7 +96,7 @@ namespace SwebSECUI.Department
         private void treeView1_Press(object sender, TreeViewOnPressEventArgs e)
         {
                 GetContent(e.TreeID);
-                panel4.Visible = true;
+                
         }
         private void GetContent(string UserID)
         {
@@ -106,6 +106,7 @@ namespace SwebSECUI.Department
                 {
                     if (UserData != null)
                     {
+                        panel4.Visible = true;
                         if (UserData.USER_SEX != null)
                         {
                             if (Convert.ToInt32(UserData.USER_SEX) == 0)
@@ -143,7 +144,7 @@ namespace SwebSECUI.Department
                     }
                     else
                     {
-                        UserID = "13123456789";
+                        
                         panel4.Visible = false;
                     }
                 }

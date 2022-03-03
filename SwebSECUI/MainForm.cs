@@ -22,10 +22,10 @@ namespace SwebSECUI
             //This call is required by the SwebForm.
             InitializeComponent();
         }
+
         #region "definition"
         AutofacConfig AutofacConfig = new AutofacConfig();//调用配置类
         #endregion
-
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
@@ -71,6 +71,7 @@ namespace SwebSECUI
         private void menuView1_MenuItemClick(object sender, MenuViewItemClickEventArgs e)
         {
             MenuValueChanged(e.Item);
+          
         }
         public void MenuValueChanged(MenuItem menuItem)
         {

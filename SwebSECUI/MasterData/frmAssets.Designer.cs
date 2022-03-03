@@ -19,18 +19,18 @@ namespace SwebSECUI.MasterData
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.TreeSelectNode treeSelectNode1 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode2 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode3 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode4 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode5 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode6 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode7 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.TreeSelectNode treeSelectNode8 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode9 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode10 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode11 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode12 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode13 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode14 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
             this.tpSearch = new Swebui.Controls.Panel();
             this.treeSelect1 = new Swebui.Controls.TreeSelect();
             this.treeSelect2 = new Swebui.Controls.TreeSelect();
@@ -87,28 +87,28 @@ namespace SwebSECUI.MasterData
             this.treeSelect2.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect2.Name = "treeSelect2";
-            treeSelectNode1.Text = "全部";
-            treeSelectNode1.TreeID = null;
-            treeSelectNode2.Text = "闲置";
-            treeSelectNode2.TreeID = "0";
-            treeSelectNode3.Text = "调拨中";
-            treeSelectNode3.TreeID = "1";
-            treeSelectNode4.Text = "使用中";
-            treeSelectNode4.TreeID = "2";
-            treeSelectNode5.Text = "维修中";
-            treeSelectNode5.TreeID = "3";
-            treeSelectNode6.Text = "报废";
-            treeSelectNode6.TreeID = "4";
-            treeSelectNode7.Text = "借用中";
-            treeSelectNode7.TreeID = "5";
+            treeSelectNode8.Text = "全部";
+            treeSelectNode8.TreeID = null;
+            treeSelectNode9.Text = "闲置";
+            treeSelectNode9.TreeID = "0";
+            treeSelectNode10.Text = "调拨中";
+            treeSelectNode10.TreeID = "1";
+            treeSelectNode11.Text = "使用中";
+            treeSelectNode11.TreeID = "2";
+            treeSelectNode12.Text = "维修中";
+            treeSelectNode12.TreeID = "3";
+            treeSelectNode13.Text = "报废";
+            treeSelectNode13.TreeID = "4";
+            treeSelectNode14.Text = "借用中";
+            treeSelectNode14.TreeID = "5";
             this.treeSelect2.Nodes.AddRange(new Swebui.Controls.TreeSelectNode[] {
-            treeSelectNode1,
-            treeSelectNode2,
-            treeSelectNode3,
-            treeSelectNode4,
-            treeSelectNode5,
-            treeSelectNode6,
-            treeSelectNode7});
+            treeSelectNode8,
+            treeSelectNode9,
+            treeSelectNode10,
+            treeSelectNode11,
+            treeSelectNode12,
+            treeSelectNode13,
+            treeSelectNode14});
             this.treeSelect2.Placeholder = "资产状态";
             this.treeSelect2.Size = new System.Drawing.Size(200, 35);
             this.treeSelect2.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect2_Press);
@@ -184,22 +184,22 @@ namespace SwebSECUI.MasterData
             // gridAssRows
             // 
             this.gridAssRows.AllowPaging = true;
-            gridViewColumn1.DisplayMember = "ASSID";
-            gridViewColumn1.HeaderText = "资产编号";
-            gridViewColumn2.DisplayMember = "Name";
-            gridViewColumn2.HeaderText = "名称";
-            gridViewColumn3.DisplayMember = "Price";
-            gridViewColumn3.HeaderText = "金额";
-            gridViewColumn4.DisplayMember = "StatusName";
-            gridViewColumn4.HeaderText = "状态";
-            gridViewColumn5.DisplayMember = "DEPARTMENTNAME";
-            gridViewColumn5.HeaderText = "部门";
+            gridViewColumn6.DisplayMember = "ASSID";
+            gridViewColumn6.HeaderText = "资产编号";
+            gridViewColumn7.DisplayMember = "Name";
+            gridViewColumn7.HeaderText = "名称";
+            gridViewColumn8.DisplayMember = "Price";
+            gridViewColumn8.HeaderText = "金额";
+            gridViewColumn9.DisplayMember = "StatusName";
+            gridViewColumn9.HeaderText = "状态";
+            gridViewColumn10.DisplayMember = "DEPARTMENTNAME";
+            gridViewColumn10.HeaderText = "部门";
             this.gridAssRows.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn1,
-            gridViewColumn2,
-            gridViewColumn3,
-            gridViewColumn4,
-            gridViewColumn5});
+            gridViewColumn6,
+            gridViewColumn7,
+            gridViewColumn8,
+            gridViewColumn9,
+            gridViewColumn10});
             this.gridAssRows.DataSource = null;
             this.gridAssRows.Flex = 1;
             this.gridAssRows.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
@@ -239,6 +239,7 @@ namespace SwebSECUI.MasterData
             this.LogBtn,
             this.PrintBtn});
             this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
+            this.panel5.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(0, 40);
             // 
@@ -247,14 +248,13 @@ namespace SwebSECUI.MasterData
             this.AddBtn.BackColor = System.Drawing.Color.White;
             this.AddBtn.Border = new Swebui.Controls.Border(1F);
             this.AddBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.AddBtn.BorderRadius = 5;
             this.AddBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.AddBtn.IconName = "fa fa-floppy-o";
-            this.AddBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.AddBtn.IconName = "fa fa-plus";
+            this.AddBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.NumberOfLines = 0;
             this.AddBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.AddBtn.Size = new System.Drawing.Size(100, 30);
+            this.AddBtn.Size = new System.Drawing.Size(0, 26);
             this.AddBtn.Text = "资产新增";
             this.AddBtn.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -263,14 +263,13 @@ namespace SwebSECUI.MasterData
             this.ViewBtn.BackColor = System.Drawing.Color.White;
             this.ViewBtn.Border = new Swebui.Controls.Border(1F);
             this.ViewBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.ViewBtn.BorderRadius = 5;
             this.ViewBtn.ForeColor = System.Drawing.Color.DimGray;
             this.ViewBtn.IconName = "fa fa-bookmark";
-            this.ViewBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.ViewBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.ViewBtn.Name = "ViewBtn";
             this.ViewBtn.NumberOfLines = 0;
             this.ViewBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.ViewBtn.Size = new System.Drawing.Size(100, 30);
+            this.ViewBtn.Size = new System.Drawing.Size(0, 26);
             this.ViewBtn.Text = "资产查看";
             this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
             // 
@@ -279,14 +278,13 @@ namespace SwebSECUI.MasterData
             this.CopyBtn.BackColor = System.Drawing.Color.White;
             this.CopyBtn.Border = new Swebui.Controls.Border(1F);
             this.CopyBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.CopyBtn.BorderRadius = 5;
             this.CopyBtn.ForeColor = System.Drawing.Color.DimGray;
             this.CopyBtn.IconName = "fa fa-floppy-o";
-            this.CopyBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.CopyBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.CopyBtn.Name = "CopyBtn";
             this.CopyBtn.NumberOfLines = 0;
             this.CopyBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.CopyBtn.Size = new System.Drawing.Size(100, 30);
+            this.CopyBtn.Size = new System.Drawing.Size(0, 26);
             this.CopyBtn.Text = "资产复制";
             this.CopyBtn.Click += new System.EventHandler(this.CopyBtn_Click);
             // 
@@ -295,13 +293,13 @@ namespace SwebSECUI.MasterData
             this.DeleteBtn.BackColor = System.Drawing.Color.White;
             this.DeleteBtn.Border = new Swebui.Controls.Border(1F);
             this.DeleteBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.DeleteBtn.BorderRadius = 5;
             this.DeleteBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.DeleteBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.DeleteBtn.IconName = "fa fa-trash";
+            this.DeleteBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.NumberOfLines = 0;
             this.DeleteBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.DeleteBtn.Size = new System.Drawing.Size(100, 30);
+            this.DeleteBtn.Size = new System.Drawing.Size(0, 26);
             this.DeleteBtn.Text = "资产删除";
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
@@ -310,14 +308,13 @@ namespace SwebSECUI.MasterData
             this.RefreshBtn.BackColor = System.Drawing.Color.White;
             this.RefreshBtn.Border = new Swebui.Controls.Border(1F);
             this.RefreshBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.RefreshBtn.BorderRadius = 5;
             this.RefreshBtn.ForeColor = System.Drawing.Color.DimGray;
             this.RefreshBtn.IconName = "fa fa-refresh";
-            this.RefreshBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.RefreshBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.NumberOfLines = 0;
             this.RefreshBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.RefreshBtn.Size = new System.Drawing.Size(100, 30);
+            this.RefreshBtn.Size = new System.Drawing.Size(0, 26);
             this.RefreshBtn.Text = "资产刷新";
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
@@ -326,13 +323,13 @@ namespace SwebSECUI.MasterData
             this.LogBtn.BackColor = System.Drawing.Color.White;
             this.LogBtn.Border = new Swebui.Controls.Border(1F);
             this.LogBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.LogBtn.BorderRadius = 5;
             this.LogBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.LogBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.LogBtn.IconName = "fa fa-bookmark";
+            this.LogBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.LogBtn.Name = "LogBtn";
             this.LogBtn.NumberOfLines = 0;
             this.LogBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.LogBtn.Size = new System.Drawing.Size(80, 30);
+            this.LogBtn.Size = new System.Drawing.Size(0, 26);
             this.LogBtn.Text = "处理记录";
             this.LogBtn.Click += new System.EventHandler(this.LogBtn_Click);
             // 
@@ -341,13 +338,13 @@ namespace SwebSECUI.MasterData
             this.PrintBtn.BackColor = System.Drawing.Color.White;
             this.PrintBtn.Border = new Swebui.Controls.Border(1F);
             this.PrintBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.PrintBtn.BorderRadius = 5;
             this.PrintBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.PrintBtn.Margin = new Swebui.Controls.Margin(10F, 5F, 10F, 5F);
+            this.PrintBtn.IconName = "fa fa-print";
+            this.PrintBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.PrintBtn.Name = "PrintBtn";
             this.PrintBtn.NumberOfLines = 0;
             this.PrintBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.PrintBtn.Size = new System.Drawing.Size(80, 30);
+            this.PrintBtn.Size = new System.Drawing.Size(0, 26);
             this.PrintBtn.Text = "打印";
             this.PrintBtn.Click += new System.EventHandler(this.PrintBtn_Click);
             // 

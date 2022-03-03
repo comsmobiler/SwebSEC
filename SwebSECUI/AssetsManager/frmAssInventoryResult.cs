@@ -170,14 +170,15 @@ namespace SwebSECUI.AssetsManager
                     Row["Specification"] = row["Specification"].ToString();
                     allAssTable.Rows.Add(Row);
                 }
-
+               
                 //添加ListView到tabpageview
                 waitListView.TemplateControlName = "frmAIResultLayout";
                 waitListView.ShowSplitLine = true;
                 waitListView.SplitLineColor = Color.FromArgb(230, 230, 230);
                 waitListView.Flex = 1;
                 waitListView.Size = new Size(0,0);
-                tabPageView1.Controls.Add(waitListView);
+                tabPageView1.Controls.Add(waitListView); 
+
 
                 alreadyListView.TemplateControlName = "frmAIResultLayout";
                 alreadyListView.ShowSplitLine = true;
