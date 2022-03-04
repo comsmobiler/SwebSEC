@@ -85,9 +85,10 @@ namespace SwebSECUI.AssetsManager
             this.btnConfirm});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel2.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 
@@ -410,7 +411,7 @@ namespace SwebSECUI.AssetsManager
             // 
             // ListAss
             // 
-            this.ListAss.Border = new Swebui.Controls.Border(1F);
+            this.ListAss.Border = new Swebui.Controls.Border(1F, 0F, 1F, 1F);
             this.ListAss.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ListAss.Flex = 1;
             this.ListAss.Name = "ListAss";

@@ -32,20 +32,7 @@ namespace SwebSECUI.Department
             this.Parent.Controls.Add(new frmDepartment() { Flex = 1 });
             this.Parent.Controls.RemoveAt(0);
         }
-        /// <summary>
-        /// 跳转到编辑界面
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            frmDepartmentCreate frm = new frmDepartmentCreate();
-            frm.D_ID = D_ID;
-            frm.Flex = 1;
-            this.Parent.Controls.Add(frm);
-            this.Parent.Controls.RemoveAt(0);
-            Bind();
-        }
+
         /// <summary>
         /// 初始化事件
         /// </summary>
@@ -62,7 +49,6 @@ namespace SwebSECUI.Department
         {
             try
             {
-
                 //根据部门编号获取部门数据
                 DepartmentDto department = AutofacConfig.DepartmentService.GetDepartmentByDepID(D_ID);
                 lblName.Text = department.NAME;
@@ -184,11 +170,6 @@ namespace SwebSECUI.Department
                     }
                 }
             });
-        }
-
-        private void btnUp_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

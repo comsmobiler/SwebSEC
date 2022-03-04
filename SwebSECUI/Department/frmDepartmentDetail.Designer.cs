@@ -23,7 +23,6 @@ namespace SwebSECUI.Department
             this.MenuTitle = new Swebui.Controls.Label();
             this.panel2 = new Swebui.Controls.Panel();
             this.BackBtn = new Swebui.Controls.Button();
-            this.SaveBtn = new Swebui.Controls.Button();
             this.DeleteBtn = new Swebui.Controls.Button();
             this.panel12 = new Swebui.Controls.Panel();
             this.label5 = new Swebui.Controls.Label();
@@ -62,13 +61,13 @@ namespace SwebSECUI.Department
             this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
-            this.SaveBtn,
             this.DeleteBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel2.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 
@@ -84,21 +83,6 @@ namespace SwebSECUI.Department
             this.BackBtn.Size = new System.Drawing.Size(0, 26);
             this.BackBtn.Text = "返回";
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.White;
-            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
-            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
-            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.SaveBtn.IconName = "fa fa-pencil-square-o";
-            this.SaveBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.NumberOfLines = 0;
-            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.SaveBtn.Size = new System.Drawing.Size(0, 26);
-            this.SaveBtn.Text = "编辑";
-            this.SaveBtn.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // DeleteBtn
             // 
@@ -211,7 +195,6 @@ namespace SwebSECUI.Department
             this.btnUp.Size = new System.Drawing.Size(100, 30);
             this.btnUp.Text = "上传";
             this.btnUp.Visible = false;
-            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // lblLeader
             // 
@@ -224,6 +207,9 @@ namespace SwebSECUI.Department
             // 
             // gridUserData
             // 
+            this.gridUserData.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.gridUserData.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.gridUserData.ColumnNum = 5;
             this.gridUserData.Direction = Swebui.Controls.LayoutDirection.Row;
             this.gridUserData.Flex = 1;
             this.gridUserData.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
@@ -250,7 +236,6 @@ namespace SwebSECUI.Department
         private Label MenuTitle;
         private Panel panel2;
         internal Button BackBtn;
-        internal Button SaveBtn;
         internal Button DeleteBtn;
         private Panel panel12;
         private Label label5;

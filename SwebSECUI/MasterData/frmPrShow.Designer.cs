@@ -54,13 +54,16 @@ namespace SwebSECUI.MasterData
             // 
             // panel2
             // 
+            this.panel2.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel2.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 
@@ -114,6 +117,7 @@ namespace SwebSECUI.MasterData
             gridViewColumn7});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
+            this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.gridView1.Name = "gridView1";
             this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;

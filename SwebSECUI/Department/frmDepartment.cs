@@ -85,6 +85,42 @@ namespace SwebSECUI.Department
            Mode = DepartmentMode.层级;
            Bind();
         }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            gridDepData.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string roid = selectrow["DEPARTMENTID"].ToString();
+                    frmDepartmentDetail frm = new frmDepartmentDetail();
+                    frm.D_ID = roid;
+                    frm.Flex = 1;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else { Toast("未选择行！"); }
+            });
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            gridDepData.GetSelectedRows((obj, args) =>
+            {
+                if (args.SelectedRows.Count > 0)
+                {
+                    Dictionary<string, object> selectrow = args.SelectedRows[0];
+                    string roid = selectrow["DEPARTMENTID"].ToString();
+                    frmDepartmentCreate frm = new frmDepartmentCreate();
+                    frm.D_ID = roid;
+                    frm.Flex = 1;
+                    this.Parent.Controls.Add(frm);
+                    this.Parent.Controls.RemoveAt(0);
+                }
+                else { Toast("未选择行！"); }
+            });
+        }
     }
 
 }

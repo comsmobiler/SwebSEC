@@ -47,9 +47,6 @@ namespace SwebSECUI.Department
             this.panel15 = new Swebui.Controls.Panel();
             this.lblLocation = new Swebui.Controls.Label();
             this.label6 = new Swebui.Controls.Label();
-            this.panel10 = new Swebui.Controls.Panel();
-            this.label9 = new Swebui.Controls.Label();
-            this.label10 = new Swebui.Controls.Label();
             this.panel11 = new Swebui.Controls.Panel();
             this.label11 = new Swebui.Controls.Label();
             this.label8 = new Swebui.Controls.Label();
@@ -84,13 +81,16 @@ namespace SwebSECUI.Department
             // 
             // panel2
             // 
+            this.panel2.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel2.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 
@@ -137,12 +137,12 @@ namespace SwebSECUI.Department
             this.panel8,
             this.panel9,
             this.panel15,
-            this.panel10,
             this.panel11,
             this.panel12,
             this.panel13,
             this.panel16});
             this.panel4.Flex = 1;
+            this.panel4.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 10F);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(300, 0);
             this.panel4.Visible = false;
@@ -190,7 +190,7 @@ namespace SwebSECUI.Department
             this.lab.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.lab.Flex = 1;
             this.lab.ForeColor = System.Drawing.Color.Silver;
-            this.lab.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lab.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lab.Name = "lab";
             this.lab.Size = new System.Drawing.Size(0, 30);
             this.lab.Text = "昵称";
@@ -201,7 +201,7 @@ namespace SwebSECUI.Department
             this.label4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(153)))), ((int)(((byte)(153)))));
             this.label4.Flex = 1;
             this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label4.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 30);
             this.label4.Text = "性别";
@@ -219,14 +219,14 @@ namespace SwebSECUI.Department
             // lblName
             // 
             this.lblName.Flex = 1;
-            this.lblName.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblName.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(100, 0);
             // 
             // lblSex
             // 
             this.lblSex.Flex = 1;
-            this.lblSex.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblSex.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.lblSex.Name = "lblSex";
             this.lblSex.Size = new System.Drawing.Size(100, 0);
             this.lblSex.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -243,7 +243,7 @@ namespace SwebSECUI.Department
             // label3
             // 
             this.label3.Flex = 1;
-            this.label3.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label3.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 0);
             this.label3.Text = "地址";
@@ -252,7 +252,7 @@ namespace SwebSECUI.Department
             // label1
             // 
             this.label1.Flex = 1;
-            this.label1.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label1.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 0);
             this.label1.Text = "出生日期";
@@ -270,7 +270,7 @@ namespace SwebSECUI.Department
             // lblAddress
             // 
             this.lblAddress.Flex = 1;
-            this.lblAddress.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblAddress.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(100, 0);
             this.lblAddress.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -280,7 +280,7 @@ namespace SwebSECUI.Department
             this.dpkBirthday.Enable = false;
             this.dpkBirthday.Flex = 1;
             this.dpkBirthday.HorizontalAlignment = Swebui.Controls.HorizontalAlignment.Left;
-            this.dpkBirthday.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.dpkBirthday.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.dpkBirthday.Name = "dpkBirthday";
             this.dpkBirthday.Size = new System.Drawing.Size(100, 0);
             this.dpkBirthday.Value = new System.DateTime(2022, 2, 14, 10, 20, 42, 345);
@@ -297,7 +297,7 @@ namespace SwebSECUI.Department
             // label7
             // 
             this.label7.Flex = 1;
-            this.label7.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label7.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 0);
             this.label7.Text = "所属区域";
@@ -306,7 +306,7 @@ namespace SwebSECUI.Department
             // label5
             // 
             this.label5.Flex = 1;
-            this.label5.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label5.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 0);
             this.label5.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -323,7 +323,7 @@ namespace SwebSECUI.Department
             // lblLocation
             // 
             this.lblLocation.Flex = 1;
-            this.lblLocation.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblLocation.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(100, 0);
             this.lblLocation.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -331,38 +331,10 @@ namespace SwebSECUI.Department
             // label6
             // 
             this.label6.Flex = 1;
-            this.label6.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label6.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 0);
             this.label6.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.Border = new Swebui.Controls.Border(1F);
-            this.panel10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.panel10.Controls.AddRange(new Swebui.Controls.SwebControl[] {
-            this.label9,
-            this.label10});
-            this.panel10.Direction = Swebui.Controls.LayoutDirection.Row;
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(0, 35);
-            // 
-            // label9
-            // 
-            this.label9.Flex = 1;
-            this.label9.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 0);
-            this.label9.Text = "基本信息";
-            this.label9.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.Flex = 1;
-            this.label10.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 0);
             // 
             // panel11
             // 
@@ -376,7 +348,7 @@ namespace SwebSECUI.Department
             // label11
             // 
             this.label11.Flex = 1;
-            this.label11.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label11.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 0);
             this.label11.Text = "账号";
@@ -385,7 +357,7 @@ namespace SwebSECUI.Department
             // label8
             // 
             this.label8.Flex = 1;
-            this.label8.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label8.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 0);
             this.label8.Text = "电话";
@@ -403,7 +375,7 @@ namespace SwebSECUI.Department
             // lblID
             // 
             this.lblID.Flex = 1;
-            this.lblID.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblID.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(100, 0);
             this.lblID.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -411,7 +383,7 @@ namespace SwebSECUI.Department
             // lblPhone
             // 
             this.lblPhone.Flex = 1;
-            this.lblPhone.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblPhone.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(100, 0);
             this.lblPhone.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -428,7 +400,7 @@ namespace SwebSECUI.Department
             // label15
             // 
             this.label15.Flex = 1;
-            this.label15.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label15.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 0);
             this.label15.Text = "邮箱";
@@ -437,7 +409,7 @@ namespace SwebSECUI.Department
             // label12
             // 
             this.label12.Flex = 1;
-            this.label12.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label12.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 0);
             this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -454,7 +426,7 @@ namespace SwebSECUI.Department
             // lblEmail
             // 
             this.lblEmail.Flex = 1;
-            this.lblEmail.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.lblEmail.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(100, 0);
             this.lblEmail.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -462,7 +434,7 @@ namespace SwebSECUI.Department
             // label13
             // 
             this.label13.Flex = 1;
-            this.label13.Margin = new Swebui.Controls.Margin(0F, 0F, 5F, 0F);
+            this.label13.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 0);
             this.label13.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -492,9 +464,6 @@ namespace SwebSECUI.Department
         private Panel panel8;
         private Panel panel9;
         private Label label7;
-        private Panel panel10;
-        private Label label9;
-        private Label label10;
         private Panel panel11;
         private Label label11;
         private Panel panel12;

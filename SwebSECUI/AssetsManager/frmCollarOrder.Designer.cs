@@ -54,13 +54,17 @@ namespace SwebSECUI.AssetsManager
             // 
             // plButton
             // 
+            this.plButton.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.plButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.plButton.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
             this.ViewBtn});
             this.plButton.Direction = Swebui.Controls.LayoutDirection.Row;
             this.plButton.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.plButton.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.plButton.Name = "plButton";
-            this.plButton.Size = new System.Drawing.Size(0, 45);
+            this.plButton.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.plButton.Size = new System.Drawing.Size(0, 46);
             // 
             // btnAdd
             // 
@@ -97,7 +101,7 @@ namespace SwebSECUI.AssetsManager
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.gridView1});
             this.panel2.Flex = 1;
-            this.panel2.Margin = new Swebui.Controls.Margin(10F, 10F, 10F, 0F);
+            this.panel2.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 100);
             // 

@@ -67,9 +67,10 @@ namespace SwebSECUI.Department
             this.SaveBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel2.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
-            this.panel2.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 10F);
+            this.panel2.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 45);
+            this.panel2.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel2.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 

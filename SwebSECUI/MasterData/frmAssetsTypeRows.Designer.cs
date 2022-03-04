@@ -102,7 +102,7 @@ namespace SwebSECUI.MasterData
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
-            this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
+            this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.AddBtn});
             this.panel2.Direction = Swebui.Controls.LayoutDirection.Row;

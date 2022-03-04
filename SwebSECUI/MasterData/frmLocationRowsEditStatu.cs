@@ -52,7 +52,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
-                   
+                    this.ShowResult = ShowResult.Yes;
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace SwebSECUI.MasterData
                     }
                     else
                         throw new Exception(rInfo.ErrorInfo);
-                    
+                    this.ShowResult = ShowResult.Yes;
                 }
             }
             catch (Exception ex)

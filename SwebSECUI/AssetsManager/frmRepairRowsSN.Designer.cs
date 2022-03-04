@@ -19,9 +19,9 @@ namespace SwebSECUI.AssetsManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.MenuTitle = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
@@ -52,14 +52,18 @@ namespace SwebSECUI.AssetsManager
             // 
             // spContent
             // 
+            this.spContent.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.spContent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
             this.EditBtn,
             this.btnRefresh});
             this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.spContent.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.spContent.Name = "spContent";
-            this.spContent.Size = new System.Drawing.Size(0, 50);
+            this.spContent.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.spContent.Size = new System.Drawing.Size(0, 46);
             // 
             // btnAdd
             // 
@@ -119,18 +123,19 @@ namespace SwebSECUI.AssetsManager
             // gridView1
             // 
             this.gridView1.AllowPaging = true;
-            gridViewColumn7.DisplayMember = "ROID";
-            gridViewColumn7.HeaderText = "单号";
-            gridViewColumn8.DisplayMember = "APPLYDATE";
-            gridViewColumn8.HeaderText = "日期";
-            gridViewColumn9.DisplayMember = "REPAIRCONTENT";
-            gridViewColumn9.HeaderText = "内容";
+            gridViewColumn1.DisplayMember = "ROID";
+            gridViewColumn1.HeaderText = "单号";
+            gridViewColumn2.DisplayMember = "APPLYDATE";
+            gridViewColumn2.HeaderText = "日期";
+            gridViewColumn3.DisplayMember = "REPAIRCONTENT";
+            gridViewColumn3.HeaderText = "内容";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn7,
-            gridViewColumn8,
-            gridViewColumn9});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
+            this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.gridView1.Name = "gridView1";
             this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;

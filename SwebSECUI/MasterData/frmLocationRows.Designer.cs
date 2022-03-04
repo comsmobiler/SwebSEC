@@ -19,9 +19,9 @@ namespace SwebSECUI.MasterData
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn13 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn14 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn15 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.MenuTitle = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
@@ -54,6 +54,8 @@ namespace SwebSECUI.MasterData
             // 
             // spContent
             // 
+            this.spContent.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.spContent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
             this.EditBtn,
@@ -62,8 +64,10 @@ namespace SwebSECUI.MasterData
             this.StatuBtn});
             this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.spContent.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.spContent.Name = "spContent";
-            this.spContent.Size = new System.Drawing.Size(0, 50);
+            this.spContent.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.spContent.Size = new System.Drawing.Size(0, 46);
             // 
             // btnAdd
             // 
@@ -106,7 +110,7 @@ namespace SwebSECUI.MasterData
             this.DelBtn.Name = "DelBtn";
             this.DelBtn.NumberOfLines = 0;
             this.DelBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
-            this.DelBtn.Size = new System.Drawing.Size(19, 26);
+            this.DelBtn.Size = new System.Drawing.Size(0, 26);
             this.DelBtn.Text = "删除";
             this.DelBtn.Click += new System.EventHandler(this.DelBtn_Click);
             // 
@@ -151,18 +155,19 @@ namespace SwebSECUI.MasterData
             // gridView1
             // 
             this.gridView1.AllowPaging = true;
-            gridViewColumn13.DisplayMember = "LOCATIONID";
-            gridViewColumn13.HeaderText = "区域编码";
-            gridViewColumn14.DisplayMember = "NAME";
-            gridViewColumn14.HeaderText = "区域名称";
-            gridViewColumn15.DisplayMember = "ISENABLE";
-            gridViewColumn15.HeaderText = "区域状态";
+            gridViewColumn1.DisplayMember = "LOCATIONID";
+            gridViewColumn1.HeaderText = "区域编码";
+            gridViewColumn2.DisplayMember = "NAME";
+            gridViewColumn2.HeaderText = "区域名称";
+            gridViewColumn3.DisplayMember = "ISENABLE";
+            gridViewColumn3.HeaderText = "区域状态";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn13,
-            gridViewColumn14,
-            gridViewColumn15});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
+            this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.gridView1.Name = "gridView1";
             this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;

@@ -81,7 +81,8 @@ namespace SwebSECUI.AssetsManager
             this.spContent.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.spContent.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.spContent.Name = "spContent";
-            this.spContent.Size = new System.Drawing.Size(0, 45);
+            this.spContent.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.spContent.Size = new System.Drawing.Size(0, 46);
             // 
             // BackBtn
             // 
@@ -304,7 +305,7 @@ namespace SwebSECUI.AssetsManager
             // ListAssetsSN
             // 
             this.ListAssetsSN.BackColor = System.Drawing.Color.White;
-            this.ListAssetsSN.Border = new Swebui.Controls.Border(1F);
+            this.ListAssetsSN.Border = new Swebui.Controls.Border(1F, 0F, 1F, 1F);
             this.ListAssetsSN.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.ListAssetsSN.Flex = 1;
             this.ListAssetsSN.Name = "ListAssetsSN";
