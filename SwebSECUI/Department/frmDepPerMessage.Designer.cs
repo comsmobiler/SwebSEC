@@ -243,6 +243,7 @@ namespace SwebSECUI.Department
             // label3
             // 
             this.label3.Flex = 1;
+            this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 0);
@@ -252,6 +253,7 @@ namespace SwebSECUI.Department
             // label1
             // 
             this.label1.Flex = 1;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 0);
@@ -297,6 +299,7 @@ namespace SwebSECUI.Department
             // label7
             // 
             this.label7.Flex = 1;
+            this.label7.ForeColor = System.Drawing.Color.Silver;
             this.label7.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 0);
@@ -348,6 +351,7 @@ namespace SwebSECUI.Department
             // label11
             // 
             this.label11.Flex = 1;
+            this.label11.ForeColor = System.Drawing.Color.Silver;
             this.label11.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 0);
@@ -357,6 +361,7 @@ namespace SwebSECUI.Department
             // label8
             // 
             this.label8.Flex = 1;
+            this.label8.ForeColor = System.Drawing.Color.Silver;
             this.label8.Margin = new Swebui.Controls.Margin(5F, 0F, 10F, 0F);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 0);
@@ -400,6 +405,7 @@ namespace SwebSECUI.Department
             // label15
             // 
             this.label15.Flex = 1;
+            this.label15.ForeColor = System.Drawing.Color.Silver;
             this.label15.Margin = new Swebui.Controls.Margin(10F, 0F, 5F, 0F);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 0);

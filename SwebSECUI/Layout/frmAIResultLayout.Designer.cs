@@ -90,7 +90,6 @@ namespace SwebSECUI.Layout
             this.label1.DataMember = "ASSID";
             this.label1.DisplayMember = "ASSID";
             this.label1.Flex = 1;
-            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 0);
             this.label1.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -100,7 +99,6 @@ namespace SwebSECUI.Layout
             this.label2.DataMember = "TypeName";
             this.label2.DisplayMember = "TypeName";
             this.label2.Flex = 1;
-            this.label2.ForeColor = System.Drawing.Color.Silver;
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 0);
             this.label2.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -110,7 +108,6 @@ namespace SwebSECUI.Layout
             this.label3.DataMember = "SN";
             this.label3.DisplayMember = "SN";
             this.label3.Flex = 1;
-            this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 0);
             this.label3.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -120,7 +117,6 @@ namespace SwebSECUI.Layout
             this.label10.DataMember = "Specification";
             this.label10.DisplayMember = "Specification";
             this.label10.Flex = 1;
-            this.label10.ForeColor = System.Drawing.Color.Silver;
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 0);
             this.label10.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -130,7 +126,6 @@ namespace SwebSECUI.Layout
             this.label11.DataMember = "Price";
             this.label11.DisplayMember = "Price";
             this.label11.Flex = 1;
-            this.label11.ForeColor = System.Drawing.Color.Silver;
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(100, 0);
             this.label11.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
@@ -140,7 +135,6 @@ namespace SwebSECUI.Layout
             this.label12.DataMember = "LocationName";
             this.label12.DisplayMember = "LocationName";
             this.label12.Flex = 1;
-            this.label12.ForeColor = System.Drawing.Color.Silver;
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 0);
             this.label12.VerticalAlignment = Swebui.Controls.VerticalAlignment.Center;
