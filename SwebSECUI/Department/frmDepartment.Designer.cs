@@ -19,14 +19,16 @@ namespace SwebSECUI.Department
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.MenuTitle = new Swebui.Controls.Label();
             this.spContent = new Swebui.Controls.Panel();
             this.btnAdd = new Swebui.Controls.Button();
             this.EditBtn = new Swebui.Controls.Button();
+            this.SaveBtn = new Swebui.Controls.Button();
+            this.DeleteBtn = new Swebui.Controls.Button();
             this.UserInfoBtn = new Swebui.Controls.Button();
             this.gridDepData = new Swebui.Controls.GridView();
             // 
@@ -51,14 +53,20 @@ namespace SwebSECUI.Department
             // 
             // spContent
             // 
+            this.spContent.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.spContent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
             this.EditBtn,
+            this.SaveBtn,
+            this.DeleteBtn,
             this.UserInfoBtn});
             this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.spContent.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.spContent.Name = "spContent";
-            this.spContent.Size = new System.Drawing.Size(0, 50);
+            this.spContent.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.spContent.Size = new System.Drawing.Size(0, 46);
             // 
             // btnAdd
             // 
@@ -90,6 +98,36 @@ namespace SwebSECUI.Department
             this.EditBtn.Text = "查看";
             this.EditBtn.Click += new System.EventHandler(this.EditBtn_Click);
             // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.White;
+            this.SaveBtn.Border = new Swebui.Controls.Border(1F);
+            this.SaveBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.SaveBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.SaveBtn.IconName = "fa fa-pencil-square-o";
+            this.SaveBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.NumberOfLines = 0;
+            this.SaveBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.SaveBtn.Size = new System.Drawing.Size(0, 26);
+            this.SaveBtn.Text = "编辑";
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // DeleteBtn
+            // 
+            this.DeleteBtn.BackColor = System.Drawing.Color.White;
+            this.DeleteBtn.Border = new Swebui.Controls.Border(1F);
+            this.DeleteBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(236)))));
+            this.DeleteBtn.ForeColor = System.Drawing.Color.DimGray;
+            this.DeleteBtn.IconName = "fa fa-trash";
+            this.DeleteBtn.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.NumberOfLines = 0;
+            this.DeleteBtn.Padding = new Swebui.Controls.Padding(10F, 0F, 10F, 0F);
+            this.DeleteBtn.Size = new System.Drawing.Size(0, 26);
+            this.DeleteBtn.Text = "删除";
+            this.DeleteBtn.Visible = false;
+            // 
             // UserInfoBtn
             // 
             this.UserInfoBtn.BackColor = System.Drawing.Color.White;
@@ -108,18 +146,19 @@ namespace SwebSECUI.Department
             // gridDepData
             // 
             this.gridDepData.AllowPaging = true;
-            gridViewColumn4.DisplayMember = "DEPARTMENTID";
-            gridViewColumn4.HeaderText = "部门编号";
-            gridViewColumn5.DisplayMember = "NAME";
-            gridViewColumn5.HeaderText = "部门名称";
-            gridViewColumn6.DisplayMember = "MANAGERNAME";
-            gridViewColumn6.HeaderText = "责任人";
+            gridViewColumn1.DisplayMember = "DEPARTMENTID";
+            gridViewColumn1.HeaderText = "部门编号";
+            gridViewColumn2.DisplayMember = "NAME";
+            gridViewColumn2.HeaderText = "部门名称";
+            gridViewColumn3.DisplayMember = "MANAGERNAME";
+            gridViewColumn3.HeaderText = "责任人";
             this.gridDepData.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn4,
-            gridViewColumn5,
-            gridViewColumn6});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3});
             this.gridDepData.DataSource = null;
             this.gridDepData.Flex = 1;
+            this.gridDepData.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.gridDepData.Name = "gridDepData";
             this.gridDepData.RowHeight = 0;
             this.gridDepData.RowWidth = 0;
@@ -144,5 +183,7 @@ namespace SwebSECUI.Department
         internal Button btnAdd;
         internal Button EditBtn;
         internal Button UserInfoBtn;
+        internal Button SaveBtn;
+        internal Button DeleteBtn;
     }
 }

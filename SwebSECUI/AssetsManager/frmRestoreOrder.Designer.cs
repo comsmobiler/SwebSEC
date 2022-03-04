@@ -19,10 +19,10 @@ namespace SwebSECUI.AssetsManager
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
             this.panel1 = new Swebui.Controls.Panel();
             this.label1 = new Swebui.Controls.Label();
             this.plButton = new Swebui.Controls.Panel();
@@ -52,13 +52,17 @@ namespace SwebSECUI.AssetsManager
             // 
             // plButton
             // 
+            this.plButton.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.plButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.plButton.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.btnAdd,
             this.ViewBtn});
             this.plButton.Direction = Swebui.Controls.LayoutDirection.Row;
             this.plButton.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.plButton.Margin = new Swebui.Controls.Margin(0F, 0F, 0F, 15F);
             this.plButton.Name = "plButton";
-            this.plButton.Size = new System.Drawing.Size(0, 50);
+            this.plButton.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.plButton.Size = new System.Drawing.Size(0, 46);
             // 
             // btnAdd
             // 
@@ -101,21 +105,22 @@ namespace SwebSECUI.AssetsManager
             // gridView1
             // 
             this.gridView1.AllowPaging = true;
-            gridViewColumn5.DisplayMember = "Rsoid";
-            gridViewColumn5.HeaderText = "单号";
-            gridViewColumn6.DisplayMember = "Restoredate";
-            gridViewColumn6.HeaderText = "日期";
-            gridViewColumn7.DisplayMember = "HandleMan";
-            gridViewColumn7.HeaderText = "处理人";
-            gridViewColumn8.DisplayMember = "LocationName";
-            gridViewColumn8.HeaderText = "区域";
+            gridViewColumn1.DisplayMember = "Rsoid";
+            gridViewColumn1.HeaderText = "单号";
+            gridViewColumn2.DisplayMember = "Restoredate";
+            gridViewColumn2.HeaderText = "日期";
+            gridViewColumn3.DisplayMember = "HandleMan";
+            gridViewColumn3.HeaderText = "处理人";
+            gridViewColumn4.DisplayMember = "LocationName";
+            gridViewColumn4.HeaderText = "区域";
             this.gridView1.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn5,
-            gridViewColumn6,
-            gridViewColumn7,
-            gridViewColumn8});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3,
+            gridViewColumn4});
             this.gridView1.DataSource = null;
             this.gridView1.Flex = 1;
+            this.gridView1.Margin = new Swebui.Controls.Margin(10F, 0F, 10F, 0F);
             this.gridView1.Name = "gridView1";
             this.gridView1.RowHeight = 0;
             this.gridView1.RowWidth = 0;

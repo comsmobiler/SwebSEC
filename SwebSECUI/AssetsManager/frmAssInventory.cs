@@ -82,20 +82,32 @@ namespace SwebSECUI.AssetsManager
         {
             gridView1.GetSelectedRows((obj, args) =>
             {
-                if (args.SelectedRows.Count > 0)
+                try
                 {
-                    Dictionary<string, object> selectrow = args.SelectedRows[0];
-                    string id = selectrow["IID"].ToString();
-                    frmAssInventoryEdit frm = new frmAssInventoryEdit() { Flex = 1 };
-                    frm.IID = id;
-                    this.Parent.Controls.Add(frm);
-                    this.Parent.Controls.RemoveAt(0);
+                    if (args.SelectedRows.Count > 0)
+                    {
+                        Dictionary<string, object> selectrow = args.SelectedRows[0];
+                        string id = selectrow["IID"].ToString();
+                        AddAIResultInputDto inputDto = new AddAIResultInputDto { IID = id };
+                        var inventory = _autofacConfig.AssInventoryService.GetAssInventoryById(id);
+                        if (inventory.STATUS == 0)
+                        {
+                            throw new Exception("资产已盘点结束，无法修改!");
+                        }
+                        frmAssInventoryEdit frm = new frmAssInventoryEdit() { Flex = 1 };
+                        frm.IID = id;
+                        this.Parent.Controls.Add(frm);
+                        this.Parent.Controls.RemoveAt(0);
+                    }
+                    else
+                    {
+                        Toast("未选择行！");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Toast("未选择行！");
+                    Toast(ex.Message);
                 }
-
             });
         }
         /// <summary>

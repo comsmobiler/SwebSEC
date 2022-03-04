@@ -19,18 +19,18 @@ namespace SwebSECUI.MasterData
         [System.Diagnostics.DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            Swebui.Controls.TreeSelectNode treeSelectNode8 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode9 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode10 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode11 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode12 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode13 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.TreeSelectNode treeSelectNode14 = new Swebui.Controls.TreeSelectNode();
-            Swebui.Controls.GridViewColumn gridViewColumn6 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn7 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn8 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn9 = new Swebui.Controls.GridViewColumn();
-            Swebui.Controls.GridViewColumn gridViewColumn10 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.TreeSelectNode treeSelectNode1 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode2 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode3 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode4 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode5 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode6 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.TreeSelectNode treeSelectNode7 = new Swebui.Controls.TreeSelectNode();
+            Swebui.Controls.GridViewColumn gridViewColumn1 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn2 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn3 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn4 = new Swebui.Controls.GridViewColumn();
+            Swebui.Controls.GridViewColumn gridViewColumn5 = new Swebui.Controls.GridViewColumn();
             this.tpSearch = new Swebui.Controls.Panel();
             this.treeSelect1 = new Swebui.Controls.TreeSelect();
             this.treeSelect2 = new Swebui.Controls.TreeSelect();
@@ -87,28 +87,27 @@ namespace SwebSECUI.MasterData
             this.treeSelect2.ListBackgroundColor = System.Drawing.Color.White;
             this.treeSelect2.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
             this.treeSelect2.Name = "treeSelect2";
-            treeSelectNode8.Text = "全部";
-            treeSelectNode8.TreeID = null;
-            treeSelectNode9.Text = "闲置";
-            treeSelectNode9.TreeID = "0";
-            treeSelectNode10.Text = "调拨中";
-            treeSelectNode10.TreeID = "1";
-            treeSelectNode11.Text = "使用中";
-            treeSelectNode11.TreeID = "2";
-            treeSelectNode12.Text = "维修中";
-            treeSelectNode12.TreeID = "3";
-            treeSelectNode13.Text = "报废";
-            treeSelectNode13.TreeID = "4";
-            treeSelectNode14.Text = "借用中";
-            treeSelectNode14.TreeID = "5";
+            treeSelectNode1.Text = "全部";
+            treeSelectNode2.Text = "闲置";
+            treeSelectNode2.TreeID = "0";
+            treeSelectNode3.Text = "调拨中";
+            treeSelectNode3.TreeID = "1";
+            treeSelectNode4.Text = "使用中";
+            treeSelectNode4.TreeID = "2";
+            treeSelectNode5.Text = "维修中";
+            treeSelectNode5.TreeID = "3";
+            treeSelectNode6.Text = "报废";
+            treeSelectNode6.TreeID = "4";
+            treeSelectNode7.Text = "借用中";
+            treeSelectNode7.TreeID = "5";
             this.treeSelect2.Nodes.AddRange(new Swebui.Controls.TreeSelectNode[] {
-            treeSelectNode8,
-            treeSelectNode9,
-            treeSelectNode10,
-            treeSelectNode11,
-            treeSelectNode12,
-            treeSelectNode13,
-            treeSelectNode14});
+            treeSelectNode1,
+            treeSelectNode2,
+            treeSelectNode3,
+            treeSelectNode4,
+            treeSelectNode5,
+            treeSelectNode6,
+            treeSelectNode7});
             this.treeSelect2.Placeholder = "资产状态";
             this.treeSelect2.Size = new System.Drawing.Size(200, 35);
             this.treeSelect2.Press += new Swebui.Controls.TreeSelect.TreeSelectOnPressEventHandler(this.treeSelect2_Press);
@@ -184,22 +183,22 @@ namespace SwebSECUI.MasterData
             // gridAssRows
             // 
             this.gridAssRows.AllowPaging = true;
-            gridViewColumn6.DisplayMember = "ASSID";
-            gridViewColumn6.HeaderText = "资产编号";
-            gridViewColumn7.DisplayMember = "Name";
-            gridViewColumn7.HeaderText = "名称";
-            gridViewColumn8.DisplayMember = "Price";
-            gridViewColumn8.HeaderText = "金额";
-            gridViewColumn9.DisplayMember = "StatusName";
-            gridViewColumn9.HeaderText = "状态";
-            gridViewColumn10.DisplayMember = "DEPARTMENTNAME";
-            gridViewColumn10.HeaderText = "部门";
+            gridViewColumn1.DisplayMember = "ASSID";
+            gridViewColumn1.HeaderText = "资产编号";
+            gridViewColumn2.DisplayMember = "Name";
+            gridViewColumn2.HeaderText = "名称";
+            gridViewColumn3.DisplayMember = "Price";
+            gridViewColumn3.HeaderText = "金额";
+            gridViewColumn4.DisplayMember = "StatusName";
+            gridViewColumn4.HeaderText = "状态";
+            gridViewColumn5.DisplayMember = "DEPARTMENTNAME";
+            gridViewColumn5.HeaderText = "部门";
             this.gridAssRows.Columns.AddRange(new Swebui.Controls.GridViewColumn[] {
-            gridViewColumn6,
-            gridViewColumn7,
-            gridViewColumn8,
-            gridViewColumn9,
-            gridViewColumn10});
+            gridViewColumn1,
+            gridViewColumn2,
+            gridViewColumn3,
+            gridViewColumn4,
+            gridViewColumn5});
             this.gridAssRows.DataSource = null;
             this.gridAssRows.Flex = 1;
             this.gridAssRows.Margin = new Swebui.Controls.Margin(0F, 0F, 10F, 0F);
@@ -230,6 +229,8 @@ namespace SwebSECUI.MasterData
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel5.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.AddBtn,
             this.ViewBtn,
@@ -241,7 +242,8 @@ namespace SwebSECUI.MasterData
             this.panel5.Direction = Swebui.Controls.LayoutDirection.Row;
             this.panel5.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(0, 40);
+            this.panel5.Padding = new Swebui.Controls.Padding(10F, 0F, 0F, 0F);
+            this.panel5.Size = new System.Drawing.Size(0, 46);
             // 
             // AddBtn
             // 
