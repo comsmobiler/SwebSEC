@@ -72,6 +72,8 @@ namespace SwebSECUI.AssetsManager
             // 
             // panel2
             // 
+            this.panel2.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.panel2.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn,
             this.btnConfirm});

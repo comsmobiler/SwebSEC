@@ -66,10 +66,13 @@ namespace SwebSECUI.AssetsManager
             // 
             // spContent
             // 
+            this.spContent.Border = new Swebui.Controls.Border(0F, 0F, 0F, 1F);
+            this.spContent.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.spContent.Controls.AddRange(new Swebui.Controls.SwebControl[] {
             this.BackBtn});
             this.spContent.Direction = Swebui.Controls.LayoutDirection.Row;
             this.spContent.ItemAlign = Swebui.Controls.LayoutItemAlign.Center;
+            this.spContent.Margin = new Swebui.Controls.Margin(0F, 10F, 0F, 15F);
             this.spContent.Name = "spContent";
             this.spContent.Size = new System.Drawing.Size(0, 45);
             // 
