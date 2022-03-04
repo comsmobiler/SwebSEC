@@ -152,6 +152,11 @@ namespace SwebSECUI.UserInfo
         {
             btnLocation.Nodes.Clear();
             frmMessage_Load(null,null);
+            lblName.ReadOnly = lblEmail.ReadOnly = lblPhone.ReadOnly = txtAddress.ReadOnly = true;
+            dpkBirthday.Enable = false;
+            btnSex.Disabled = btnLocation.Disabled = true;
+            saveBtn.Visible = cancelBtn.Visible = false;
+            editBtn.Visible = true;
         }
         /// <summary>
         /// 上传头像
