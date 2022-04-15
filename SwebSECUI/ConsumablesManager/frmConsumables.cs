@@ -149,7 +149,7 @@ namespace SwebSECUI.ConsumablesManager
                         PdfHelper.CreatePdf(SwebResourceManager.DefaultDocumentPath + "\\" + Client.SessionID + "Contest.pdf", Datas);
 
                         string url = Swebui.SwebResourceManager.GetResourceURL(Client.SessionID, Client.SessionID + "Contest.pdf", SwebResourceManager.DefaultDocumentPath);
-                        Client.Print(url, "pdf");
+                        Client.Print(url, PrintType.Pdf);
                     }
                     catch (Exception ex)
                     {
